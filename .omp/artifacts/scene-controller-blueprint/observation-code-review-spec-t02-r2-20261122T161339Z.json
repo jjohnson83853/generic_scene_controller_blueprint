@@ -1,0 +1,54 @@
+{
+  "role": "code-reviewer",
+  "reviewerId": "code-reviewer-t02",
+  "candidateId": "spec-scene-02",
+  "revision": "r2",
+  "authorIds": [
+    "planner"
+  ],
+  "inputs": [
+    {
+      "path": "/home/opencode/projects/default/generic_scene_controller_blueprint/.omp/artifacts/scene-controller-blueprint/spec-canonical-t02-r2.md",
+      "sha256": "524284a49cec24378164ee1a96bfd69b5d075da91ac15f84818a6ff5fcbee1f0"
+    },
+    {
+      "path": "/home/opencode/projects/default/generic_scene_controller_blueprint/.scratch/scene-controller-blueprint/issues/02-collapsible-button-sections.md",
+      "sha256": "b62a6a1bca9910c7fbbbdb8b05289c88f167a0ed7b570b2c4b5a9195a4de2f83"
+    },
+    {
+      "path": "/home/opencode/projects/default/generic_scene_controller_blueprint/.scratch/scene-controller-blueprint/CONTEXT.md",
+      "sha256": "795a1f7f23c1efb5840bccbded24aa40f911ecfc52c04b5122f6a21afa592d68"
+    },
+    {
+      "path": "/home/opencode/projects/default/generic_scene_controller_blueprint/blueprints/automation/generic_scene_controller.yaml",
+      "sha256": "7f1faed1bdc1778d147f0d7c2096bfb0d930f81c8e7bcee8740b5fe791645af9"
+    },
+    {
+      "path": "/home/opencode/projects/default/generic_scene_controller_blueprint/scripts/validate_blueprint.py",
+      "sha256": "fe5a50ddc764fed3318fb197a56ec45e020d346ee2803b6aa0b3ed8a980297eb"
+    },
+    {
+      "path": "/home/opencode/projects/default/generic_scene_controller_blueprint/tests/test_validate_blueprint.py",
+      "sha256": "2768c7153d93f17b19ca5ede9e108b5a0bbf932992ac9a77297da93146b9f5f6"
+    },
+    {
+      "path": "/home/opencode/projects/default/generic_scene_controller_blueprint/README.md",
+      "sha256": "1dc9d191fcf817415c540f7be1c87920ab89bb6faf73ef056746c66a29e7d68c"
+    }
+  ],
+  "dispatches": [
+    {
+      "name": "SpecScene02Rev02",
+      "agent": "code-reviewer",
+      "reviewerId": "code-reviewer-t02",
+      "taskId": "TR1",
+      "requestSha256": "44946a140153de0467395d1862a719e80a2c7c12a264d6acadafd0303d6a8fce",
+      "taskSha256": "2403177c2de9b4e7f1b9ff4319fe3672cb4d311efbfa626dde9e8a68ee261405",
+      "instructionsSha256": "394ed7e280a6df09721c372386b060383623c292106334f6070a684db56dd32f",
+      "targetCandidateId": "spec-scene-02",
+      "targetRevision": "r2"
+    }
+  ],
+  "output": "## Code Review Summary\n\n**Subject:** SPEC-SCENE-02 r2 — specification mode, repair pass 1. Candidate `spec-canonical-t02-r2.md` (sha per context; not recomputed). Read: whole candidate, round-1 output, ticket 02, CONTEXT.md, r5 spec, current blueprint/validator/tests/README, HA schema/selector docs, HA issues #29015/#161168. **Limits:** no shell/git/LSP/HA — sha, clean tree, validator/tests unrun; runtime/UI legs remain U1.\n\n**Closures**\n- **R1F1 CLOSED** — A9/D9/D5-leg-3/AC8 pin step keys exactly `{choose}`, choose value = 20-element list, no `default` sibling; real file is list-form; `default`-sibling and `branches`-wrap fixtures fail a9 first. (Branches-wrap is a block rewrite — see R2F2.)\n- **R1F2 PARTIAL** — structural fix (25 defaults, min_version, AC11 legs) is present, but the recorded consequence is false — see R2F1.\n- **R1F3 CLOSED** — A13(iii)/D12 path-aware ban plus three entry/selector fixtures; a5/a6/a7 do not pin those positions.\n- **R1F4 CLOSED** — R3/D11/A2/README/AC6/T1/T2 pin `\"2024.6.0\"`; a2 negatives; literal passes a11.\n- **R1F5 CLOSED** — both 01-a7 sibling fixtures restored in A9/AC8; retired sixth-held class documented as intentional.\n- **R1L1/L2/L3 adopted and verified** (AC8 one-element-list wording; R10/preservation statement names the 01-R9 slot fence; §5 qualification).\n\n**Findings**\n1. **[HIGH][feasibility/consequence]** R2 `:11`, D10 `:40`, U1 `:44`, §9 R1F2 `:170`, README design `:76`: the spec asserts an unset `default: \"\"` entity \"renders a trigger that never fires (a safe no-op, not an error)\" and yields a \"silently dead button (no import error)\". HA's entity selector validates `cv.entity_id_or_uuid`; `\"\"` is rejected (\"Entity is neither a valid entity ID nor a valid UUID\"). HA issues #29015 and core #161168 show no accepted empty default for a single-entity state trigger (`none` fails loading; `[]` is UI-warned since 2026.1; omitted errors). The blueprint can import and collapse, but leaving the entity unset makes the automation invalid at save, not a no-op. U1 itself says this is unverified, so R2/D10 contradict U1. **Fix:** stat…\n2. **[LOW][feasibility]** D9 `:39` / A9 `:70`: \"every a9 negative fixture is a ONE-MUTATION ... matching the current suite's mutation anchors\" overstates the `branches:`-wrap, which re-indents the 20-branch list; name the block-replace anchor or reword.\n3. **[LOW][traceability]** §5 `:112`: \"the two owner-verified legs (AC6, AC11)\" understates U1 — AC8/AC9/AC10 also carry U1 runtime legs. Align.\n4. **[LOW][traceability]** §9 R1F2 `:170`: the a11 concrete-default fixture \"proves both layers\", but a5 fires first; the a11 default-value layer is unobserved. Qualify or add an isolated oracle.\n5. **[LOW][citation]** §1/§9 cite `review-code-spec-t02-r1`; the on-disk round-1 artifact is `review-code-t02-r1-output.md`. Update the citation.\n\n**Positive** — R1-R10→AC1-AC15 and T1/T2 ownership intact; no dropped R/AC; no ticket 03-09 feature sanctioned; no concrete entity/vendor/model/node/room id in configuration, prose, or defaults (a11 both b3 legs + a5 exact `\"\"`); real-file positive fixture; min_version format/value correct.\n\n### Recommendation\nREQUEST CHANGES",
+  "invocationId": "979f336b-3848-4aa8-85db-dc9394af0df1"
+}

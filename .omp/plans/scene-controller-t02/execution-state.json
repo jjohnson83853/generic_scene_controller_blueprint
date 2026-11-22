@@ -1,0 +1,469 @@
+{
+  "schemaVersion": 2,
+  "feature": "scene-controller-t02",
+  "revision": "r1",
+  "projectRoot": "/home/opencode/projects/default/generic_scene_controller_blueprint",
+  "spec": {
+    "path": "/home/opencode/projects/default/generic_scene_controller_blueprint/.omp/artifacts/scene-controller-blueprint/spec-canonical-t02-r1.md",
+    "sha256": "1012dc87257533c85bd9a74cfa4f264340ff6592894c71389374f96162fc837c",
+    "sectionBindings": {
+      "requirements": {
+        "revision": "r1",
+        "sha256": "44778351940c1dca2cf925c2d6035aab1270d3a12c59ecd17c7365feb1e95f66"
+      },
+      "design": {
+        "revision": "r1",
+        "sha256": "8c5c6d776902ad3799c0d3b9f29f4ad77e28cb51e901df3044949a0d0c2f8c12"
+      },
+      "tasks": {
+        "revision": "r1",
+        "sha256": "102b182aae3b9f41042800e6663878b0c24b0fc9d78228995460271ce67b896d"
+      },
+      "envelope": {
+        "revision": "r1",
+        "sha256": "d4dfc601d089120b699fc72f9f5e9ceeda4f2ce002ce680148d74875ac4d36b3"
+      }
+    }
+  },
+  "packet": {
+    "digest": "6282746ed07f779899c61e9ce3a714c805790fc277c4a5bab38eebb68fb935d8",
+    "branches": [
+      {
+        "id": "t02-r1",
+        "answerIds": [],
+        "taskIds": [
+          "TR1",
+          "TC1",
+          "T1",
+          "T2"
+        ],
+        "envelopeId": "scene-controller-t02-r1",
+        "sectionBindings": {
+          "requirements": {
+            "revision": "r1",
+            "sha256": "44778351940c1dca2cf925c2d6035aab1270d3a12c59ecd17c7365feb1e95f66"
+          },
+          "design": {
+            "revision": "r1",
+            "sha256": "8c5c6d776902ad3799c0d3b9f29f4ad77e28cb51e901df3044949a0d0c2f8c12"
+          },
+          "tasks": {
+            "revision": "r1",
+            "sha256": "102b182aae3b9f41042800e6663878b0c24b0fc9d78228995460271ce67b896d"
+          },
+          "envelope": {
+            "revision": "r1",
+            "sha256": "d4dfc601d089120b699fc72f9f5e9ceeda4f2ce002ce680148d74875ac4d36b3"
+          }
+        }
+      }
+    ],
+    "selectedBranchId": "t02-r1"
+  },
+  "actors": {
+    "plannerId": "planner",
+    "implementerIds": [
+      "engineer"
+    ]
+  },
+  "requirements": [
+    {
+      "id": "R1",
+      "summary": "(checkbox 1; SUPERSEDES 01-R1's flat ten-key input map): `blueprint.input` is EXACTLY five mappings named `button_1`..`button_5` — one collapsible section per button. Each section mapping carries EXACTLY the keys `name` "
+    },
+    {
+      "id": "R2",
+      "summary": "(checkbox 2; carries 01-R2): each section's nested input map carries EXACTLY five inputs: `button_N_entity` — a REQUIRED event-entity input (entity selector restricted to `domain: event`, NO `default` key) — plus four ac"
+    },
+    {
+      "id": "R3",
+      "summary": "(carried 01-R3): the blueprint loads in Home Assistant (Settings -> Automations -> Blueprints) with no import error."
+    },
+    {
+      "id": "R4",
+      "summary": "(checkbox 3; SUPERSEDES 01-R4 push-only dispatch and 01-R5 non-pushed-runs-nothing): the automation dispatches each of the four event types — `pushed`, `held`, `doubleTapped`, `released` — on each button N to that button"
+    },
+    {
+      "id": "R5",
+      "summary": "(checkbox 4): the automation root carries `mode: parallel`, so two overlapping button presses (or a held-then-released pair) both run instead of aborting each other (runtime leg U1; the structural leg is the exact mode v"
+    },
+    {
+      "id": "R6",
+      "summary": "(checkbox 5): HA's blueprint default configuration view shows ONLY the five collapsed section headers (\"Button 1\"..\"Button 5\" with their numbered icons), not ~20-25 loose fields (UI leg U1; the structural legs are R1's `"
+    },
+    {
+      "id": "R7",
+      "summary": "(carried 01-R7): the leading header comment documents the four supported event types and the MQTT/Hubitat origin of the event-entity pattern, per CONTEXT.md (01-D2 rule unchanged: provenance prose lives only in the heade"
+    },
+    {
+      "id": "R8",
+      "summary": "(checkbox 6; carries 01-R8 revised): generic by design — only the button NUMBERING and the numbered `mdi` icons are fixed UI; no vendor, model, node id, room name, or concrete entity id is baked in anywhere (configuratio"
+    },
+    {
+      "id": "R9",
+      "summary": "(checkbox 7; carries 01-R6): `python3 scripts/validate_blueprint.py blueprints/automation/generic_scene_controller.yaml` still exits 0 (on the restructured file), is still documented verbatim in README, and the unittest "
+    },
+    {
+      "id": "R10",
+      "summary": "(scope fence; revised 01-R9): everything from tickets 03-09 stays OUT: no `multiple: true` entity selectors (03), no central `variables:` (03), no `not_from: [unavailable, unknown]` restart guard (04), no smart toggle/cy"
+    }
+  ],
+  "authorization": null,
+  "reviews": null,
+  "sources": [
+    {
+      "id": "src-owner-continue-t02",
+      "kind": "user-message",
+      "artifact": {
+        "path": "/home/opencode/projects/default/generic_scene_controller_blueprint/.omp/artifacts/scene-controller-blueprint/owner-source-20261122-continue-t02.json",
+        "sha256": "865f0c6c82fdb24a4f33b7433f0b3e8ebca7f8deb50a19e63703ee82125a556f"
+      },
+      "locator": "Owner: \"continue ticket 02\" (2026-11-22 chat)",
+      "recordedAt": "2026-11-22T15:45:00Z"
+    }
+  ],
+  "decisions": [],
+  "envelope": {
+    "id": "scene-controller-t02-r1",
+    "root": "/home/opencode/projects/default/generic_scene_controller_blueprint",
+    "allowedTaskIds": [
+      "TR1",
+      "TC1",
+      "T1",
+      "T2"
+    ],
+    "readPaths": [
+      ".omp/artifacts/scene-controller-blueprint/",
+      ".omp/plans/scene-controller-blueprint/",
+      ".omp/plans/review-sequence.json",
+      ".scratch/scene-controller-blueprint/",
+      "README.md",
+      "LICENSE"
+    ],
+    "writePaths": [
+      "blueprints/automation/",
+      "scripts/",
+      "tests/",
+      "README.md"
+    ],
+    "allowedEffects": [
+      "read",
+      "write",
+      "test"
+    ],
+    "forbiddenEffects": [
+      "network",
+      "publish",
+      "deploy",
+      "schedule",
+      "credentials",
+      "infrastructure"
+    ],
+    "decisionPolicy": {
+      "technicalDecisionIds": [],
+      "ownerCategories": [
+        "authorization",
+        "envelope",
+        "acceptance-change"
+      ]
+    },
+    "retryPolicy": {
+      "maxAttempts": 1,
+      "resetOn": []
+    }
+  },
+  "tasks": [
+    {
+      "id": "TR1",
+      "stage": "research",
+      "status": "pending",
+      "blockedBy": [],
+      "requires": [],
+      "effects": {
+        "kind": "read",
+        "paths": []
+      },
+      "acceptanceIds": [],
+      "evidenceIds": [],
+      "agentRoles": [
+        "code-reviewer"
+      ]
+    },
+    {
+      "id": "TC1",
+      "stage": "research",
+      "status": "pending",
+      "blockedBy": [],
+      "requires": [],
+      "effects": {
+        "kind": "read",
+        "paths": []
+      },
+      "acceptanceIds": [],
+      "evidenceIds": [],
+      "agentRoles": [
+        "critic"
+      ]
+    },
+    {
+      "id": "T1",
+      "stage": "implementation",
+      "status": "pending",
+      "blockedBy": [],
+      "requires": [],
+      "effects": {
+        "kind": "write",
+        "paths": [
+          "blueprints/automation/generic_scene_controller.yaml",
+          "scripts/validate_blueprint.py",
+          "tests/test_validate_blueprint.py",
+          "README.md"
+        ]
+      },
+      "acceptanceIds": [],
+      "evidenceIds": [],
+      "agentRoles": [
+        "engineer"
+      ]
+    },
+    {
+      "id": "T2",
+      "stage": "verification",
+      "status": "pending",
+      "blockedBy": [
+        "T1"
+      ],
+      "requires": [],
+      "effects": {
+        "kind": "test",
+        "paths": []
+      },
+      "acceptanceIds": [
+        "AC1",
+        "AC2",
+        "AC3",
+        "AC4",
+        "AC5",
+        "AC6",
+        "AC7",
+        "AC8",
+        "AC9",
+        "AC10",
+        "AC11",
+        "AC12",
+        "AC13",
+        "AC14",
+        "AC15"
+      ],
+      "evidenceIds": [],
+      "agentRoles": [
+        "verifier"
+      ]
+    }
+  ],
+  "capabilities": [],
+  "acceptance": [
+    {
+      "id": "AC1",
+      "requirementIds": [
+        "R1"
+      ],
+      "ownerTaskIds": [
+        "T2"
+      ],
+      "method": "test",
+      "requiredEvidenceKinds": [
+        "test"
+      ]
+    },
+    {
+      "id": "AC2",
+      "requirementIds": [
+        "R1"
+      ],
+      "ownerTaskIds": [
+        "T2"
+      ],
+      "method": "test",
+      "requiredEvidenceKinds": [
+        "test"
+      ]
+    },
+    {
+      "id": "AC3",
+      "requirementIds": [
+        "R2"
+      ],
+      "ownerTaskIds": [
+        "T2"
+      ],
+      "method": "test",
+      "requiredEvidenceKinds": [
+        "test"
+      ]
+    },
+    {
+      "id": "AC4",
+      "requirementIds": [
+        "R2"
+      ],
+      "ownerTaskIds": [
+        "T2"
+      ],
+      "method": "test",
+      "requiredEvidenceKinds": [
+        "test"
+      ]
+    },
+    {
+      "id": "AC5",
+      "requirementIds": [
+        "R2",
+        "R4"
+      ],
+      "ownerTaskIds": [
+        "T2"
+      ],
+      "method": "test",
+      "requiredEvidenceKinds": [
+        "test"
+      ]
+    },
+    {
+      "id": "AC6",
+      "requirementIds": [
+        "R3"
+      ],
+      "ownerTaskIds": [
+        "T2"
+      ],
+      "method": "test",
+      "requiredEvidenceKinds": [
+        "test"
+      ]
+    },
+    {
+      "id": "AC7",
+      "requirementIds": [
+        "R4"
+      ],
+      "ownerTaskIds": [
+        "T2"
+      ],
+      "method": "test",
+      "requiredEvidenceKinds": [
+        "test"
+      ]
+    },
+    {
+      "id": "AC8",
+      "requirementIds": [
+        "R4"
+      ],
+      "ownerTaskIds": [
+        "T2"
+      ],
+      "method": "test",
+      "requiredEvidenceKinds": [
+        "test"
+      ]
+    },
+    {
+      "id": "AC9",
+      "requirementIds": [
+        "R4"
+      ],
+      "ownerTaskIds": [
+        "T2"
+      ],
+      "method": "test",
+      "requiredEvidenceKinds": [
+        "test"
+      ]
+    },
+    {
+      "id": "AC10",
+      "requirementIds": [
+        "R5"
+      ],
+      "ownerTaskIds": [
+        "T2"
+      ],
+      "method": "test",
+      "requiredEvidenceKinds": [
+        "test"
+      ]
+    },
+    {
+      "id": "AC11",
+      "requirementIds": [
+        "R6"
+      ],
+      "ownerTaskIds": [
+        "T2"
+      ],
+      "method": "test",
+      "requiredEvidenceKinds": [
+        "test"
+      ]
+    },
+    {
+      "id": "AC12",
+      "requirementIds": [
+        "R7"
+      ],
+      "ownerTaskIds": [
+        "T2"
+      ],
+      "method": "test",
+      "requiredEvidenceKinds": [
+        "test"
+      ]
+    },
+    {
+      "id": "AC13",
+      "requirementIds": [
+        "R8"
+      ],
+      "ownerTaskIds": [
+        "T2"
+      ],
+      "method": "test",
+      "requiredEvidenceKinds": [
+        "test"
+      ]
+    },
+    {
+      "id": "AC14",
+      "requirementIds": [
+        "R9"
+      ],
+      "ownerTaskIds": [
+        "T2"
+      ],
+      "method": "test",
+      "requiredEvidenceKinds": [
+        "test"
+      ]
+    },
+    {
+      "id": "AC15",
+      "requirementIds": [
+        "R10"
+      ],
+      "ownerTaskIds": [
+        "T2"
+      ],
+      "method": "test",
+      "requiredEvidenceKinds": [
+        "test"
+      ]
+    }
+  ],
+  "evidence": [],
+  "blockers": [],
+  "gate": {
+    "markerPath": "/home/opencode/projects/default/generic_scene_controller_blueprint/.omp/plans/scene-controller-t02/marker.json",
+    "activationEvidenceIds": []
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "i": "Dispatching critic on SPEC-SCENE-02 r4",
+  "context": "{\"instructions\":\"Critic SpecDD gate review of SPEC-SCENE-02 revision 4 (candidate /home/opencode/projects/default/generic_scene_controller_blueprint/.omp/artifacts/scene-controller-blueprint/spec-canonical-t02-r4.md sha256 0f8572ae5b8b93b6b2c3641efafe0efbb2b603923ede099d0b40b1e54bc8d7c4) against ticket 02 ACs and the recorded reviews. Verify spec quality, plan completeness, AC oracles, TDD readiness, and that the recorded review result is honest. Read candidate whole, ticket 02, CONTEXT.md, ticket-01 r5 spec, current implementation. Verdict format EXACT: literal line ### Recommendation followed by exactly one of APPROVE / REQUEST CHANGES / COMMENT. No edits.\",\"workflowDispatch\":{\"statePath\":\"/home/opencode/projects/default/generic_scene_controller_blueprint/.omp/plans/execution-state.json\",\"schemaVersion\":1,\"projectRoot\":\"/home/opencode/projects/default/generic_scene_controller_blueprint\",\"feature\":\"scene-controller-t02\",\"revision\":\"r4\",\"requests\":[{\"name\":\"SpecScene02Critic4\",\"taskId\":\"TC1\",\"agent\":\"critic\",\"effects\":{\"kind\":\"read\",\"paths\":[]},\"targetCandidateId\":\"spec-scene-02\",\"targetRevision\":\"r4\"}]}}",
+  "tasks": [
+    {
+      "name": "SpecScene02Critic4",
+      "agent": "critic",
+      "task": "Critic SpecDD/TDD gate for SPEC-SCENE-02 revision 4 (ticket 02 collapsible button sections).\n\n# Target\nCandidate spec file named in context, whole file.\n\n# Scope\nVerify ticket-02 checkbox coverage; R1-R10 to AC1-AC15 traceability with falsifiable oracles; T1/T2 ownership and RED/GREEN order; no ticket 03-09 feature; generic fences; corrected HA save consequence; no tautological assertion; residual U1 rigour; recorded CodeReviewer APPROVE consistent.\n\n# Non-goals\nNo implementation, no file edits, no tickets 03-09.\n\n# Acceptance\nConcise findings; then EXACTLY ONE verdict block: ### Recommendation followed by exactly one of APPROVE, REQUEST CHANGES, COMMENT.",
+      "solutionSpace": "single specification candidate; binary gate verdict",
+      "targetCandidateId": "spec-scene-02",
+      "targetRevision": "r4"
+    }
+  ]
+}

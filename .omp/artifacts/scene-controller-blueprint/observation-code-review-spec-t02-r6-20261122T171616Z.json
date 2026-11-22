@@ -1,0 +1,65 @@
+{
+  "role": "code-reviewer",
+  "reviewerId": "code-reviewer-t02",
+  "candidateId": "spec-scene-02",
+  "revision": "r6",
+  "authorIds": [
+    "planner"
+  ],
+  "inputs": [
+    {
+      "path": "/home/opencode/projects/default/generic_scene_controller_blueprint/.omp/artifacts/scene-controller-blueprint/spec-canonical-t02-r6.md",
+      "sha256": "2b5b22164de6db1fd14c76a239dff7d10a4458faf7c52eeecc43565175ee28c6"
+    },
+    {
+      "path": "/home/opencode/projects/default/generic_scene_controller_blueprint/.scratch/scene-controller-blueprint/issues/02-collapsible-button-sections.md",
+      "sha256": "b62a6a1bca9910c7fbbbdb8b05289c88f167a0ed7b570b2c4b5a9195a4de2f83"
+    },
+    {
+      "path": "/home/opencode/projects/default/generic_scene_controller_blueprint/.scratch/scene-controller-blueprint/CONTEXT.md",
+      "sha256": "795a1f7f23c1efb5840bccbded24aa40f911ecfc52c04b5122f6a21afa592d68"
+    },
+    {
+      "path": "/home/opencode/projects/default/generic_scene_controller_blueprint/blueprints/automation/generic_scene_controller.yaml",
+      "sha256": "7f1faed1bdc1778d147f0d7c2096bfb0d930f81c8e7bcee8740b5fe791645af9"
+    },
+    {
+      "path": "/home/opencode/projects/default/generic_scene_controller_blueprint/scripts/validate_blueprint.py",
+      "sha256": "fe5a50ddc764fed3318fb197a56ec45e020d346ee2803b6aa0b3ed8a980297eb"
+    },
+    {
+      "path": "/home/opencode/projects/default/generic_scene_controller_blueprint/tests/test_validate_blueprint.py",
+      "sha256": "2768c7153d93f17b19ca5ede9e108b5a0bbf932992ac9a77297da93146b9f5f6"
+    },
+    {
+      "path": "/home/opencode/projects/default/generic_scene_controller_blueprint/README.md",
+      "sha256": "1dc9d191fcf817415c540f7be1c87920ab89bb6faf73ef056746c66a29e7d68c"
+    }
+  ],
+  "dispatches": [
+    {
+      "name": "SpecScene02Rev06",
+      "agent": "code-reviewer",
+      "reviewerId": "code-reviewer-t02",
+      "taskId": "TR1",
+      "requestSha256": "5a75f53162321becf3bce04d5544c7b0d4f95a9fe50e68b4e916ca236f261c20",
+      "taskSha256": "8558ce5f5d577ae83449efe6c6005f564fe8a4edcd1217c37773713ddbceedf3",
+      "instructionsSha256": "13981955a970501d431940b43cb21e2e6f1714801e06c6a1eef21cbfcda2ef54",
+      "targetCandidateId": "spec-scene-02",
+      "targetRevision": "r6"
+    },
+    {
+      "name": "SpecScene02Critic6",
+      "agent": "critic",
+      "reviewerId": "critic-t02",
+      "taskId": "TC1",
+      "requestSha256": "f6cc21ebfe034985b60c4381651398903da1dcb8197772baf310aa765f6adf9f",
+      "taskSha256": "e78e2d343b1388e38c75d6a59486ffe8af1a5ddaac9afef281a4764814eddf53",
+      "instructionsSha256": "c47281330cefd08900a36d7694a542600fbe57977f5f7ca79f9139f3acb84dc0",
+      "targetCandidateId": "spec-scene-02",
+      "targetRevision": "r6"
+    }
+  ],
+  "output": "## Code Review Summary\n\n**Mode:** specification · **pass:** repair 5 · candidate `.omp/artifacts/scene-controller-blueprint/spec-canonical-t02-r6.md` (sha per dispatch, not recomputed). Inputs read: candidate whole, r5 observation, ticket 02, CONTEXT.md, carried ticket-01 r5 spec claims, `scripts/validate_blueprint.py` (385 lines), `tests/test_validate_blueprint.py`, blueprint, README, r6 residual register.\n**Limits:** no shell/git/hash/HA in this profile — candidate sha, `git status`, and any harness execution are unrun; coverage percentages below are estimates, not measurements.\n**VERDICT: REQUEST CHANGES** (one blocking-class measurement finding).\n\n### Closures verified\n- **R5H1 CLOSED as reported** (zero-measurement deadlock): the in-process seam is real — `main(arguments) -> int` returns 0/1/2 and `SystemExit` appears only under `__main__` (`scripts/validate_blueprint.py:350-385`, guard at `:384-385`); D13/AC14(d)-(f)/T2/§7/§8 pin `measurable > 0` + `>= 90` + non-zero suite exit; subprocess oracles retained (spec:41,79,114,128,139,144,159,168).\n- **R5Q1 CLOSED:** no executable pip/venv/coverage.py/network step remains; the r5 install is deleted, PEP 668 mooted, envelope restated (spec:26,41,128,138,144-145,168,201).\n- **R5L1 CLOSED:** no line-number citation remains in any §9 closure oracle; out-of-scope hits anchored by quoted phrase + section (spec:187,193,197,202); my grep of the candidate found no residual `line N`/`r4:NN` anchors.\n- **R5L2 CLOSED:** six distinct fixed filenames, one per step, under the named dir (spec:147-152), referenced by the ACCEPTANCE RULE (spec:153) and §8 (spec:169).\n- **C1 preserved** (spec:195), **C2 preserved** (spec:196,147-153); R1-R10→AC1-AC15 mapping, A1-A13 set, generic fences (A11 both b3 legs, a5 empty-string pin), corrected HA save consequence, and the ticket 03-09 ban are intact (spec:63-78,113-130,217). No regression of R1F1-R1F5, R1L1-R1L3, R2F1, R2L1-R2L4, R3L1, C3/R4L1, R4L2.\n\n### Issues\n\n**[MEDIUM][feasibility/verifiability] R6F1 — W06 measurement window / denominator boundary unpinned**\nFile: spec:41 (D13 (1),(2),(4)); spec:79; AC14(d)-(e) spec:128.\nConfidence: HIGH on the text gap; MEDIUM on the numeric impact (unrun).\nIssue: MEASURABLE = \"the statement line numbers of the module's own compiled code objects\", which includes ~45 import-time statement lines in the delivered validator (imports/constants/class bodies/`def` lines, `scripts/validate_blueprint.py:5-111`). D13 lists \"loads the module\" (1) before \"TRACER\" (2) and never requires the import to execute under trace. A literal implementation therefore traces only `main()` runs: those lines are measurable-but-uncovered, so a fully exercised validator still lands near 80-85% and AC14(e)'s `>= 90` is unattainable — T1's blocked clause (\"a `sys.settrace` constraint forcing a different line-measurement mechanism\", spec:142) invites a false BLOCKED. The inverse reading (function bodies only) passes while never measuring ~20% …\nRequired change: pin one window in D13 (1)/(4), the test bullet (spec:79) and AC14(d): \"tracer installed before the module is loaded, so import-time statements count as covered\" — or explicitly restrict MEASURABLE to function-body code objects.\n\n**[LOW][spec-text accuracy] R6F2 — §9 item 12's uncovered-slack inventory is false**\nFile: spec:216.\nConfidence: HIGH.\nIssue: \"no `__main__`-only validator line exists to measure\" is contradicted by the delivered file (`scripts/validate_blueprint.py:384-385`) and by the candidate's own §3 claim that `SystemExit` is raised only under `__main__`; the unreadable-file handler (`:358-360`) is also uncovered by the specified case set. The clause that anticipates measurable-but-uncovered lines rests on a wrong count, which is why R6F1 went unnoticed.\nRequired change: replace it with the real inventory (>=2 `__main__` lines + the OSError handler) and state the 90% threshold must hold with that slack.\n\n**[LOW][oracle decidability] R6F3 — R5Q1 oracle is grep-fragile**\nFile: spec:201.\nConfidence: MEDIUM.\nIssue: \"NO pip/venv/coverage.py/install command appears in any r6 procedure leg\" governs legs that must quote the removal (\"the r5 TEST-ONLY `pip install` leg is REMOVED\", AC14(d) spec:128; §8 spec:168). A grep-based reading false-fails — the R3L1/C3 self-quote pattern the spec elsewhere qualifies.\nRequired change: qualify to \"no executable install/network step; quoted removal/prohibition sentences excepted\", mirroring spec:187.\n\n### Positive Observations\n- `measurable > 0` plus per-case return-code assertions make the reported zero-measurement deadlock structurally impossible without replacing the subprocess oracles.\n- Envelope restatement (spec:168) is accurate and complete; the tempdir evidence write touches no tracked file and adds no dependency.\n- R5L2's one-filename-per-step makes acceptance decidable by directory inspection; R5L1's quoted-phrase anchoring is applied consistently.\n\n### Recommendation\nREQUEST CHANGES",
+  "invocationId": "a84bcc11-844b-4e32-a85f-1a15792beace"
+}

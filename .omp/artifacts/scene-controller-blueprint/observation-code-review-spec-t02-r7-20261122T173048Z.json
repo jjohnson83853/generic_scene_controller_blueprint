@@ -1,0 +1,65 @@
+{
+  "role": "code-reviewer",
+  "reviewerId": "code-reviewer-t02",
+  "candidateId": "spec-scene-02",
+  "revision": "r7",
+  "authorIds": [
+    "planner"
+  ],
+  "inputs": [
+    {
+      "path": "/home/opencode/projects/default/generic_scene_controller_blueprint/.omp/artifacts/scene-controller-blueprint/spec-canonical-t02-r7.md",
+      "sha256": "ada6468177288928642d2be3e4938b5baa3b96174ca2fa2e98c5e81f25b92882"
+    },
+    {
+      "path": "/home/opencode/projects/default/generic_scene_controller_blueprint/.scratch/scene-controller-blueprint/issues/02-collapsible-button-sections.md",
+      "sha256": "b62a6a1bca9910c7fbbbdb8b05289c88f167a0ed7b570b2c4b5a9195a4de2f83"
+    },
+    {
+      "path": "/home/opencode/projects/default/generic_scene_controller_blueprint/.scratch/scene-controller-blueprint/CONTEXT.md",
+      "sha256": "795a1f7f23c1efb5840bccbded24aa40f911ecfc52c04b5122f6a21afa592d68"
+    },
+    {
+      "path": "/home/opencode/projects/default/generic_scene_controller_blueprint/blueprints/automation/generic_scene_controller.yaml",
+      "sha256": "7f1faed1bdc1778d147f0d7c2096bfb0d930f81c8e7bcee8740b5fe791645af9"
+    },
+    {
+      "path": "/home/opencode/projects/default/generic_scene_controller_blueprint/scripts/validate_blueprint.py",
+      "sha256": "fe5a50ddc764fed3318fb197a56ec45e020d346ee2803b6aa0b3ed8a980297eb"
+    },
+    {
+      "path": "/home/opencode/projects/default/generic_scene_controller_blueprint/tests/test_validate_blueprint.py",
+      "sha256": "2768c7153d93f17b19ca5ede9e108b5a0bbf932992ac9a77297da93146b9f5f6"
+    },
+    {
+      "path": "/home/opencode/projects/default/generic_scene_controller_blueprint/README.md",
+      "sha256": "1dc9d191fcf817415c540f7be1c87920ab89bb6faf73ef056746c66a29e7d68c"
+    }
+  ],
+  "dispatches": [
+    {
+      "name": "SpecScene02Rev07",
+      "agent": "code-reviewer",
+      "reviewerId": "code-reviewer-t02",
+      "taskId": "TR1",
+      "requestSha256": "0b95f030f586ea3a52d11168413bcbd77f489b69be0c2b5dc6fccd28e59d9bc9",
+      "taskSha256": "d4f0eeeaac4860ba39ca042615878a186c47cd6c5c39cd7907a4e317c37aaa29",
+      "instructionsSha256": "f7d27f90964eea3924cc034d97a33e2902b29a8b9cda23b45e8ac00dae4fce5c",
+      "targetCandidateId": "spec-scene-02",
+      "targetRevision": "r7"
+    },
+    {
+      "name": "SpecScene02Critic7",
+      "agent": "critic",
+      "reviewerId": "critic-t02",
+      "taskId": "TC1",
+      "requestSha256": "1b8b26f2783d63f8e9e3a6e7489f4eaa9cade5f6721e639ba8dd28cb007e1f32",
+      "taskSha256": "3ecdbe25614c0085264e24f796b9b99b53dc762a038db4a81fab4f7ed56ed55f",
+      "instructionsSha256": "20636a333281843809caf5cf91a2cbdbdf5a268d3ac45b0f4585767e0a54ffc9",
+      "targetCandidateId": "spec-scene-02",
+      "targetRevision": "r7"
+    }
+  ],
+  "output": "## Code Review Summary\n\n**Subject:** specification mode · repair pass 6 · candidate `.omp/artifacts/scene-controller-blueprint/spec-canonical-t02-r7.md` (dispatch sha256 ada6468…2882; sha not recomputed — no shell in this profile).\n**Files reviewed:** candidate whole (221 lines), r6 observation, ticket 02, CONTEXT.md, carried ticket-01 r5 contract, `scripts/validate_blueprint.py` (385 lines), `tests/test_validate_blueprint.py`, blueprint, README. **Total issues: 1 (LOW, advisory).**\n**Limits:** no shell/git/hash/HA; `git status`, candidate-hash recomputation and harness execution are unrun. Coverage figures are not measured here.\n**VERDICT: APPROVE**\n\n### Closures verified\n- **R6F1 CLOSED** — ONE window pinned at every definition site: D13(1)/(4) (tracer installed **before** module load; MEASURABLE = code-object statement lines **including import-time statements**), §4 coverage bullet (spec:79), §5 preamble (spec:114), AC14(d)/(e) (spec:128), §6 T1 RED, §7 (spec:159), §8, item 11 (spec:219). `measurable > 0`, `>= 90`, sub-90/zero-measurement failing the assertion and exiting the suite non-zero all retained (AC14(f)). False-BLOCKED clause replaced: a settrace constraint resolves to `sys.monitoring` under the same window; BLOCKED only when no stdlib mechanism exists (consistent with D13 alternative (c)).\n- **R6F2 CLOSED** — item 12 now holds the real slack: `__main__` guard lines plus the unreadable-file OSError handler, and states `>= 90` must hold **with** that slack; D13(4)/(5) reference the same inventory. Verified against the delivered file: guard at `scripts/validate_blueprint.py:384-385`, OSError handler at `:357-360`, and the mandated case set contains no unreadable-path case.\n- **R6F3 CLOSED** — R5Q1 oracle qualified to **executable** install/network steps, with quoted removal/prohibition sentences explicitly excepted; matches AC14(d)/§8 self-quotes.\n- **C1 preserved** (D13 gate obligation, AC14(d)-(f), §5/§7/§8). **C2 preserved** (§6 U1 six numbered steps, six fixed filenames, ACCEPTANCE RULE, owner-authorization exception). R1-R10 → AC1-AC15, A1-A13, D1-D13, A11 both b3 legs, a5 `default: \"\"`, corrected HA save consequence, and the ticket 03-09 ban are intact; AC1-AC10 text is identical to r6 and the earlier finding ledgers are present. Current blueprint is still flat ticket-01 state, so the RED prediction holds.\n\n### Issues\n**[LOW][spec-text accuracy] Guard-slack count contradicts the pinned window**\nFile: spec:220 (§9 item 12); also spec:41 (D13(4)).\nConfidence: HIGH.\nIssue: item 12 says the measurable-but-uncovered slack is \">= 2 lines: the `if __name__ == \"__main__\":` test and its `raise SystemExit(main(sys.argv[1:]))` body\", justified by \"the guard body never executes\". Under the r7 pinned window the tracer is installed **before** module load, so the guard *test* line executes at import and is **covered** (and is in MEASURABLE via import-time rows); only the body line stays uncovered. The inventory overstates slack by one line. Advisory: denominator, threshold, gate decidability and AC14(e) are unaffected.\nFix: state the guard **body** (1 line, plus the OSError handler lines) as the slack, or drop the \">= 2 lines\" parenthetical.\n\n### Open Questions\nNone — no low-confidence blocking concern.\n\n### Positive Observations\n- The window pin is consistent across D13, §4, §5, AC14, §6, §7, §8 and items 11-12; no residual \"load then trace\" ordering remains.\n- `measurable > 0`, per-case return-code duplication and retained subprocess oracles make a tracing-bug pass structurally hard; the R6F2/R6F3 repairs are minimal and do not widen the envelope (stdlib + PyYAML, four files plus tests).\n\n### Recommendation\nAPPROVE",
+  "invocationId": "0120a7ce-3776-4438-bee1-3b9cb83856dc"
+}

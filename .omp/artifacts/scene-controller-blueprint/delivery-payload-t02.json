@@ -1,0 +1,7 @@
+{
+  "i": "Dispatching git-master to commit and push ticket 02",
+  "agent": "git-master",
+  "task": "Deliver ticket 02 in /home/opencode/projects/default/generic_scene_controller_blueprint to origin main.\n\n# Target\nWorking tree on main with SPEC-SCENE-02 r8 implementation and its canonical evidence.\n\n# Change\nStage and commit in a non-destructive way: feature files (blueprints/automation/generic_scene_controller.yaml, scripts/validate_blueprint.py, tests/test_validate_blueprint.py, README.md) plus the .omp/plan/artifact evidence for the ticket 02 review and implementation (SPEC canonical r8, execution-state, review runs/sequence, bindings, observations, receipts T1/T2, owner authorization artifact). Exclude .omp/artifacts/result-pith/ and __pycache__. Commit message in repo style, e.g. subject \"Add collapsible action sections and offline validator coverage gate\" with a body naming SPEC-SCENE-02 r8, the bound CodeReviewer APPROVE and Critic PASS, and T1/T2 evidence. Then push HEAD to origin main (fast-forward only, no force).\n\n# Constraints\nNever discard uncommitted work; no force push; no branch creation; do not rewrite history. If push is rejected or credentials fail, stop and report the error rather than retrying with different strategy.\n\n# Acceptance\nReport the commit SHA, the pushed ref, and clean-tree confirmation.",
+  "solutionSpace": "one commit and fast-forward push of the completed ticket",
+  "name": "Ticket02Delivery"
+}

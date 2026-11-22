@@ -1,0 +1,65 @@
+{
+  "role": "code-reviewer",
+  "reviewerId": "code-reviewer-t02",
+  "candidateId": "spec-scene-02",
+  "revision": "r3",
+  "authorIds": [
+    "planner"
+  ],
+  "inputs": [
+    {
+      "path": "/home/opencode/projects/default/generic_scene_controller_blueprint/.omp/artifacts/scene-controller-blueprint/spec-canonical-t02-r3.md",
+      "sha256": "d9cad16c983057b28f8163952a413c7533296845f59e74b59764e853e6951c50"
+    },
+    {
+      "path": "/home/opencode/projects/default/generic_scene_controller_blueprint/.scratch/scene-controller-blueprint/issues/02-collapsible-button-sections.md",
+      "sha256": "b62a6a1bca9910c7fbbbdb8b05289c88f167a0ed7b570b2c4b5a9195a4de2f83"
+    },
+    {
+      "path": "/home/opencode/projects/default/generic_scene_controller_blueprint/.scratch/scene-controller-blueprint/CONTEXT.md",
+      "sha256": "795a1f7f23c1efb5840bccbded24aa40f911ecfc52c04b5122f6a21afa592d68"
+    },
+    {
+      "path": "/home/opencode/projects/default/generic_scene_controller_blueprint/blueprints/automation/generic_scene_controller.yaml",
+      "sha256": "7f1faed1bdc1778d147f0d7c2096bfb0d930f81c8e7bcee8740b5fe791645af9"
+    },
+    {
+      "path": "/home/opencode/projects/default/generic_scene_controller_blueprint/scripts/validate_blueprint.py",
+      "sha256": "fe5a50ddc764fed3318fb197a56ec45e020d346ee2803b6aa0b3ed8a980297eb"
+    },
+    {
+      "path": "/home/opencode/projects/default/generic_scene_controller_blueprint/tests/test_validate_blueprint.py",
+      "sha256": "2768c7153d93f17b19ca5ede9e108b5a0bbf932992ac9a77297da93146b9f5f6"
+    },
+    {
+      "path": "/home/opencode/projects/default/generic_scene_controller_blueprint/README.md",
+      "sha256": "1dc9d191fcf817415c540f7be1c87920ab89bb6faf73ef056746c66a29e7d68c"
+    }
+  ],
+  "dispatches": [
+    {
+      "name": "SpecScene02Rev03",
+      "agent": "code-reviewer",
+      "reviewerId": "code-reviewer-t02",
+      "taskId": "TR1",
+      "requestSha256": "facebace6d6c247473a4929c81935991ead53f15c30c1f9d69b0a49f63e58486",
+      "taskSha256": "e5e010094987414650a3319f5743e5387adf0dd7193da9b80f1b54d75a38bfcc",
+      "instructionsSha256": "25ce5ec551f4db758832a7095e020b0e175db797736a9cdb7c13ac14b113f79d",
+      "targetCandidateId": "spec-scene-02",
+      "targetRevision": "r3"
+    },
+    {
+      "name": "SpecScene02Critic",
+      "agent": "critic",
+      "reviewerId": "critic-t02",
+      "taskId": "TC1",
+      "requestSha256": "8eeddc23e986e01128a131ac033607c0b6a5f91044ef1ec8292ee1ff192d3884",
+      "taskSha256": "5bfa8252a346f49334a73366244b99aa751c04033ec18fae3d19540562b53c99",
+      "instructionsSha256": "edbb8c57d74a171f77b53b2003d53f8fcf5a25257e0c5795340fdc85b0ee58f5",
+      "targetCandidateId": "spec-scene-02",
+      "targetRevision": "r3"
+    }
+  ],
+  "output": "## Code Review Summary\n\n**Mode:** specification · **pass:** repair 2 · candidate `spec-canonical-t02-r3.md` (dispatch sha `d9cad16c…e6951c50`, not recomputed; whole file read line 1-193). Inputs read: round-2 observation (incl. stored `output`), ticket 02, CONTEXT.md, r5 spec, current blueprint/validator/tests/README, artifact dir.\n**Limits:** no shell/git/LSP/HA — sha, clean tree, validator and suite unrun; HA docs/issues carried from round 2, not re-fetched; live import/save/render remain U1; round-2 finding-1 fix tail is stored truncated (`stat…`), so its required change was read from the assignment plus r3 §9 R2F1.\n\n**Closures**\n- **R2F1 CLOSED** — R2:11, D10:38, U1:42/143, README design:74, §5:111/127, T2:141, §7:152, R1F2 ledger:169, R2F1 ledger:177, risk:105 all record: blueprint imports, sections collapse, unset `\"\"` ⇒ automation invalid at save until all five entities selected; \"NOT a silent no-op, NOT an import error\"; no concrete entity id. The former phrases survive only in explicit negation/supersession sentences (11/38/74/141/169/177/180); no affirmative claim.\n- **R2L1 CLOSED** — D9:37, tests para:75, a9:86, AC8:119, K2:101 name the `branches:`-wrap as a block-replace of the whole 20-branch `choose` block; implementable with the suite's multi-line `replace_once` anchor (tests:23-31, 60-78); oracle unchanged.\n- **R2L2 CLOSED** — §5:111/127, U1:42/143, T2:141 name the identical leg set (AC6; AC8/AC9/AC10 runtime; AC11; D10 save).\n- **R2L3 CLOSED** — D10(d):38, a5:82, a11:88, AC13:124, item 1:183 name a5 as observed first failure of the concrete-default pair and route the default layer to the isolated b3-i fixtures + real-file pass; consistent with the value-based A11:70 and T2's no-default-exemption leg.\n- **R2L4 CLOSED** — §1:5, §3:26, §9:166 cite `review-code-t02-r1-output.md`; that file is present in the artifact dir.\n\n**No regression:** R1F1 (A9:68), R1F2 (D10/A5:64/AC6:117), R1F3 (A13:72 + three fixtures + AC15:126), R1F4 (R3:12/D11:39/A2:61/README:74), R1F5 (a9 siblings restored:86/AC8:119) stay closed; R1L1 (AC8), R1L2 (R10:19/preservation:20), R1L3 (§5:111) intact. R1-R10→AC1-AC15 (193) intact; every A1-A13 has a fixture and an AC; no ticket 03-09 item sanctioned; entity default `\"\"`, slot defaults `[]`; no vendor/model/node/room/concrete id prescribed.\n\n**Findings — 1 (LOW)**\n1. [LOW][verifiability] R2F1 closure oracle is not mechanically decidable as worded.\n   Location: `spec-canonical-t02-r3.md:177`.\n   Evidence: \"text grep of the canonical artifact\" matches lines 11/38/74/141/169/177/180 because the artifact must quote the superseded r2 phrases; every hit is a negation/supersession, so a literal grep reports non-closure (false-positive risk at critic stage).\n   Required change: append \"every occurrence must sit inside an explicit supersession/negation sentence; no affirmative claim\", or grep for the affirmative frame.\n\n**Positive:** the correction is propagated to every location the finding named, including T2 and §7, not only R2/D10; the four U1 leg lists now agree; fixture first-failure ordering (a5 before a11, a11 before a12, a12 before a13) is preserved.\n\nVERDICT: APPROVE\n\n### Recommendation\nAPPROVE",
+  "invocationId": "1dfe98a1-6a44-4f28-9a9e-0e6a1c18e003"
+}

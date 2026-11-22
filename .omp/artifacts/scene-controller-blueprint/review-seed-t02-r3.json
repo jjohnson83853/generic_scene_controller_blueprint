@@ -1,0 +1,34 @@
+{
+  "intent": "Dispatching CodeReviewer on SPEC-SCENE-02 r3",
+  "instructions": "Review SPEC-SCENE-02 revision 3 in specification mode (repair pass 2). Candidate /home/opencode/projects/default/generic_scene_controller_blueprint/.omp/artifacts/scene-controller-blueprint/spec-canonical-t02-r3.md sha256 d9cad16c983057b28f8163952a413c7533296845f59e74b59764e853e6951c50. Prior round-2 observation /home/opencode/projects/default/generic_scene_controller_blueprint/.omp/artifacts/scene-controller-blueprint/observation-code-review-spec-t02-r2-20261122T161339Z.json (sha256 a133aa62952dff63d6ed0c14c78be3eb9d233c165eb160c5f93af27b3d10d22b). Consume it; verify R2F1 HIGH closed with the true HA save consequence and no no-op claim, and R2L1-R2L4 closed at named locations, with no regression of R1F1-R1F5/R1L1-R1L3. Read candidate whole, ticket 02, CONTEXT.md, ticket-01 r5 spec, current implementation, git status. Verdict format EXACT: VERDICT: APPROVE or VERDICT: REQUEST CHANGES, findings with severity+spec location+evidence+required change, end with ### Recommendation. No edits.",
+  "workflowDispatch": {
+    "statePath": "/home/opencode/projects/default/generic_scene_controller_blueprint/.omp/plans/execution-state.json",
+    "schemaVersion": 1,
+    "projectRoot": "/home/opencode/projects/default/generic_scene_controller_blueprint",
+    "feature": "scene-controller-t02",
+    "revision": "r3",
+    "requests": [
+      {
+        "name": "SpecScene02Rev03",
+        "taskId": "TR1",
+        "agent": "code-reviewer",
+        "effects": {
+          "kind": "read",
+          "paths": []
+        },
+        "targetCandidateId": "spec-scene-02",
+        "targetRevision": "r3"
+      }
+    ]
+  },
+  "tasks": [
+    {
+      "name": "SpecScene02Rev03",
+      "agent": "code-reviewer",
+      "task": "Review SPEC-SCENE-02 revision 3 in specification mode (repair pass 2) against the ticket 02 ACs and the round-2 finding ledger.\n\n# Target\nThe candidate spec file named in the shared context, whole file. Consume the round-2 observation; do not re-litigate closed items without new evidence.\n\n# Scope\nVerify R2F1: the corrected R2/D10/U1/README consequence states HA rejects an unset empty-string entity at automation save (invalid until the owner selects all five event entities), while the blueprint imports and sections collapse; no residual silent-no-op or import-error claim; no concrete entity id. Verify R2L1 fixture-anchor wording, R2L2 U1 runtime-leg traceability, R2L3 a11 oracle qualification, R2L4 round-1 citation. Confirm no regression: R1F1-R1F5 and R1L1-R1L3 remain closed, R1-R10 to AC1-AC15 intact, no ticket 03-09 feature, assertions falsifiable and generic (no vendor/model/node/room/concrete entity id admissible).\n\n# Non-goals\nDo not implement, do not edit files, do not review tickets 03-09.\n\n# Acceptance\nFindings with severity, spec location, evidence, required change; then EXACTLY ONE verdict block: literal line ### Recommendation followed by exactly one of APPROVE, REQUEST CHANGES, COMMENT.",
+      "solutionSpace": "single repaired specification candidate; verdict fixed by the round-2 findings",
+      "targetCandidateId": "spec-scene-02",
+      "targetRevision": "r3"
+    }
+  ]
+}

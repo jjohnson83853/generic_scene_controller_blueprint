@@ -1,0 +1,65 @@
+{
+  "role": "code-reviewer",
+  "reviewerId": "code-reviewer-t02",
+  "candidateId": "spec-scene-02",
+  "revision": "r5",
+  "authorIds": [
+    "planner"
+  ],
+  "inputs": [
+    {
+      "path": "/home/opencode/projects/default/generic_scene_controller_blueprint/.omp/artifacts/scene-controller-blueprint/spec-canonical-t02-r5.md",
+      "sha256": "7f3f8c2870ee1d88c1881d2ccc9667ad348e5d0e73b2b1d5ea9eff7e56a6c1de"
+    },
+    {
+      "path": "/home/opencode/projects/default/generic_scene_controller_blueprint/.scratch/scene-controller-blueprint/issues/02-collapsible-button-sections.md",
+      "sha256": "b62a6a1bca9910c7fbbbdb8b05289c88f167a0ed7b570b2c4b5a9195a4de2f83"
+    },
+    {
+      "path": "/home/opencode/projects/default/generic_scene_controller_blueprint/.scratch/scene-controller-blueprint/CONTEXT.md",
+      "sha256": "795a1f7f23c1efb5840bccbded24aa40f911ecfc52c04b5122f6a21afa592d68"
+    },
+    {
+      "path": "/home/opencode/projects/default/generic_scene_controller_blueprint/blueprints/automation/generic_scene_controller.yaml",
+      "sha256": "7f1faed1bdc1778d147f0d7c2096bfb0d930f81c8e7bcee8740b5fe791645af9"
+    },
+    {
+      "path": "/home/opencode/projects/default/generic_scene_controller_blueprint/scripts/validate_blueprint.py",
+      "sha256": "fe5a50ddc764fed3318fb197a56ec45e020d346ee2803b6aa0b3ed8a980297eb"
+    },
+    {
+      "path": "/home/opencode/projects/default/generic_scene_controller_blueprint/tests/test_validate_blueprint.py",
+      "sha256": "2768c7153d93f17b19ca5ede9e108b5a0bbf932992ac9a77297da93146b9f5f6"
+    },
+    {
+      "path": "/home/opencode/projects/default/generic_scene_controller_blueprint/README.md",
+      "sha256": "1dc9d191fcf817415c540f7be1c87920ab89bb6faf73ef056746c66a29e7d68c"
+    }
+  ],
+  "dispatches": [
+    {
+      "name": "SpecScene02Rev05",
+      "agent": "code-reviewer",
+      "reviewerId": "code-reviewer-t02",
+      "taskId": "TR1",
+      "requestSha256": "84aa0f51ea0c2d57db4282e8f0d9bb03988cc5862cfeef1ad81617c4b5218be7",
+      "taskSha256": "7a11604c88e6f07664c4498e15d75ed83500e1f536308c75e9941a3f21228f70",
+      "instructionsSha256": "3731c9562ff926c1d3401bd20e5dabf3730debf8151b015ea7cb4b1713e1ccdd",
+      "targetCandidateId": "spec-scene-02",
+      "targetRevision": "r5"
+    },
+    {
+      "name": "SpecScene02Critic5",
+      "agent": "critic",
+      "reviewerId": "critic-t02",
+      "taskId": "TC1",
+      "requestSha256": "9972458585088e14e942099b94896b9b5129462734cfc277d2e2b407ff67121c",
+      "taskSha256": "c8472e41ae0edfb2d55d06ecd7546c31638eabc0011e69ec9f6888c0a8cbbad8",
+      "instructionsSha256": "5f45f4295a73bf5918e1e594ce7a20095b7c14a5c05ee9dbd2931fa2e8606900",
+      "targetCandidateId": "spec-scene-02",
+      "targetRevision": "r5"
+    }
+  ],
+  "output": "## Code Review Summary\n\n**Mode:** specification, repair pass 4; candidate `.omp/artifacts/scene-controller-blueprint/spec-canonical-t02-r5.md` (sha `7f3f8c28...`, not recomputed; 213 lines read whole).\n**Limits:** no shell/git/hash/HA; coverage feasibility reasoned from the harness and coverage semantics, not executed; `git status` unverified. **Findings:** HIGH 1, LOW 2.\n\n### Closures verified\n- **C2 CLOSED** - §6 U1 has six numbered owner steps, each with expected outcome plus captured evidence, one persistence dir, an acceptance prohibition, and an owner-authorization exception (spec:144-151); AC6/AC9/AC10/AC11 and §8 defer to it.\n- **C3 CLOSED** - the R2F1/R3L1 oracles now restrict the quantifier to lines asserting an unset/empty-entity-default consequence and name the two out-of-scope hits (spec:186,192). r5 grep hits at 11,12,38,100,178,186,192,196: every governed hit is a supersession/negation sentence.\n- **R4L2 CLOSED** - D7 (spec:35) and §9 item 8 (spec:206) name revisions 2, 3, 4, and 5.\n- No regression: R1F1-F5, R1L1-L3, R2F1, R2L1-L4, R3L1, R4L1 preserved; R1-R10 -> AC1-AC15 all mapped; A1-A13 each has fixtures plus an AC; no ticket 03-09 feature; a11 genericity fences and the corrected HA save consequence intact.\n\n### Issues\n**[HIGH][feasibility] The W06 coverage gate cannot measure the production file.**\nFile: spec:41 (D13), spec:112, spec:126 (AC14 f), spec:142 (T2); `tests/test_validate_blueprint.py:15-19`; spec:76. Confidence HIGH.\nEvidence: the suite runs the validator only as a child process (`subprocess.run([sys.executable, str(VALIDATOR), ...])`) and spec:76 pins \"never imported\". `coverage run -m unittest` instruments only the parent, so `scripts/validate_blueprint.py` records zero executed lines and `coverage report --fail-under=90` yields 0%/no data with a non-zero exit on every run. AC14(f) can never pass, T2 fails, repair returns to T1, whose four-file scope cannot change the measurement: MAX_FAILURES deadlock.\nFix: amend D13/AC14(e)-(f)/T2 to either (a) subprocess coverage (temp config `parallel=true` plus `COVERAGE_PROCESS_START` and a `sitecustomize` calling `coverage.process_startup()`, then `coverage combine`; permit those temp paths in the envelope) or (b) in-process `main()` tests (supersedes the subprocess-only constraint); add a T2 preflight proving a non-zero measured percentage.\n\n**[LOW][oracle anchoring] spec:186 cites r4 line numbers though the oracle governs the r5 artifact**; the H2 hit is r5:100 (r4:99). Fix: cite r5 lines or drop numbers, keep the quotes. Confidence HIGH.\n\n**[LOW][traceability] spec:144-151 leaves per-leg evidence filenames unspecified**, so \"each leg's captured evidence is recorded\" is not mechanically checkable. Fix: fix one filename per step in the named dir. Confidence HIGH.\n\n### Open Questions\n[MEDIUM] spec:28,126(d),142: `python3 -m pip install --quiet coverage` may be refused by PEP 668 - `/usr/lib/python3.13/EXTERNALLY-MANAGED` exists, and \"verified by download\" is not an install. Confidence LOW-MEDIUM. Fix: name the interpreter/venv, install into a venv (pin 7.17.4), or prove the install in preflight.\n\n### Positive Observations\n- Per-finding causality and falsifiable oracles in the ledgers; the coverage-denominator reasoning (scripts only, tests excluded) is sound.\n\n### Recommendation\nREQUEST CHANGES",
+  "invocationId": "4e189941-b816-4993-a7e3-13ea02523165"
+}

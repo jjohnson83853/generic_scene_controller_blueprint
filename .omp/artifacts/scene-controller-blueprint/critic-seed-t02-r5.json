@@ -1,0 +1,34 @@
+{
+  "intent": "Dispatching critic on SPEC-SCENE-02 r5",
+  "instructions": "Critic SpecDD gate review of SPEC-SCENE-02 revision 5 (candidate /home/opencode/projects/default/generic_scene_controller_blueprint/.omp/artifacts/scene-controller-blueprint/spec-canonical-t02-r5.md sha256 7f3f8c2870ee1d88c1881d2ccc9667ad348e5d0e73b2b1d5ea9eff7e56a6c1de) against ticket 02 ACs, the round-4 findings C1-C3, and the recorded reviews. Verify C1 coverage gate runnability (coverage 7.17.4 installs via pip; not preinstalled), C2 owner-verification checkpoint completeness, C3 wording; spec quality, AC oracles, TDD readiness, review honesty. Read candidate whole, ticket 02, CONTEXT.md, ticket-01 r5 spec, development-workflow, current implementation. Verdict format EXACT: literal line ### Recommendation followed by exactly one of APPROVE / REQUEST CHANGES / COMMENT. No edits.",
+  "workflowDispatch": {
+    "statePath": "/home/opencode/projects/default/generic_scene_controller_blueprint/.omp/plans/execution-state.json",
+    "schemaVersion": 1,
+    "projectRoot": "/home/opencode/projects/default/generic_scene_controller_blueprint",
+    "feature": "scene-controller-t02",
+    "revision": "r5",
+    "requests": [
+      {
+        "name": "SpecScene02Critic5",
+        "taskId": "TC1",
+        "agent": "critic",
+        "effects": {
+          "kind": "read",
+          "paths": []
+        },
+        "targetCandidateId": "spec-scene-02",
+        "targetRevision": "r5"
+      }
+    ]
+  },
+  "tasks": [
+    {
+      "name": "SpecScene02Critic5",
+      "agent": "critic",
+      "task": "Critic SpecDD/TDD gate for SPEC-SCENE-02 revision 5 (ticket 02 collapsible button sections).\n\n# Target\nCandidate spec file named in context, whole file.\n\n# Scope\nVerify C1 coverage gate is runnable and mandatory; C2 U1 owner-verification checkpoint is complete and acceptance-binding; C3 quantifier scoped; ticket-02 checkbox coverage; R1-R10 to AC1-AC15 traceability with falsifiable oracles; T1/T2 ownership and RED/GREEN order; no ticket 03-09 feature; generic fences; corrected HA save consequence; no tautological assertion; residual U1 rigour; recorded CodeReviewer APPROVE consistent.\n\n# Non-goals\nNo implementation, no file edits, no tickets 03-09.\n\n# Acceptance\nConcise findings; then EXACTLY ONE verdict block: ### Recommendation followed by exactly one of APPROVE, REQUEST CHANGES, COMMENT.",
+      "solutionSpace": "single specification candidate; binary gate verdict",
+      "targetCandidateId": "spec-scene-02",
+      "targetRevision": "r5"
+    }
+  ]
+}

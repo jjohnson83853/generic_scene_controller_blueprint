@@ -1,0 +1,14 @@
+{
+  "i": "Dispatching critic on SPEC-SCENE-02 r6",
+  "context": "{\"instructions\":\"Critic SpecDD gate review of SPEC-SCENE-02 revision 6 (candidate /home/opencode/projects/default/generic_scene_controller_blueprint/.omp/artifacts/scene-controller-blueprint/spec-canonical-t02-r7.md sha256 ada6468177288928642d2be3e4938b5baa3b96174ca2fa2e98c5e81f25b92882) against ticket 02 ACs, round-6 findings, and recorded reviews. Verify the offline stdlib coverage harness is implementable and the >=90 gate meaningful (production denominator scripts/validate_blueprint.py, tests excluded), the U1 owner-verification checkpoint is complete, spec quality, AC oracles, TDD readiness, review honesty, no network/pip dependency. Read candidate whole, ticket 02, CONTEXT.md, ticket-01 r5 spec, current implementation. Verdict format EXACT: literal line ### Recommendation followed by exactly one of APPROVE / REQUEST CHANGES / COMMENT. No edits.\",\"workflowDispatch\":{\"statePath\":\"/home/opencode/projects/default/generic_scene_controller_blueprint/.omp/plans/execution-state.json\",\"schemaVersion\":1,\"projectRoot\":\"/home/opencode/projects/default/generic_scene_controller_blueprint\",\"feature\":\"scene-controller-t02\",\"revision\":\"r7\",\"requests\":[{\"name\":\"SpecScene02Critic7\",\"taskId\":\"TC1\",\"agent\":\"critic\",\"effects\":{\"kind\":\"read\",\"paths\":[]},\"targetCandidateId\":\"spec-scene-02\",\"targetRevision\":\"r7\"}]}}",
+  "tasks": [
+    {
+      "name": "SpecScene02Critic7",
+      "agent": "critic",
+      "task": "Critic SpecDD/TDD gate for SPEC-SCENE-02 revision 7 (ticket 02 collapsible button sections).\n\n# Target\nCandidate spec file named in context, whole file.\n\n# Scope\nVerify the pinned offline stdlib in-process coverage measurement window (R6F1) is runnable, meaningful, dependency-free and consistently specified; the real slack inventory and qualified oracle (R6F2/R6F3) are closed; the U1 owner-verification checkpoint (C2) is complete; ticket-02 checkbox coverage; R1-R10 to AC1-AC15 traceability with falsifiable oracles; T1/T2 ownership and RED/GREEN order; no ticket 03-09 feature; generic fences; corrected HA save consequence; no tautology; recorded reviews consistent.\n\n# Non-goals\nNo implementation, no file edits, no tickets 03-09.\n\n# Acceptance\nConcise findings; then EXACTLY ONE verdict block: ### Recommendation followed by exactly one of APPROVE, REQUEST CHANGES, COMMENT.",
+      "solutionSpace": "single specification candidate; binary gate verdict",
+      "targetCandidateId": "spec-scene-02",
+      "targetRevision": "r7"
+    }
+  ]
+}

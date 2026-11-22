@@ -1,0 +1,65 @@
+{
+  "role": "code-reviewer",
+  "reviewerId": "code-reviewer-t02",
+  "candidateId": "spec-scene-02",
+  "revision": "r4",
+  "authorIds": [
+    "planner"
+  ],
+  "inputs": [
+    {
+      "path": "/home/opencode/projects/default/generic_scene_controller_blueprint/.omp/artifacts/scene-controller-blueprint/spec-canonical-t02-r4.md",
+      "sha256": "0f8572ae5b8b93b6b2c3641efafe0efbb2b603923ede099d0b40b1e54bc8d7c4"
+    },
+    {
+      "path": "/home/opencode/projects/default/generic_scene_controller_blueprint/.scratch/scene-controller-blueprint/issues/02-collapsible-button-sections.md",
+      "sha256": "b62a6a1bca9910c7fbbbdb8b05289c88f167a0ed7b570b2c4b5a9195a4de2f83"
+    },
+    {
+      "path": "/home/opencode/projects/default/generic_scene_controller_blueprint/.scratch/scene-controller-blueprint/CONTEXT.md",
+      "sha256": "795a1f7f23c1efb5840bccbded24aa40f911ecfc52c04b5122f6a21afa592d68"
+    },
+    {
+      "path": "/home/opencode/projects/default/generic_scene_controller_blueprint/blueprints/automation/generic_scene_controller.yaml",
+      "sha256": "7f1faed1bdc1778d147f0d7c2096bfb0d930f81c8e7bcee8740b5fe791645af9"
+    },
+    {
+      "path": "/home/opencode/projects/default/generic_scene_controller_blueprint/scripts/validate_blueprint.py",
+      "sha256": "fe5a50ddc764fed3318fb197a56ec45e020d346ee2803b6aa0b3ed8a980297eb"
+    },
+    {
+      "path": "/home/opencode/projects/default/generic_scene_controller_blueprint/tests/test_validate_blueprint.py",
+      "sha256": "2768c7153d93f17b19ca5ede9e108b5a0bbf932992ac9a77297da93146b9f5f6"
+    },
+    {
+      "path": "/home/opencode/projects/default/generic_scene_controller_blueprint/README.md",
+      "sha256": "1dc9d191fcf817415c540f7be1c87920ab89bb6faf73ef056746c66a29e7d68c"
+    }
+  ],
+  "dispatches": [
+    {
+      "name": "SpecScene02Rev04",
+      "agent": "code-reviewer",
+      "reviewerId": "code-reviewer-t02",
+      "taskId": "TR1",
+      "requestSha256": "22752225dbf2de2acf81957d875d9fbb3ebeb1958445a2c33e039f9e0632d1f9",
+      "taskSha256": "aea7cfbc63a66f025eb76bf74fffeff373481cda6d638bc318900ef59f6f7cdc",
+      "instructionsSha256": "dca7cb50497f183a9c5dd460a5ee0227ce2db073009f06d908f0ad6a80a66ced",
+      "targetCandidateId": "spec-scene-02",
+      "targetRevision": "r4"
+    },
+    {
+      "name": "SpecScene02Critic4",
+      "agent": "critic",
+      "reviewerId": "critic-t02",
+      "taskId": "TC1",
+      "requestSha256": "e0d3f0266aadb920069f4edd8ec6af86935bd19690026f0136f0334014cc7a20",
+      "taskSha256": "e5dbebf100f42e0524ea7163210e7a31c56c454d9ff3f388727ad4a892d626fa",
+      "instructionsSha256": "e89cc57ad6a15b3e4689bf5126eb04713a48484cb4d418ab692d2fc33ca38c7f",
+      "targetCandidateId": "spec-scene-02",
+      "targetRevision": "r4"
+    }
+  ],
+  "output": "## Code Review Summary\n\n**Mode:** specification · **pass:** repair 3 · candidate `spec-canonical-t02-r4.md` (dispatch sha `0f8572ae…8d7c4`, not recomputed; whole file read, lines 1-195), delta-compared against r3 whole.\n\n**Limits:** no shell/git/LSP/HA tools — sha, `git status`, validator/suite and live HA unverified; ticket-01 r5 checked by targeted grep only; HA docs/issues carried from prior rounds, not re-fetched.\n\n### Closures verified\n- **R3L1 (substance):** §9:177 now carries the supersession/negation qualification **and** the affirmative-frame grep. Every grep hit that makes an unset-entity claim (§2:11, §3:27, §3:38, §4:105, §9:169, §9:177, §9:183, §9:185) is a negation/supersession sentence; no affirmative unset-entity claim exists; a5-first and real-file-pass structural oracles unchanged (177). Residual wording defect R4L1.\n- **R2F1:** corrected consequence intact at 11/27/38/74/105/143/151/169/177/185 — imports + collapses, INVALID AT SAVE until five entities selected, \"NOT a silent no-op, NOT an import error\"; no concrete id.\n- **R1F1-R1F5, R1L1-R1L3, R2L1-R2L4:** anchors intact — A9/D9/D5 leg 3 (55/56/37/68), D10/R2/a5/AC3/U1 (38/11/64/114/42), D12/A13/AC15 + a13 fixtures (40/72/126/90), D11/A2/AC6/README (39/61/117/74), restored a9 siblings (86), R10/preservation (19/20), §5 preamble (111), block-replace naming (37/86/119), U1 leg alignment (111/42/143/127), a5-first AC13 qualification (82/88/124/185), r1 citation file present.\n- **Coverage:** R1-R10→AC1-AC15 (195); A1-A13 all present, each with fixture+AC, D7 mapping unchanged (35); no ticket 03-09 feature sanctioned (19/137; fixtures negative-only); entity default `\"\"`, slot `[]`, no vendor/room/entity id.\n- **Drift:** r3→r4 differs only at revision-identification lines (1, 5, 46, 132, 154, 166, 195), the §9 R2F1 oracle (177) and the new R3L1 ledger (183, +2 lines). All other lines byte-identical across 195 lines.\n\n### Issues\n**[LOW][oracle decidability] R4L1 — decidability qualifier over-broad; reopened residue of R3L1**\nLocation: §9 R2F1 oracle, r4:177.\nEvidence: the oracle states \"EVERY hit line sits inside an explicit supersession/negation sentence … no affirmative claim on any hit line\", and that the phrases \"stay QUOTED inside this ledger's supersession sentences\". The grep yields 10 lines; §2:12 (\"the blueprint loads … with no import error\") and §4:99 (\"a `to`-bound state trigger never fires on an event_type transition\") are affirmative, non-supersession hits about other subjects, and 8 of 10 hits lie outside the round-2 ledger. A literal reader gets two false non-closure hits — the R3L1 false-positive class.\nRequired change: scope the quantifier to governed hits (\"every hit line whose sentence asserts a consequence of an unset/empty entity default is a supersession or negation sentence\"), or name §2:12 and §4:99 as out-of-scope hits. Substantive claim and structural oracles unchanged.\n\n**[LOW][editorial] R4L2 — stale revision identification**\nLocation: D7 (r4:35 \"REVISION-3 NOTE\"; \"revision 3 changes NO assertion\") and §9 item 8 (r4:192 \"through revisions 2 and 3\").\nEvidence: both remain true but do not identify revision 4; §1/§4/§6 do. Consequence: none.\nRequired change: extend the note to revision 4.\n\n### Positive Observations\n- Repair tightly scoped: no design decision, assertion, fixture, R/AC or file-set change; §1/§4/§6 say so consistently.\n- R3L1 causal explanation correctly identifies the grep-vs-quoted-artifact conflict; the affirmative-frame grep (hits 38/169/177/183) is sound.\n- The entity-scoped prohibition is now explicit and true: no affirmative unset-entity no-op claim survives.\n\nVERDICT: APPROVE\n\n### Recommendation\nAPPROVE",
+  "invocationId": "fc21d750-59e3-4f21-8816-1836263c4109"
+}
