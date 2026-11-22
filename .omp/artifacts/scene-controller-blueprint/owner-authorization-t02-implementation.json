@@ -1,0 +1,14 @@
+{
+  "kind": "owner-authorization",
+  "feature": "scene-controller-t02",
+  "revision": "r8",
+  "candidateId": "spec-scene-02",
+  "packetDigest": "a0a450e1f3fb368e60a096a3ac36c0f358de725dadea3a7e39e7522e155ace02",
+  "selectedBranchId": "t02-r8",
+  "ownerRequests": [
+    { "request": "How should ticket 02 proceed? (blocked review gate)", "answer": "extend_round", "note": "Reset budget to 4" },
+    { "request": "Authorize implementation of ticket 02?", "answer": "authorize", "note": "" }
+  ],
+  "authorizedScope": ["T1 engineer implementation", "T2 independent verification", "git-master delivery to main"],
+  "recordedAt": "2026-11-22T18:05:00Z"
+}

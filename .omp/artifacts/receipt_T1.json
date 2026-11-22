@@ -3,28 +3,38 @@
   "status": "COMPLETED",
   "artifact_receipt": ".omp/artifacts/receipt_T1.json",
   "telemetry_ref": null,
-  "summary": "Implemented the generic five-button blueprint and A1-A10 validator. Expected RED observed; corrected the A8 fixture/comment overlap. Final unittest suite passed 12 tests and standalone validation passed A1-A10.",
+  "summary": "Implemented SPEC-SCENE-02 r8 T1. A1-A13, all fixtures, and offline coverage passed (301/318 lines, 94.65%). Live Home Assistant/U1 verification remains unverified.",
   "error_code": null,
   "commands": [
     {
-      "command": "python3 -m unittest discover -s tests",
+      "command": "python3 -m unittest discover -s tests -v",
       "exit_code": 1,
-      "result": "Expected RED before implementation: subprocess reported missing scripts/validate_blueprint.py; no ModuleNotFoundError."
+      "result": "Expected RED against the ticket-01 blueprint: new section anchors and A11 pass-list were absent."
     },
     {
       "command": "python3 -m unittest discover -s tests -v",
       "exit_code": 1,
-      "result": "Initial GREEN attempt exposed the A8 event-type fixture/comment overlap; corrected the blueprint header comment."
+      "result": "Intermediate run exposed a10_missing_event_header passing due to a duplicate header token; removed duplicate."
     },
     {
       "command": "python3 -m unittest discover -s tests -v",
       "exit_code": 0,
-      "result": "Final run: 12 tests passed."
+      "result": "5 tests passed; coverage evidence: /tmp/tmp9yio2fm5/coverage-evidence-t02.json (301/318, 94.65%)."
     },
     {
       "command": "python3 scripts/validate_blueprint.py blueprints/automation/generic_scene_controller.yaml",
       "exit_code": 0,
-      "result": "Final run printed PASS A1 through PASS A10."
+      "result": "PASS A1 parse_yaml through PASS A13 scope_fence_keys."
+    },
+    {
+      "command": "grep -F 'python3 scripts/validate_blueprint.py blueprints/automation/generic_scene_controller.yaml' README.md",
+      "exit_code": 0,
+      "result": "Printed the documented validation command."
+    },
+    {
+      "command": "python3 -m py_compile scripts/validate_blueprint.py tests/test_validate_blueprint.py",
+      "exit_code": 0,
+      "result": "Completed without output."
     }
   ],
   "changed_files": [

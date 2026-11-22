@@ -1,0 +1,34 @@
+{
+  "intent": "Dispatching code-reviewer on SPEC-SCENE-02 r8",
+  "instructions": "Review SPEC-SCENE-02 revision 8 in specification mode (repair pass 7). Candidate /home/opencode/projects/default/generic_scene_controller_blueprint/.omp/artifacts/scene-controller-blueprint/spec-canonical-t02-r8.md sha256 60dffcdf5e539b75635f6d77764de1c52f1fa11676726321b1525b3bce921490. Prior round-7 CodeReviewer observation /home/opencode/projects/default/generic_scene_controller_blueprint/.omp/artifacts/scene-controller-blueprint/observation-code-review-spec-t02-r7-20261122T173048Z.json (sha256 27bf9347a7854bc599e9bd06316773cc6a1f829c2dfdaaeed564383f2a7e78a3) verdict APPROVE with one LOW slack advisory; round-7 Critic packet /home/opencode/projects/default/generic_scene_controller_blueprint/.omp/artifacts/scene-controller-blueprint/critic-request-t02-r7.json verdict REVISE: C2 MAJOR reopened (U1 configured-dispatch/parallel probe not decisive) and C4 MINOR (guard slack inventory). Verify C2 closed: U1 steps require distinguishable nonempty actions on distinct slots with fixed evidence files, the first run kept active when the second event fires, traces proving the intended distinct actions executed AND overlap, an empty-slot no-op leg, and acceptance prohibited while any leg is unverified. Verify C4 closed: the uncovered inventory is measured-not-exhaustive with the guard body (not condition) plus OSError handler as slack. Confirm no regression of R6F1/R6F2/R6F3, C1, all earlier closures, R1-R10 to AC1-AC15, A1-A13, generic fences, corrected HA save consequence, no ticket 03-09 feature. Read candidate whole, ticket 02, CONTEXT.md, ticket-01 r5 spec, current implementation, git status. Verdict format EXACT: VERDICT: APPROVE or VERDICT: REQUEST CHANGES, findings with severity+location+evidence+required change, end with ### Recommendation. No edits.",
+  "workflowDispatch": {
+    "statePath": "/home/opencode/projects/default/generic_scene_controller_blueprint/.omp/plans/execution-state.json",
+    "schemaVersion": 1,
+    "projectRoot": "/home/opencode/projects/default/generic_scene_controller_blueprint",
+    "feature": "scene-controller-t02",
+    "revision": "r8",
+    "requests": [
+      {
+        "name": "SpecScene02Rev08",
+        "taskId": "TR1",
+        "agent": "code-reviewer",
+        "effects": {
+          "kind": "read",
+          "paths": []
+        },
+        "targetCandidateId": "spec-scene-02",
+        "targetRevision": "r8"
+      }
+    ]
+  },
+  "tasks": [
+    {
+      "name": "SpecScene02Rev08",
+      "agent": "code-reviewer",
+      "task": "Review SPEC-SCENE-02 revision 8 in specification mode (repair pass 7) against the round-7 Critic findings C2/C4.\n\n# Target\nThe candidate spec file named in the shared context, whole file.\n\n# Scope\nC2: the U1 checkpoint must be decisive - distinguishable nonempty actions on distinct slots, first run kept active through the second trigger, captured traces proving the intended distinct actions executed and the runs overlapped, an empty-slot no-op leg, one fixed evidence file per step, and acceptance prohibited while unverified. C4: the uncovered inventory must be measured-not-exhaustive with the guard body (not the condition line) and OSError handler as slack. Confirm the pinned coverage window, R6F2/R6F3, C1, all earlier closures, R1-R10 to AC1-AC15, A1-A13, generic fences, corrected HA save consequence, ticket 03-09 ban.\n\n# Non-goals\nNo implementation, no edits, no tickets 03-09.\n\n# Acceptance\nFindings with severity, location, evidence, required change; then EXACTLY ONE verdict block: literal line ### Recommendation followed by exactly one of APPROVE, REQUEST CHANGES, COMMENT.",
+      "solutionSpace": "single repaired specification candidate; verdict fixed by the round-7 critic findings",
+      "targetCandidateId": "spec-scene-02",
+      "targetRevision": "r8"
+    }
+  ]
+}

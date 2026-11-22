@@ -1,0 +1,35 @@
+{
+  "intent": "Dispatching engineer on T1 implementation of SPEC-SCENE-02 r8",
+  "instructions": "Implement T1 of SPEC-SCENE-02 r8 (sha256 60dffcdf5e539b75635f6d77764de1c52f1fa11676726321b1525b3bce921490). Canonical spec: /home/opencode/projects/default/generic_scene_controller_blueprint/.omp/artifacts/scene-controller-blueprint/spec-canonical-t02-r8.md (read whole; authoritative). Binding inputs: .scratch/scene-controller-blueprint/issues/02-collapsible-button-sections.md, CONTEXT.md, README.md. Implement exactly the four envelope files; stdlib + PyYAML only; RED then GREEN; run python3 -m unittest discover -s tests -v and python3 scripts/validate_blueprint.py blueprints/automation/generic_scene_controller.yaml; the suite must include the offline stdlib in-process coverage gate (>=90% of scripts/validate_blueprint.py) with evidence at the spec-named path; write .omp/artifacts/receipt_T1.json per the harness receipt contract. Do not touch tickets 03-09 scope.",
+  "workflowDispatch": {
+    "statePath": "/home/opencode/projects/default/generic_scene_controller_blueprint/.omp/plans/execution-state.json",
+    "schemaVersion": 1,
+    "projectRoot": "/home/opencode/projects/default/generic_scene_controller_blueprint",
+    "feature": "scene-controller-t02",
+    "revision": "r8",
+    "requests": [
+      {
+        "name": "Ticket02BlueprintImpl",
+        "taskId": "T1",
+        "agent": "engineer",
+        "effects": {
+          "kind": "write",
+          "paths": [
+            "blueprints/automation/generic_scene_controller.yaml",
+            "scripts/validate_blueprint.py",
+            "tests/test_validate_blueprint.py",
+            "README.md"
+          ]
+        }
+      }
+    ]
+  },
+  "tasks": [
+    {
+      "name": "Ticket02BlueprintImpl",
+      "agent": "engineer",
+      "task": "Implement SPEC-SCENE-02 r8 T1 (ticket 02 collapsible button sections) in /home/opencode/projects/default/generic_scene_controller_blueprint.\n\n# Target\nBlueprint blueprints/automation/generic_scene_controller.yaml, validator scripts/validate_blueprint.py, tests tests/test_validate_blueprint.py, README.md. No other files.\n\n# Change\nFollow the canonical spec's T1 section exactly: five collapsible per-button sections each with one generic-defaulted event entity plus four action slots; one four-event choose in HA list form under mode: parallel; validator extended to A1-A13; offline stdlib in-process line-coverage harness measured with tracer installed before module load; RED tests first, then implementation to GREEN.\n\n# Acceptance\nAll spec T1/RED cases pass; unittest suite green; validator exits 0 on the blueprint and the declared nonzero cases; coverage gate >=90% with measurable>0; receipt written. Report commands and outputs.\n\n# Non-goals\nNo ticket 03-09 features, no LED inputs, no concrete entity/person/room/node ids; no dependency beyond stdlib and PyYAML.",
+      "solutionSpace": "one implementation per the reviewed specification"
+    }
+  ]
+}

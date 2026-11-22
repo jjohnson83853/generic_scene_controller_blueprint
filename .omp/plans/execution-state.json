@@ -1,68 +1,238 @@
 {
   "schemaVersion": 2,
-  "feature": "scene-controller-blueprint",
-  "revision": "r5",
+  "feature": "scene-controller-t02",
+  "revision": "r8",
   "projectRoot": "/home/opencode/projects/default/generic_scene_controller_blueprint",
   "spec": {
-    "path": "/home/opencode/projects/default/generic_scene_controller_blueprint/.omp/artifacts/scene-controller-blueprint/spec-canonical-r5.md",
-    "sha256": "149c489fd9e68c2afff256f36cc069445e4929a328fb99a7ef515e8bad3d4cda",
+    "path": "/home/opencode/projects/default/generic_scene_controller_blueprint/.omp/artifacts/scene-controller-blueprint/spec-canonical-t02-r8.md",
+    "sha256": "60dffcdf5e539b75635f6d77764de1c52f1fa11676726321b1525b3bce921490",
     "sectionBindings": {
       "requirements": {
-        "revision": "r5",
-        "sha256": "433d512ef05087d31d372c0dbcf7eb15d63151dc43bfb812a07dc35ad5c02e90"
+        "revision": "r8",
+        "sha256": "a7153743948a0f01c9810c545652e49e02ac6ce8040cf423bfc5a152395780f4"
       },
       "design": {
-        "revision": "r5",
-        "sha256": "763dfc070da0cbb6cd061dd3e97b037a6490d98c6805d33da25ebac8e34cdeb7"
+        "revision": "r8",
+        "sha256": "333e5c8ca3ceb7be6a7e87e9a439a3465b46daa791e9a3fa8ab5d45ccf6fa6a0"
       },
       "tasks": {
-        "revision": "r5",
-        "sha256": "166f220574a9174e6d595447d81f6081b07dcd1bd8b25ca1c7c3ac5f8379cf90"
+        "revision": "r8",
+        "sha256": "c61d56d70d4329c0c53ce6c5b475f15c0ea0cd244baf0eaac37a8698be63127b"
       },
       "envelope": {
-        "revision": "r5",
-        "sha256": "b3b6ea1aa150d85392d94d84553218e90e2c5cff576ae50112f812468015ee74"
+        "revision": "r8",
+        "sha256": "d7efd03f2051362744189bedff1b5128920edd2139e399b2fd650cda1ecc6766"
       }
     }
   },
   "packet": {
-    "digest": "3403d4579574d7ca0e706010abb9dd2451d6e54c6fc737ace5e18d2c8e86cd71",
+    "digest": "a0a450e1f3fb368e60a096a3ac36c0f358de725dadea3a7e39e7522e155ace02",
     "branches": [
       {
-        "id": "t01-r5",
+        "id": "t02-r2",
         "answerIds": [],
         "taskIds": [
           "TR1",
-          "TR2",
-          "TR3",
-          "TR4",
-          "TR5",
           "TC1",
           "T1",
           "T2"
         ],
-        "envelopeId": "scene-controller-t01-r5",
+        "envelopeId": "scene-controller-t02-r1",
+        "sectionBindings": {
+          "requirements": {
+            "revision": "r2",
+            "sha256": "4c988ce8b15c8183a44155e858aca089db7717b6653e5934e070a9f260166d84"
+          },
+          "design": {
+            "revision": "r2",
+            "sha256": "892cf99a019d0173d7d52196171a8de31d46c66a1e9372297cf8426838eef956"
+          },
+          "tasks": {
+            "revision": "r2",
+            "sha256": "94c64e11d9d7e33f38a881fdffda3695dcc57bea127a9ec404ae4331fba6e633"
+          },
+          "envelope": {
+            "revision": "r2",
+            "sha256": "945820762e32446e9ac18929497db5b22048d6a77a34484da5bcb242cbeffb58"
+          }
+        }
+      },
+      {
+        "id": "t02-r3",
+        "answerIds": [],
+        "taskIds": [
+          "TR1",
+          "TC1",
+          "T1",
+          "T2"
+        ],
+        "envelopeId": "scene-controller-t02-r1",
+        "sectionBindings": {
+          "requirements": {
+            "revision": "r3",
+            "sha256": "a7153743948a0f01c9810c545652e49e02ac6ce8040cf423bfc5a152395780f4"
+          },
+          "design": {
+            "revision": "r3",
+            "sha256": "b338b93ecb4d4232c8f8aad97f756d1097dab65c18b1ee356793b1037dd3e291"
+          },
+          "tasks": {
+            "revision": "r3",
+            "sha256": "bd2d7cc648bbe1eafaf5388d7bc94d9f062a5a9185bbb98ac087ff2879e1d91e"
+          },
+          "envelope": {
+            "revision": "r3",
+            "sha256": "369a3505ab3d5f7d561c7978fcad982779fdd3fe070e44df222c1c0581a84695"
+          }
+        }
+      },
+      {
+        "id": "t02-r4",
+        "answerIds": [],
+        "taskIds": [
+          "TR1",
+          "TC1",
+          "T1",
+          "T2"
+        ],
+        "envelopeId": "scene-controller-t02-r1",
+        "sectionBindings": {
+          "requirements": {
+            "revision": "r4",
+            "sha256": "a7153743948a0f01c9810c545652e49e02ac6ce8040cf423bfc5a152395780f4"
+          },
+          "design": {
+            "revision": "r4",
+            "sha256": "f287161c9b129a7eb286edbe831025fa4caf6768be6196ba620545f3ae52799d"
+          },
+          "tasks": {
+            "revision": "r4",
+            "sha256": "3b81681d93429967e8e9b289332b1b1ace9953d078ff05bedaa4e460d2df9e7d"
+          },
+          "envelope": {
+            "revision": "r4",
+            "sha256": "9c2841f7b67a80d660a82594b8a003979cb9a24f2a934d98dc5442b830373ee8"
+          }
+        }
+      },
+      {
+        "id": "t02-r5",
+        "answerIds": [],
+        "taskIds": [
+          "TR1",
+          "TC1",
+          "T1",
+          "T2"
+        ],
+        "envelopeId": "scene-controller-t02-r1",
         "sectionBindings": {
           "requirements": {
             "revision": "r5",
-            "sha256": "433d512ef05087d31d372c0dbcf7eb15d63151dc43bfb812a07dc35ad5c02e90"
+            "sha256": "a7153743948a0f01c9810c545652e49e02ac6ce8040cf423bfc5a152395780f4"
           },
           "design": {
             "revision": "r5",
-            "sha256": "763dfc070da0cbb6cd061dd3e97b037a6490d98c6805d33da25ebac8e34cdeb7"
+            "sha256": "8da60a3b23d7ff80a3d75d5b5978d42a11c1da545efee5e8561194dd0e95aa9f"
           },
           "tasks": {
             "revision": "r5",
-            "sha256": "166f220574a9174e6d595447d81f6081b07dcd1bd8b25ca1c7c3ac5f8379cf90"
+            "sha256": "0bb5e85cabffbebddb1d31a1a7068ced92c71961ec67181ae09cc7f943da4395"
           },
           "envelope": {
             "revision": "r5",
-            "sha256": "b3b6ea1aa150d85392d94d84553218e90e2c5cff576ae50112f812468015ee74"
+            "sha256": "119db5af18f99fe3014a754027c5a4d85b868cd023857f10778787ccfd62d60a"
+          }
+        }
+      },
+      {
+        "id": "t02-r6",
+        "answerIds": [],
+        "taskIds": [
+          "TR1",
+          "TC1",
+          "T1",
+          "T2"
+        ],
+        "envelopeId": "scene-controller-t02-r1",
+        "sectionBindings": {
+          "requirements": {
+            "revision": "r6",
+            "sha256": "a7153743948a0f01c9810c545652e49e02ac6ce8040cf423bfc5a152395780f4"
+          },
+          "design": {
+            "revision": "r6",
+            "sha256": "0ceae6d689101f67e98936aafc14bc48847b4067f171bd766f90e298af77e81a"
+          },
+          "tasks": {
+            "revision": "r6",
+            "sha256": "84aa2c245bfe887f57b18eaf1c13aa75f34fe96d48f5b5016938dd1e2df0fa26"
+          },
+          "envelope": {
+            "revision": "r6",
+            "sha256": "0c493b8423b0832c74421a72ce6a6c3f76934d14c5c7c96a08e487f32bfcb6c5"
+          }
+        }
+      },
+      {
+        "id": "t02-r7",
+        "answerIds": [],
+        "taskIds": [
+          "TR1",
+          "TC1",
+          "T1",
+          "T2"
+        ],
+        "envelopeId": "scene-controller-t02-r1",
+        "sectionBindings": {
+          "requirements": {
+            "revision": "r7",
+            "sha256": "a7153743948a0f01c9810c545652e49e02ac6ce8040cf423bfc5a152395780f4"
+          },
+          "design": {
+            "revision": "r7",
+            "sha256": "142884ebefcb2df2d36e7188dc6919dfd7a37e507d711b3df1cc993801a0bbc7"
+          },
+          "tasks": {
+            "revision": "r7",
+            "sha256": "79c37274681395b097f4bea752c4f30503b3c1d97a1e490781505a0b279e141e"
+          },
+          "envelope": {
+            "revision": "r7",
+            "sha256": "1fe7695f47a3a872e58552d73ac848e4efa42e6fbf598fa0491336b15a71d53c"
+          }
+        }
+      },
+      {
+        "id": "t02-r8",
+        "answerIds": [],
+        "taskIds": [
+          "TR1",
+          "TC1",
+          "T1",
+          "T2"
+        ],
+        "envelopeId": "scene-controller-t02-r1",
+        "sectionBindings": {
+          "requirements": {
+            "revision": "r8",
+            "sha256": "a7153743948a0f01c9810c545652e49e02ac6ce8040cf423bfc5a152395780f4"
+          },
+          "design": {
+            "revision": "r8",
+            "sha256": "333e5c8ca3ceb7be6a7e87e9a439a3465b46daa791e9a3fa8ab5d45ccf6fa6a0"
+          },
+          "tasks": {
+            "revision": "r8",
+            "sha256": "c61d56d70d4329c0c53ce6c5b475f15c0ea0cd244baf0eaac37a8698be63127b"
+          },
+          "envelope": {
+            "revision": "r8",
+            "sha256": "d7efd03f2051362744189bedff1b5128920edd2139e399b2fd650cda1ecc6766"
           }
         }
       }
     ],
-    "selectedBranchId": "t01-r5"
+    "selectedBranchId": "t02-r8"
   },
   "actors": {
     "plannerId": "planner",
@@ -73,67 +243,71 @@
   "requirements": [
     {
       "id": "R1",
-      "summary": "Blueprint metadata and ten button inputs (entity + action per button 1-5)"
+      "summary": "(checkbox 1; SUPERSEDES 01-R1's flat ten-key input map): `blueprint.input` is EXACTLY five mappings named `button_1`..`button_5` — one collapsible section per button. Each section mapping carries EXACTLY the keys `name` "
     },
     {
       "id": "R2",
-      "summary": "Event-only entity selectors and optional action selectors defaulting to empty"
+      "summary": "(checkbox 2; carries 01-R2): each section's nested input map carries EXACTLY five inputs: `button_N_entity` — a REQUIRED event-entity input (entity selector restricted to `domain: event`, NO `default` key) — plus four ac"
     },
     {
       "id": "R3",
-      "summary": "Imports into Home Assistant without error (owner-verified live, U1)"
+      "summary": "(carried 01-R3): the blueprint loads in Home Assistant (Settings -> Automations -> Blueprints) with no import error."
     },
     {
       "id": "R4",
-      "summary": "Pushed event on button N runs button N action; empty action is a no-op"
+      "summary": "(checkbox 3; SUPERSEDES 01-R4 push-only dispatch and 01-R5 non-pushed-runs-nothing): the automation dispatches each of the four event types — `pushed`, `held`, `doubleTapped`, `released` — on each button N to that button"
     },
     {
       "id": "R5",
-      "summary": "Held, doubleTapped, released events run nothing"
+      "summary": "(checkbox 4): the automation root carries `mode: parallel`, so two overlapping button presses (or a held-then-released pair) both run instead of aborting each other (runtime leg U1; the structural leg is the exact mode v"
     },
     {
       "id": "R6",
-      "summary": "One-command python3+PyYAML repo-local validation documented in README"
+      "summary": "(checkbox 5): HA's blueprint default configuration view shows ONLY the five collapsed section headers (\"Button 1\"..\"Button 5\" with their numbered icons), not ~20-25 loose fields (UI leg U1; the structural legs are R1's `"
     },
     {
       "id": "R7",
-      "summary": "Header comment documents four event types and MQTT/Hubitat origin"
+      "summary": "(carried 01-R7): the leading header comment documents the four supported event types and the MQTT/Hubitat origin of the event-entity pattern, per CONTEXT.md (01-D2 rule unchanged: provenance prose lives only in the heade"
     },
     {
       "id": "R8",
-      "summary": "Generic by design: no vendor, model, node id, room name, concrete entity id"
+      "summary": "(checkbox 6; carries 01-R8 revised): generic by design — only the button NUMBERING and the numbered `mdi` icons are fixed UI; no vendor, model, node id, room name, or concrete entity id is baked in anywhere (configuratio"
     },
     {
       "id": "R9",
-      "summary": "Scope fence: no ticket 02-09 features; mode: parallel is ticket 02; immutable ticket-01 input map"
+      "summary": "(checkbox 7; carries 01-R6): `python3 scripts/validate_blueprint.py blueprints/automation/generic_scene_controller.yaml` still exits 0 (on the restructured file), is still documented verbatim in README, and the unittest "
+    },
+    {
+      "id": "R10",
+      "summary": "(scope fence; revised 01-R9): everything from tickets 03-09 stays OUT: no `multiple: true` entity selectors (03), no central `variables:` (03), no `not_from: [unavailable, unknown]` restart guard (04), no smart toggle/cy"
     }
   ],
   "authorization": {
     "mode": "bounded",
-    "id": "auth-6cd9256d88f81b5c",
-    "packetDigest": "3403d4579574d7ca0e706010abb9dd2451d6e54c6fc737ace5e18d2c8e86cd71",
-    "selectedBranchId": "t01-r5",
+    "id": "b3ebc592195f1189687e6aa6607622278e38269b0ff2686f02f6eb5012d097b6",
+    "packetDigest": "a0a450e1f3fb368e60a096a3ac36c0f358de725dadea3a7e39e7522e155ace02",
+    "selectedBranchId": "t02-r8",
     "receipt": {
-      "sourceId": "src-owner-authorization-r5",
-      "recordedAt": "2026-11-22T15:15:00Z",
+      "sourceId": "src-owner-t02-implementation",
+      "recordedAt": "2026-11-22T18:05:00Z",
       "response": {
         "origin": "user",
         "explicit": true,
         "timedOut": false,
         "automatic": false,
-        "packetDigest": "3403d4579574d7ca0e706010abb9dd2451d6e54c6fc737ace5e18d2c8e86cd71",
-        "selectedBranchId": "t01-r5"
+        "packetDigest": "a0a450e1f3fb368e60a096a3ac36c0f358de725dadea3a7e39e7522e155ace02",
+        "selectedBranchId": "t02-r8"
       }
     }
   },
   "reviews": {
     "specification": {
       "verdict": "pass",
-      "reviewerId": "code-reviewer-01",
-      "packetDigest": "3403d4579574d7ca0e706010abb9dd2451d6e54c6fc737ace5e18d2c8e86cd71",
+      "reviewerId": "code-reviewer-t02",
+      "packetDigest": "a0a450e1f3fb368e60a096a3ac36c0f358de725dadea3a7e39e7522e155ace02",
       "receipt": {
-        "sourceId": "review-specification-0d102ad87241d248ecb4d253ef393277f8037da2b39c7ac7f71d6e4a92e1748a",
-        "recordedAt": "2026-11-22T14:45:00Z",
+        "sourceId": "review-specification-d73883dbb23ab03469e0b26498e9c491475908e1f8ff555a9b6161ac6fa25fba",
+        "recordedAt": "2026-11-22T17:57:33.761Z",
         "response": {
           "origin": "reviewer",
           "verdict": "pass"
@@ -142,11 +316,11 @@
     },
     "tasks": {
       "verdict": "pass",
-      "reviewerId": "critic-01",
-      "packetDigest": "3403d4579574d7ca0e706010abb9dd2451d6e54c6fc737ace5e18d2c8e86cd71",
+      "reviewerId": "critic-t02",
+      "packetDigest": "a0a450e1f3fb368e60a096a3ac36c0f358de725dadea3a7e39e7522e155ace02",
       "receipt": {
-        "sourceId": "review-tasks-09c09d0a225d615c0d7b1bc7ca9c73a5f5d04ba40bdd6b365bc050201068e185",
-        "recordedAt": "2026-11-22T15:09:00Z",
+        "sourceId": "review-tasks-fd90f5d5b8399b10bbe227c24241df0ece1644bbf587f4f9e454a1651e3a662e",
+        "recordedAt": "2026-11-22T18:01:24.236Z",
         "response": {
           "origin": "reviewer",
           "verdict": "pass"
@@ -156,66 +330,52 @@
   },
   "sources": [
     {
-      "id": "src-owner-continue-t01",
+      "id": "src-owner-continue-t02",
       "kind": "user-message",
       "artifact": {
-        "path": "/home/opencode/projects/default/generic_scene_controller_blueprint/.omp/artifacts/scene-controller-blueprint/owner-source-20261122-continue-t01.json",
-        "sha256": "78fe484636f68f3ca91c570a14447914337fa9b374c60f8c2565ba9ca9824951"
+        "path": "/home/opencode/projects/default/generic_scene_controller_blueprint/.omp/artifacts/scene-controller-blueprint/owner-source-20261122-continue-t02.json",
+        "sha256": "865f0c6c82fdb24a4f33b7433f0b3e8ebca7f8deb50a19e63703ee82125a556f"
       },
-      "locator": "Owner: \"continue ticket 01 review\" (2026-11-22 chat)",
-      "recordedAt": "2026-11-22T13:32:00Z"
+      "locator": "Owner: \"continue ticket 02\" (2026-11-22 chat)",
+      "recordedAt": "2026-11-22T15:45:00Z"
     },
     {
-      "id": "src-owner-proceed-t01-review-budget5",
-      "kind": "user-message",
-      "artifact": {
-        "path": "/home/opencode/projects/default/generic_scene_controller_blueprint/.omp/artifacts/scene-controller-blueprint/owner-source-20261122-proceed-review-budget5.json",
-        "sha256": "53d77e80b8b84a0e022746f918bf870477b2f7988b5913cead5daedd6601aedb"
-      },
-      "locator": "Owner: proceeds review with budget 5 until critic approve (2026-11-22 chat)",
-      "recordedAt": "2026-11-22T14:00:48.455Z"
-    },
-    {
-      "id": "review-specification-0d102ad87241d248ecb4d253ef393277f8037da2b39c7ac7f71d6e4a92e1748a",
+      "id": "review-specification-d73883dbb23ab03469e0b26498e9c491475908e1f8ff555a9b6161ac6fa25fba",
       "kind": "observation",
       "artifact": {
-        "path": "/home/opencode/projects/default/generic_scene_controller_blueprint/.omp/artifacts/scene-controller-blueprint/observation-code-review-spec-r5-20261122T144500Z.json",
-        "sha256": "840ed2ab78d55de54803e48ddf0d2bd1db34320af732a6839476f3daa6946726"
+        "path": "/home/opencode/projects/default/generic_scene_controller_blueprint/.omp/artifacts/scene-controller-blueprint/observation-code-review-spec-t02-r8-20261122T175733Z.json",
+        "sha256": "56e5643c50c9e70beb46913de10080c94f3cd620ff0a0d027c99f25d403309d3"
       },
-      "locator": "specification review observation for spec-scene-01@r5",
-      "recordedAt": "2026-11-22T14:45:00Z"
+      "locator": "specification review observation for spec-scene-02@r8",
+      "recordedAt": "2026-11-22T17:57:33.761Z"
     },
     {
-      "id": "review-tasks-09c09d0a225d615c0d7b1bc7ca9c73a5f5d04ba40bdd6b365bc050201068e185",
+      "id": "review-tasks-fd90f5d5b8399b10bbe227c24241df0ece1644bbf587f4f9e454a1651e3a662e",
       "kind": "observation",
       "artifact": {
-        "path": "/home/opencode/projects/default/generic_scene_controller_blueprint/.omp/artifacts/scene-controller-blueprint/observation-critic-spec-r5-20261122T150900Z.json",
-        "sha256": "24ea5ab52ebf4201dd500f31b9eb927f23ce5bf9d492dea2ec3d9e9fcea20593"
+        "path": "/home/opencode/projects/default/generic_scene_controller_blueprint/.omp/artifacts/scene-controller-blueprint/observation-critic-spec-t02-r8-20261122T180057Z.json",
+        "sha256": "b8cb02e09625a81ebc7251fa42cbf621401a852498cc1c2c99b92c0f96852435"
       },
-      "locator": "tasks review observation for spec-scene-01@r5",
-      "recordedAt": "2026-11-22T15:09:00Z"
+      "locator": "tasks review observation for spec-scene-02@r8",
+      "recordedAt": "2026-11-22T18:01:24.236Z"
     },
     {
-      "id": "src-owner-authorization-r5",
+      "id": "src-owner-t02-implementation",
       "kind": "user-message",
       "artifact": {
-        "path": "/home/opencode/projects/default/generic_scene_controller_blueprint/.omp/artifacts/scene-controller-blueprint/owner-authorization-20261122T151500Z.json",
-        "sha256": "9b0588cef952323826107f7fec32a1e8443d20ed3f253aa55b5c400ac2768eb3"
+        "path": "/home/opencode/projects/default/generic_scene_controller_blueprint/.omp/artifacts/scene-controller-blueprint/owner-authorization-t02-implementation.json",
+        "sha256": "117a9d23a48cd40c0a984ac8b671743f48dcc4494f43e642a4904f059e38598d"
       },
-      "locator": "owner chat 2026-11-22 (continue review, implement after critic PASS) + ask-form repair answer",
-      "recordedAt": "2026-11-22T15:15:00Z"
+      "locator": "omp session ask-form owner answers (extend_round/reset budget to 4; authorize implementation)",
+      "recordedAt": "2026-11-22T18:05:00Z"
     }
   ],
   "decisions": [],
   "envelope": {
-    "id": "scene-controller-t01-r5",
+    "id": "scene-controller-t02-r1",
     "root": "/home/opencode/projects/default/generic_scene_controller_blueprint",
     "allowedTaskIds": [
       "TR1",
-      "TR2",
-      "TR3",
-      "TR4",
-      "TR5",
       "TC1",
       "T1",
       "T2"
@@ -273,7 +433,7 @@
       },
       "acceptanceIds": [],
       "evidenceIds": [
-        "ev-tr1"
+        "ev-t02-tr1-research"
       ],
       "agentRoles": [
         "code-reviewer"
@@ -291,7 +451,7 @@
       },
       "acceptanceIds": [],
       "evidenceIds": [
-        "ev-tc1"
+        "ev-t02-tc1-research"
       ],
       "agentRoles": [
         "critic"
@@ -314,8 +474,7 @@
       },
       "acceptanceIds": [],
       "evidenceIds": [
-        "ev-t1-validator",
-        "ev-t1-tests"
+        "ev-t02-t1-implementation"
       ],
       "agentRoles": [
         "engineer"
@@ -344,95 +503,17 @@
         "AC8",
         "AC9",
         "AC10",
-        "AC11"
+        "AC11",
+        "AC12",
+        "AC13",
+        "AC14",
+        "AC15"
       ],
       "evidenceIds": [
-        "ev-ac1",
-        "ev-ac2",
-        "ev-ac3",
-        "ev-ac4",
-        "ev-ac5",
-        "ev-ac6",
-        "ev-ac7",
-        "ev-ac8",
-        "ev-ac9",
-        "ev-ac10",
-        "ev-ac11"
+        "ev-t02-t2-verification"
       ],
       "agentRoles": [
         "verifier"
-      ]
-    },
-    {
-      "id": "TR2",
-      "stage": "research",
-      "status": "done",
-      "blockedBy": [],
-      "requires": [],
-      "effects": {
-        "kind": "read",
-        "paths": []
-      },
-      "acceptanceIds": [],
-      "evidenceIds": [
-        "ev-tr2"
-      ],
-      "agentRoles": [
-        "code-reviewer"
-      ]
-    },
-    {
-      "id": "TR3",
-      "stage": "research",
-      "status": "done",
-      "blockedBy": [],
-      "requires": [],
-      "effects": {
-        "kind": "read",
-        "paths": []
-      },
-      "acceptanceIds": [],
-      "evidenceIds": [
-        "ev-tr3"
-      ],
-      "agentRoles": [
-        "code-reviewer"
-      ]
-    },
-    {
-      "id": "TR4",
-      "stage": "research",
-      "status": "done",
-      "blockedBy": [],
-      "requires": [],
-      "effects": {
-        "kind": "read",
-        "paths": []
-      },
-      "acceptanceIds": [],
-      "evidenceIds": [
-        "ev-tr4"
-      ],
-      "agentRoles": [
-        "code-reviewer"
-      ]
-    },
-    {
-      "id": "TR5",
-      "stage": "research",
-      "status": "done",
-      "blockedBy": [],
-      "requires": [],
-      "effects": {
-        "kind": "read",
-        "paths": []
-      },
-      "acceptanceIds": [],
-      "evidenceIds": [
-        "ev-tr5"
-      ],
-      "agentRoles": [
-        "code-reviewer"
       ]
     }
   ],
@@ -493,7 +574,8 @@
     {
       "id": "AC5",
       "requirementIds": [
-        "R3"
+        "R2",
+        "R4"
       ],
       "ownerTaskIds": [
         "T2"
@@ -506,7 +588,7 @@
     {
       "id": "AC6",
       "requirementIds": [
-        "R4"
+        "R3"
       ],
       "ownerTaskIds": [
         "T2"
@@ -519,7 +601,7 @@
     {
       "id": "AC7",
       "requirementIds": [
-        "R5"
+        "R4"
       ],
       "ownerTaskIds": [
         "T2"
@@ -532,7 +614,7 @@
     {
       "id": "AC8",
       "requirementIds": [
-        "R6"
+        "R4"
       ],
       "ownerTaskIds": [
         "T2"
@@ -545,7 +627,7 @@
     {
       "id": "AC9",
       "requirementIds": [
-        "R7"
+        "R4"
       ],
       "ownerTaskIds": [
         "T2"
@@ -558,7 +640,7 @@
     {
       "id": "AC10",
       "requirementIds": [
-        "R8"
+        "R5"
       ],
       "ownerTaskIds": [
         "T2"
@@ -571,7 +653,59 @@
     {
       "id": "AC11",
       "requirementIds": [
+        "R6"
+      ],
+      "ownerTaskIds": [
+        "T2"
+      ],
+      "method": "test",
+      "requiredEvidenceKinds": [
+        "test"
+      ]
+    },
+    {
+      "id": "AC12",
+      "requirementIds": [
+        "R7"
+      ],
+      "ownerTaskIds": [
+        "T2"
+      ],
+      "method": "test",
+      "requiredEvidenceKinds": [
+        "test"
+      ]
+    },
+    {
+      "id": "AC13",
+      "requirementIds": [
+        "R8"
+      ],
+      "ownerTaskIds": [
+        "T2"
+      ],
+      "method": "test",
+      "requiredEvidenceKinds": [
+        "test"
+      ]
+    },
+    {
+      "id": "AC14",
+      "requirementIds": [
         "R9"
+      ],
+      "ownerTaskIds": [
+        "T2"
+      ],
+      "method": "test",
+      "requiredEvidenceKinds": [
+        "test"
+      ]
+    },
+    {
+      "id": "AC15",
+      "requirementIds": [
+        "R10"
       ],
       "ownerTaskIds": [
         "T2"
@@ -584,730 +718,113 @@
   ],
   "evidence": [
     {
-      "id": "ev-t1-validator",
+      "id": "ev-t02-t1-implementation",
       "kind": "test",
       "artifact": {
-        "path": "/home/opencode/projects/default/generic_scene_controller_blueprint/.omp/artifacts/scene-controller-blueprint/t1-validator-20261122T152317Z.log",
-        "sha256": "6ed9148f362769297264318cd2f6a90aa5ea447a17732612ba6bed7222634276"
+        "path": "/home/opencode/projects/default/generic_scene_controller_blueprint/.omp/artifacts/receipt_T1.json",
+        "sha256": "40218cbce2532724dbd431faef3569a5a374048f6e6aebc67e26d9305eb71ae5"
       },
-      "feature": "scene-controller-blueprint",
-      "packetDigest": "3403d4579574d7ca0e706010abb9dd2451d6e54c6fc737ace5e18d2c8e86cd71",
-      "selectedBranchId": "t01-r5",
+      "feature": "scene-controller-t02",
+      "packetDigest": "a0a450e1f3fb368e60a096a3ac36c0f358de725dadea3a7e39e7522e155ace02",
+      "selectedBranchId": "t02-r8",
       "taskIds": [
         "T1"
       ],
       "acceptanceIds": [],
       "outcome": "pass",
-      "observedAt": "2026-11-22T15:23:17Z",
-      "producer": "coordinator-verification",
-      "details": {
-        "command": "python3 scripts/validate_blueprint.py blueprints/automation/generic_scene_controller.yaml",
-        "exitCode": 0
-      },
-      "contractAnchor": "f0fda77a3c9f9a05c6e9d644e0f85865d680a0cbe6fc3051e5378aceeaa3c553",
-      "executionInput": {
-        "argv": [
-          "python3",
-          "scripts/validate_blueprint.py",
-          "blueprints/automation/generic_scene_controller.yaml"
-        ],
-        "cwd": "/home/opencode/projects/default/generic_scene_controller_blueprint",
-        "timeoutMs": 120000,
-        "declaredInputs": [
-          {
-            "path": "/home/opencode/projects/default/generic_scene_controller_blueprint/README.md",
-            "sha256": "1dc9d191fcf817415c540f7be1c87920ab89bb6faf73ef056746c66a29e7d68c"
-          },
-          {
-            "path": "/home/opencode/projects/default/generic_scene_controller_blueprint/blueprints/automation/generic_scene_controller.yaml",
-            "sha256": "7f1faed1bdc1778d147f0d7c2096bfb0d930f81c8e7bcee8740b5fe791645af9"
-          },
-          {
-            "path": "/home/opencode/projects/default/generic_scene_controller_blueprint/scripts/validate_blueprint.py",
-            "sha256": "fe5a50ddc764fed3318fb197a56ec45e020d346ee2803b6aa0b3ed8a980297eb"
-          },
-          {
-            "path": "/home/opencode/projects/default/generic_scene_controller_blueprint/tests/test_validate_blueprint.py",
-            "sha256": "2768c7153d93f17b19ca5ede9e108b5a0bbf932992ac9a77297da93146b9f5f6"
-          }
-        ],
-        "effectPaths": [
-          {
-            "path": "/home/opencode/projects/default/generic_scene_controller_blueprint/README.md",
-            "sha256": "1dc9d191fcf817415c540f7be1c87920ab89bb6faf73ef056746c66a29e7d68c"
-          },
-          {
-            "path": "/home/opencode/projects/default/generic_scene_controller_blueprint/blueprints/automation/generic_scene_controller.yaml",
-            "sha256": "7f1faed1bdc1778d147f0d7c2096bfb0d930f81c8e7bcee8740b5fe791645af9"
-          },
-          {
-            "path": "/home/opencode/projects/default/generic_scene_controller_blueprint/scripts/validate_blueprint.py",
-            "sha256": "fe5a50ddc764fed3318fb197a56ec45e020d346ee2803b6aa0b3ed8a980297eb"
-          },
-          {
-            "path": "/home/opencode/projects/default/generic_scene_controller_blueprint/tests/test_validate_blueprint.py",
-            "sha256": "2768c7153d93f17b19ca5ede9e108b5a0bbf932992ac9a77297da93146b9f5f6"
-          }
-        ]
-      }
-    },
-    {
-      "id": "ev-t1-tests",
-      "kind": "test",
-      "artifact": {
-        "path": "/home/opencode/projects/default/generic_scene_controller_blueprint/.omp/artifacts/scene-controller-blueprint/t1-tests-20261122T152317Z.log",
-        "sha256": "bfe028275ddfa17516d87562163c9ffc9b526ac8496e4da8b1496713805460dc"
-      },
-      "feature": "scene-controller-blueprint",
-      "packetDigest": "3403d4579574d7ca0e706010abb9dd2451d6e54c6fc737ace5e18d2c8e86cd71",
-      "selectedBranchId": "t01-r5",
-      "taskIds": [
-        "T1"
-      ],
-      "acceptanceIds": [],
-      "outcome": "pass",
-      "observedAt": "2026-11-22T15:23:17Z",
-      "producer": "coordinator-verification",
+      "observedAt": "2026-11-22T18:17:33.094Z",
+      "producer": "engineer",
       "details": {
         "command": "python3 -m unittest discover -s tests -v",
         "exitCode": 0
-      },
-      "contractAnchor": "f0fda77a3c9f9a05c6e9d644e0f85865d680a0cbe6fc3051e5378aceeaa3c553",
-      "executionInput": {
-        "argv": [
-          "python3",
-          "-m",
-          "unittest",
-          "discover",
-          "-s",
-          "tests",
-          "-v"
-        ],
-        "cwd": "/home/opencode/projects/default/generic_scene_controller_blueprint",
-        "timeoutMs": 120000,
-        "declaredInputs": [
-          {
-            "path": "/home/opencode/projects/default/generic_scene_controller_blueprint/README.md",
-            "sha256": "1dc9d191fcf817415c540f7be1c87920ab89bb6faf73ef056746c66a29e7d68c"
-          },
-          {
-            "path": "/home/opencode/projects/default/generic_scene_controller_blueprint/blueprints/automation/generic_scene_controller.yaml",
-            "sha256": "7f1faed1bdc1778d147f0d7c2096bfb0d930f81c8e7bcee8740b5fe791645af9"
-          },
-          {
-            "path": "/home/opencode/projects/default/generic_scene_controller_blueprint/scripts/validate_blueprint.py",
-            "sha256": "fe5a50ddc764fed3318fb197a56ec45e020d346ee2803b6aa0b3ed8a980297eb"
-          },
-          {
-            "path": "/home/opencode/projects/default/generic_scene_controller_blueprint/tests/test_validate_blueprint.py",
-            "sha256": "2768c7153d93f17b19ca5ede9e108b5a0bbf932992ac9a77297da93146b9f5f6"
-          }
-        ],
-        "effectPaths": [
-          {
-            "path": "/home/opencode/projects/default/generic_scene_controller_blueprint/README.md",
-            "sha256": "1dc9d191fcf817415c540f7be1c87920ab89bb6faf73ef056746c66a29e7d68c"
-          },
-          {
-            "path": "/home/opencode/projects/default/generic_scene_controller_blueprint/blueprints/automation/generic_scene_controller.yaml",
-            "sha256": "7f1faed1bdc1778d147f0d7c2096bfb0d930f81c8e7bcee8740b5fe791645af9"
-          },
-          {
-            "path": "/home/opencode/projects/default/generic_scene_controller_blueprint/scripts/validate_blueprint.py",
-            "sha256": "fe5a50ddc764fed3318fb197a56ec45e020d346ee2803b6aa0b3ed8a980297eb"
-          },
-          {
-            "path": "/home/opencode/projects/default/generic_scene_controller_blueprint/tests/test_validate_blueprint.py",
-            "sha256": "2768c7153d93f17b19ca5ede9e108b5a0bbf932992ac9a77297da93146b9f5f6"
-          }
-        ]
       }
     },
     {
-      "id": "ev-ac1",
+      "id": "ev-t02-t2-verification",
       "kind": "test",
       "artifact": {
-        "path": "/home/opencode/projects/default/generic_scene_controller_blueprint/.omp/artifacts/scene-controller-blueprint/t1-validator-20261122T152317Z.log",
-        "sha256": "6ed9148f362769297264318cd2f6a90aa5ea447a17732612ba6bed7222634276"
+        "path": "/home/opencode/projects/default/generic_scene_controller_blueprint/.omp/artifacts/receipt_T2.json",
+        "sha256": "d83a75b0b7406e8cca5a48a865ef516f0302d18bc21a66bcbcabf73e94c3d07a"
       },
-      "feature": "scene-controller-blueprint",
-      "packetDigest": "3403d4579574d7ca0e706010abb9dd2451d6e54c6fc737ace5e18d2c8e86cd71",
-      "selectedBranchId": "t01-r5",
+      "feature": "scene-controller-t02",
+      "packetDigest": "a0a450e1f3fb368e60a096a3ac36c0f358de725dadea3a7e39e7522e155ace02",
+      "selectedBranchId": "t02-r8",
       "taskIds": [
         "T2"
       ],
       "acceptanceIds": [
-        "AC1"
+        "AC1",
+        "AC2",
+        "AC3",
+        "AC4",
+        "AC5",
+        "AC6",
+        "AC7",
+        "AC8",
+        "AC9",
+        "AC10",
+        "AC11",
+        "AC12",
+        "AC13",
+        "AC14",
+        "AC15"
       ],
       "outcome": "pass",
-      "observedAt": "2026-11-22T15:25:00Z",
-      "producer": "Ticket01Verify",
-      "details": {
-        "command": "python3 scripts/validate_blueprint.py blueprints/automation/generic_scene_controller.yaml",
-        "exitCode": 0
-      },
-      "contractAnchor": "251ef0b95af7031b99c343197f35cba0c699076ba0757e262f05bcf76adae82e",
-      "executionInput": {
-        "argv": [
-          "python3",
-          "scripts/validate_blueprint.py",
-          "blueprints/automation/generic_scene_controller.yaml"
-        ],
-        "cwd": "/home/opencode/projects/default/generic_scene_controller_blueprint",
-        "timeoutMs": 120000,
-        "declaredInputs": [],
-        "effectPaths": []
-      }
-    },
-    {
-      "id": "ev-ac2",
-      "kind": "test",
-      "artifact": {
-        "path": "/home/opencode/projects/default/generic_scene_controller_blueprint/.omp/artifacts/scene-controller-blueprint/t1-validator-20261122T152317Z.log",
-        "sha256": "6ed9148f362769297264318cd2f6a90aa5ea447a17732612ba6bed7222634276"
-      },
-      "feature": "scene-controller-blueprint",
-      "packetDigest": "3403d4579574d7ca0e706010abb9dd2451d6e54c6fc737ace5e18d2c8e86cd71",
-      "selectedBranchId": "t01-r5",
-      "taskIds": [
-        "T2"
-      ],
-      "acceptanceIds": [
-        "AC2"
-      ],
-      "outcome": "pass",
-      "observedAt": "2026-11-22T15:25:00Z",
-      "producer": "Ticket01Verify",
-      "details": {
-        "command": "python3 scripts/validate_blueprint.py blueprints/automation/generic_scene_controller.yaml",
-        "exitCode": 0
-      },
-      "contractAnchor": "251ef0b95af7031b99c343197f35cba0c699076ba0757e262f05bcf76adae82e",
-      "executionInput": {
-        "argv": [
-          "python3",
-          "scripts/validate_blueprint.py",
-          "blueprints/automation/generic_scene_controller.yaml"
-        ],
-        "cwd": "/home/opencode/projects/default/generic_scene_controller_blueprint",
-        "timeoutMs": 120000,
-        "declaredInputs": [],
-        "effectPaths": []
-      }
-    },
-    {
-      "id": "ev-ac3",
-      "kind": "test",
-      "artifact": {
-        "path": "/home/opencode/projects/default/generic_scene_controller_blueprint/.omp/artifacts/scene-controller-blueprint/t1-validator-20261122T152317Z.log",
-        "sha256": "6ed9148f362769297264318cd2f6a90aa5ea447a17732612ba6bed7222634276"
-      },
-      "feature": "scene-controller-blueprint",
-      "packetDigest": "3403d4579574d7ca0e706010abb9dd2451d6e54c6fc737ace5e18d2c8e86cd71",
-      "selectedBranchId": "t01-r5",
-      "taskIds": [
-        "T2"
-      ],
-      "acceptanceIds": [
-        "AC3"
-      ],
-      "outcome": "pass",
-      "observedAt": "2026-11-22T15:25:00Z",
-      "producer": "Ticket01Verify",
-      "details": {
-        "command": "python3 scripts/validate_blueprint.py blueprints/automation/generic_scene_controller.yaml",
-        "exitCode": 0
-      },
-      "contractAnchor": "251ef0b95af7031b99c343197f35cba0c699076ba0757e262f05bcf76adae82e",
-      "executionInput": {
-        "argv": [
-          "python3",
-          "scripts/validate_blueprint.py",
-          "blueprints/automation/generic_scene_controller.yaml"
-        ],
-        "cwd": "/home/opencode/projects/default/generic_scene_controller_blueprint",
-        "timeoutMs": 120000,
-        "declaredInputs": [],
-        "effectPaths": []
-      }
-    },
-    {
-      "id": "ev-ac4",
-      "kind": "test",
-      "artifact": {
-        "path": "/home/opencode/projects/default/generic_scene_controller_blueprint/.omp/artifacts/scene-controller-blueprint/t1-validator-20261122T152317Z.log",
-        "sha256": "6ed9148f362769297264318cd2f6a90aa5ea447a17732612ba6bed7222634276"
-      },
-      "feature": "scene-controller-blueprint",
-      "packetDigest": "3403d4579574d7ca0e706010abb9dd2451d6e54c6fc737ace5e18d2c8e86cd71",
-      "selectedBranchId": "t01-r5",
-      "taskIds": [
-        "T2"
-      ],
-      "acceptanceIds": [
-        "AC4"
-      ],
-      "outcome": "pass",
-      "observedAt": "2026-11-22T15:25:00Z",
-      "producer": "Ticket01Verify",
-      "details": {
-        "command": "python3 scripts/validate_blueprint.py blueprints/automation/generic_scene_controller.yaml",
-        "exitCode": 0
-      },
-      "contractAnchor": "251ef0b95af7031b99c343197f35cba0c699076ba0757e262f05bcf76adae82e",
-      "executionInput": {
-        "argv": [
-          "python3",
-          "scripts/validate_blueprint.py",
-          "blueprints/automation/generic_scene_controller.yaml"
-        ],
-        "cwd": "/home/opencode/projects/default/generic_scene_controller_blueprint",
-        "timeoutMs": 120000,
-        "declaredInputs": [],
-        "effectPaths": []
-      }
-    },
-    {
-      "id": "ev-ac5",
-      "kind": "test",
-      "artifact": {
-        "path": "/home/opencode/projects/default/generic_scene_controller_blueprint/.omp/artifacts/scene-controller-blueprint/t1-validator-20261122T152317Z.log",
-        "sha256": "6ed9148f362769297264318cd2f6a90aa5ea447a17732612ba6bed7222634276"
-      },
-      "feature": "scene-controller-blueprint",
-      "packetDigest": "3403d4579574d7ca0e706010abb9dd2451d6e54c6fc737ace5e18d2c8e86cd71",
-      "selectedBranchId": "t01-r5",
-      "taskIds": [
-        "T2"
-      ],
-      "acceptanceIds": [
-        "AC5"
-      ],
-      "outcome": "pass",
-      "observedAt": "2026-11-22T15:25:00Z",
-      "producer": "Ticket01Verify",
-      "details": {
-        "command": "python3 scripts/validate_blueprint.py blueprints/automation/generic_scene_controller.yaml",
-        "exitCode": 0
-      },
-      "contractAnchor": "251ef0b95af7031b99c343197f35cba0c699076ba0757e262f05bcf76adae82e",
-      "executionInput": {
-        "argv": [
-          "python3",
-          "scripts/validate_blueprint.py",
-          "blueprints/automation/generic_scene_controller.yaml"
-        ],
-        "cwd": "/home/opencode/projects/default/generic_scene_controller_blueprint",
-        "timeoutMs": 120000,
-        "declaredInputs": [],
-        "effectPaths": []
-      }
-    },
-    {
-      "id": "ev-ac6",
-      "kind": "test",
-      "artifact": {
-        "path": "/home/opencode/projects/default/generic_scene_controller_blueprint/.omp/artifacts/scene-controller-blueprint/t1-tests-20261122T152317Z.log",
-        "sha256": "bfe028275ddfa17516d87562163c9ffc9b526ac8496e4da8b1496713805460dc"
-      },
-      "feature": "scene-controller-blueprint",
-      "packetDigest": "3403d4579574d7ca0e706010abb9dd2451d6e54c6fc737ace5e18d2c8e86cd71",
-      "selectedBranchId": "t01-r5",
-      "taskIds": [
-        "T2"
-      ],
-      "acceptanceIds": [
-        "AC6"
-      ],
-      "outcome": "pass",
-      "observedAt": "2026-11-22T15:25:00Z",
-      "producer": "Ticket01Verify",
+      "observedAt": "2026-11-22T18:21:03.084Z",
+      "producer": "verifier",
       "details": {
         "command": "python3 -m unittest discover -s tests -v",
         "exitCode": 0
-      },
-      "contractAnchor": "251ef0b95af7031b99c343197f35cba0c699076ba0757e262f05bcf76adae82e",
-      "executionInput": {
-        "argv": [
-          "python3",
-          "-m",
-          "unittest",
-          "discover",
-          "-s",
-          "tests",
-          "-v"
-        ],
-        "cwd": "/home/opencode/projects/default/generic_scene_controller_blueprint",
-        "timeoutMs": 120000,
-        "declaredInputs": [],
-        "effectPaths": []
       }
     },
     {
-      "id": "ev-ac7",
-      "kind": "test",
-      "artifact": {
-        "path": "/home/opencode/projects/default/generic_scene_controller_blueprint/.omp/artifacts/scene-controller-blueprint/t1-validator-20261122T152317Z.log",
-        "sha256": "6ed9148f362769297264318cd2f6a90aa5ea447a17732612ba6bed7222634276"
-      },
-      "feature": "scene-controller-blueprint",
-      "packetDigest": "3403d4579574d7ca0e706010abb9dd2451d6e54c6fc737ace5e18d2c8e86cd71",
-      "selectedBranchId": "t01-r5",
-      "taskIds": [
-        "T2"
-      ],
-      "acceptanceIds": [
-        "AC7"
-      ],
-      "outcome": "pass",
-      "observedAt": "2026-11-22T15:25:00Z",
-      "producer": "Ticket01Verify",
-      "details": {
-        "command": "python3 scripts/validate_blueprint.py blueprints/automation/generic_scene_controller.yaml",
-        "exitCode": 0
-      },
-      "contractAnchor": "251ef0b95af7031b99c343197f35cba0c699076ba0757e262f05bcf76adae82e",
-      "executionInput": {
-        "argv": [
-          "python3",
-          "scripts/validate_blueprint.py",
-          "blueprints/automation/generic_scene_controller.yaml"
-        ],
-        "cwd": "/home/opencode/projects/default/generic_scene_controller_blueprint",
-        "timeoutMs": 120000,
-        "declaredInputs": [],
-        "effectPaths": []
-      }
-    },
-    {
-      "id": "ev-ac8",
-      "kind": "test",
-      "artifact": {
-        "path": "/home/opencode/projects/default/generic_scene_controller_blueprint/.omp/artifacts/scene-controller-blueprint/t2-readme-grep-20261122T152500Z.log",
-        "sha256": "7bd523bbaeb69a04175c703df13cc547ad145294b75059f4f710a19e871f41d2"
-      },
-      "feature": "scene-controller-blueprint",
-      "packetDigest": "3403d4579574d7ca0e706010abb9dd2451d6e54c6fc737ace5e18d2c8e86cd71",
-      "selectedBranchId": "t01-r5",
-      "taskIds": [
-        "T2"
-      ],
-      "acceptanceIds": [
-        "AC8"
-      ],
-      "outcome": "pass",
-      "observedAt": "2026-11-22T15:25:00Z",
-      "producer": "Ticket01Verify",
-      "details": {
-        "command": "grep -n \"python3 scripts/validate_blueprint.py blueprints/automation/generic_scene_controller.yaml\" README.md",
-        "exitCode": 0
-      },
-      "contractAnchor": "251ef0b95af7031b99c343197f35cba0c699076ba0757e262f05bcf76adae82e",
-      "executionInput": {
-        "argv": [
-          "grep",
-          "-n",
-          "python3 scripts/validate_blueprint.py blueprints/automation/generic_scene_controller.yaml",
-          "README.md"
-        ],
-        "cwd": "/home/opencode/projects/default/generic_scene_controller_blueprint",
-        "timeoutMs": 120000,
-        "declaredInputs": [],
-        "effectPaths": []
-      }
-    },
-    {
-      "id": "ev-ac9",
-      "kind": "test",
-      "artifact": {
-        "path": "/home/opencode/projects/default/generic_scene_controller_blueprint/.omp/artifacts/scene-controller-blueprint/t1-validator-20261122T152317Z.log",
-        "sha256": "6ed9148f362769297264318cd2f6a90aa5ea447a17732612ba6bed7222634276"
-      },
-      "feature": "scene-controller-blueprint",
-      "packetDigest": "3403d4579574d7ca0e706010abb9dd2451d6e54c6fc737ace5e18d2c8e86cd71",
-      "selectedBranchId": "t01-r5",
-      "taskIds": [
-        "T2"
-      ],
-      "acceptanceIds": [
-        "AC9"
-      ],
-      "outcome": "pass",
-      "observedAt": "2026-11-22T15:25:00Z",
-      "producer": "Ticket01Verify",
-      "details": {
-        "command": "python3 scripts/validate_blueprint.py blueprints/automation/generic_scene_controller.yaml",
-        "exitCode": 0
-      },
-      "contractAnchor": "251ef0b95af7031b99c343197f35cba0c699076ba0757e262f05bcf76adae82e",
-      "executionInput": {
-        "argv": [
-          "python3",
-          "scripts/validate_blueprint.py",
-          "blueprints/automation/generic_scene_controller.yaml"
-        ],
-        "cwd": "/home/opencode/projects/default/generic_scene_controller_blueprint",
-        "timeoutMs": 120000,
-        "declaredInputs": [],
-        "effectPaths": []
-      }
-    },
-    {
-      "id": "ev-ac10",
-      "kind": "test",
-      "artifact": {
-        "path": "/home/opencode/projects/default/generic_scene_controller_blueprint/.omp/artifacts/scene-controller-blueprint/t1-validator-20261122T152317Z.log",
-        "sha256": "6ed9148f362769297264318cd2f6a90aa5ea447a17732612ba6bed7222634276"
-      },
-      "feature": "scene-controller-blueprint",
-      "packetDigest": "3403d4579574d7ca0e706010abb9dd2451d6e54c6fc737ace5e18d2c8e86cd71",
-      "selectedBranchId": "t01-r5",
-      "taskIds": [
-        "T2"
-      ],
-      "acceptanceIds": [
-        "AC10"
-      ],
-      "outcome": "pass",
-      "observedAt": "2026-11-22T15:25:00Z",
-      "producer": "Ticket01Verify",
-      "details": {
-        "command": "python3 scripts/validate_blueprint.py blueprints/automation/generic_scene_controller.yaml",
-        "exitCode": 0
-      },
-      "contractAnchor": "251ef0b95af7031b99c343197f35cba0c699076ba0757e262f05bcf76adae82e",
-      "executionInput": {
-        "argv": [
-          "python3",
-          "scripts/validate_blueprint.py",
-          "blueprints/automation/generic_scene_controller.yaml"
-        ],
-        "cwd": "/home/opencode/projects/default/generic_scene_controller_blueprint",
-        "timeoutMs": 120000,
-        "declaredInputs": [],
-        "effectPaths": []
-      }
-    },
-    {
-      "id": "ev-ac11",
-      "kind": "test",
-      "artifact": {
-        "path": "/home/opencode/projects/default/generic_scene_controller_blueprint/.omp/artifacts/scene-controller-blueprint/t1-validator-20261122T152317Z.log",
-        "sha256": "6ed9148f362769297264318cd2f6a90aa5ea447a17732612ba6bed7222634276"
-      },
-      "feature": "scene-controller-blueprint",
-      "packetDigest": "3403d4579574d7ca0e706010abb9dd2451d6e54c6fc737ace5e18d2c8e86cd71",
-      "selectedBranchId": "t01-r5",
-      "taskIds": [
-        "T2"
-      ],
-      "acceptanceIds": [
-        "AC11"
-      ],
-      "outcome": "pass",
-      "observedAt": "2026-11-22T15:25:00Z",
-      "producer": "Ticket01Verify",
-      "details": {
-        "command": "python3 scripts/validate_blueprint.py blueprints/automation/generic_scene_controller.yaml",
-        "exitCode": 0
-      },
-      "contractAnchor": "251ef0b95af7031b99c343197f35cba0c699076ba0757e262f05bcf76adae82e",
-      "executionInput": {
-        "argv": [
-          "python3",
-          "scripts/validate_blueprint.py",
-          "blueprints/automation/generic_scene_controller.yaml"
-        ],
-        "cwd": "/home/opencode/projects/default/generic_scene_controller_blueprint",
-        "timeoutMs": 120000,
-        "declaredInputs": [],
-        "effectPaths": []
-      }
-    },
-    {
-      "id": "ev-tr1",
+      "id": "ev-t02-tr1-research",
       "kind": "inspection",
       "artifact": {
-        "path": "/home/opencode/projects/default/generic_scene_controller_blueprint/.omp/artifacts/scene-controller-blueprint/observation-code-review-spec-r1-20261122T134500Z.json",
-        "sha256": "e34500454c6ef21cea4030876705464d96189fc3e30296df9074156c51ac0d6e"
+        "path": "/home/opencode/projects/default/generic_scene_controller_blueprint/.omp/artifacts/scene-controller-blueprint/observation-code-review-spec-t02-r8-20261122T175733Z.json",
+        "sha256": "56e5643c50c9e70beb46913de10080c94f3cd620ff0a0d027c99f25d403309d3"
       },
-      "feature": "scene-controller-blueprint",
-      "packetDigest": "3403d4579574d7ca0e706010abb9dd2451d6e54c6fc737ace5e18d2c8e86cd71",
-      "selectedBranchId": "t01-r5",
+      "feature": "scene-controller-t02",
+      "packetDigest": "a0a450e1f3fb368e60a096a3ac36c0f358de725dadea3a7e39e7522e155ace02",
+      "selectedBranchId": "t02-r8",
       "taskIds": [
         "TR1"
       ],
       "acceptanceIds": [],
       "outcome": "pass",
-      "observedAt": "2026-11-22T15:27:00Z",
-      "producer": "coordinator",
+      "observedAt": "2026-11-22T18:21:58.839Z",
+      "producer": "code-reviewer",
       "details": {
-        "rubric": "round 1 CodeReviewer binding",
-        "observedOutcome": "REQUEST CHANGES (6 blocking)"
-      },
-      "contractAnchor": "79a3ec7bee28e55e58b49434ffba6d942d1d12838827185a7cca755b31a6dfd9",
-      "executionInput": {
-        "argv": [],
-        "cwd": "/home/opencode/projects/default/generic_scene_controller_blueprint",
-        "timeoutMs": 120000,
-        "declaredInputs": [],
-        "effectPaths": []
+        "rubric": "TR1: read ticket-02 issues, CONTEXT.md and ticket-01 blueprint/validator; record routing requirements",
+        "observedOutcome": "Ticket-02 inputs read; specification review routed with no unresolved research requirement"
       }
     },
     {
-      "id": "ev-tr2",
+      "id": "ev-t02-tc1-research",
       "kind": "inspection",
       "artifact": {
-        "path": "/home/opencode/projects/default/generic_scene_controller_blueprint/.omp/artifacts/scene-controller-blueprint/spec-canonical-r2.md",
-        "sha256": "fc004918d8b0bb256307a3e3fc301efd294e397a876dba766a4f8221edeb1505"
+        "path": "/home/opencode/projects/default/generic_scene_controller_blueprint/.omp/artifacts/scene-controller-blueprint/observation-critic-spec-t02-r8-20261122T180057Z.json",
+        "sha256": "b8cb02e09625a81ebc7251fa42cbf621401a852498cc1c2c99b92c0f96852435"
       },
-      "feature": "scene-controller-blueprint",
-      "packetDigest": "3403d4579574d7ca0e706010abb9dd2451d6e54c6fc737ace5e18d2c8e86cd71",
-      "selectedBranchId": "t01-r5",
-      "taskIds": [
-        "TR2"
-      ],
-      "acceptanceIds": [],
-      "outcome": "pass",
-      "observedAt": "2026-11-22T15:27:00Z",
-      "producer": "coordinator",
-      "details": {
-        "rubric": "round 2 planner repair",
-        "observedOutcome": "r2 repair authored; reviewer run 2 unbound, correction noted"
-      },
-      "contractAnchor": "4fa7b462b6e9f06ad7d332db44fd3546253f0e4edf6578116d763794da3d7f95",
-      "executionInput": {
-        "argv": [],
-        "cwd": "/home/opencode/projects/default/generic_scene_controller_blueprint",
-        "timeoutMs": 120000,
-        "declaredInputs": [],
-        "effectPaths": []
-      }
-    },
-    {
-      "id": "ev-tr3",
-      "kind": "inspection",
-      "artifact": {
-        "path": "/home/opencode/projects/default/generic_scene_controller_blueprint/.omp/artifacts/scene-controller-blueprint/observation-code-review-spec-r3-20261122T142500Z.json",
-        "sha256": "f0dc0a5571a1dcb0d73904d1a7a287a76a66063d606e196d8c6885c66c2254ab"
-      },
-      "feature": "scene-controller-blueprint",
-      "packetDigest": "3403d4579574d7ca0e706010abb9dd2451d6e54c6fc737ace5e18d2c8e86cd71",
-      "selectedBranchId": "t01-r5",
-      "taskIds": [
-        "TR3"
-      ],
-      "acceptanceIds": [],
-      "outcome": "pass",
-      "observedAt": "2026-11-22T15:27:00Z",
-      "producer": "coordinator",
-      "details": {
-        "rubric": "round 3 CodeReviewer binding",
-        "observedOutcome": "REQUEST CHANGES"
-      },
-      "contractAnchor": "06b1824ec59728c75c0cac8c96f721495c2a7087b8cf1f26b775be426670f2ce",
-      "executionInput": {
-        "argv": [],
-        "cwd": "/home/opencode/projects/default/generic_scene_controller_blueprint",
-        "timeoutMs": 120000,
-        "declaredInputs": [],
-        "effectPaths": []
-      }
-    },
-    {
-      "id": "ev-tr4",
-      "kind": "inspection",
-      "artifact": {
-        "path": "/home/opencode/projects/default/generic_scene_controller_blueprint/.omp/artifacts/scene-controller-blueprint/observation-code-review-spec-r4-20261122T144000Z.json",
-        "sha256": "72f3c4149272a81c74fff6b9621b17c8039e09abdd6e549e06f48360d4b4d48d"
-      },
-      "feature": "scene-controller-blueprint",
-      "packetDigest": "3403d4579574d7ca0e706010abb9dd2451d6e54c6fc737ace5e18d2c8e86cd71",
-      "selectedBranchId": "t01-r5",
-      "taskIds": [
-        "TR4"
-      ],
-      "acceptanceIds": [],
-      "outcome": "pass",
-      "observedAt": "2026-11-22T15:27:00Z",
-      "producer": "coordinator",
-      "details": {
-        "rubric": "round 4 CodeReviewer binding",
-        "observedOutcome": "REQUEST CHANGES"
-      },
-      "contractAnchor": "acade3c91c3af736d7c197873dfc453de52eb7c57d4f21d8261bfe1a226cdf2e",
-      "executionInput": {
-        "argv": [],
-        "cwd": "/home/opencode/projects/default/generic_scene_controller_blueprint",
-        "timeoutMs": 120000,
-        "declaredInputs": [],
-        "effectPaths": []
-      }
-    },
-    {
-      "id": "ev-tr5",
-      "kind": "inspection",
-      "artifact": {
-        "path": "/home/opencode/projects/default/generic_scene_controller_blueprint/.omp/artifacts/scene-controller-blueprint/observation-code-review-spec-r5-20261122T144500Z.json",
-        "sha256": "840ed2ab78d55de54803e48ddf0d2bd1db34320af732a6839476f3daa6946726"
-      },
-      "feature": "scene-controller-blueprint",
-      "packetDigest": "3403d4579574d7ca0e706010abb9dd2451d6e54c6fc737ace5e18d2c8e86cd71",
-      "selectedBranchId": "t01-r5",
-      "taskIds": [
-        "TR5"
-      ],
-      "acceptanceIds": [],
-      "outcome": "pass",
-      "observedAt": "2026-11-22T15:27:00Z",
-      "producer": "coordinator",
-      "details": {
-        "rubric": "round 5 CodeReviewer binding",
-        "observedOutcome": "APPROVE"
-      },
-      "contractAnchor": "6811d80618cb016d66467a8c75c14bfe8e9d5e5de0375f0c33dec70386982a49",
-      "executionInput": {
-        "argv": [],
-        "cwd": "/home/opencode/projects/default/generic_scene_controller_blueprint",
-        "timeoutMs": 120000,
-        "declaredInputs": [],
-        "effectPaths": []
-      }
-    },
-    {
-      "id": "ev-tc1",
-      "kind": "inspection",
-      "artifact": {
-        "path": "/home/opencode/projects/default/generic_scene_controller_blueprint/.omp/artifacts/scene-controller-blueprint/observation-critic-spec-r5-20261122T150900Z.json",
-        "sha256": "24ea5ab52ebf4201dd500f31b9eb927f23ce5bf9d492dea2ec3d9e9fcea20593"
-      },
-      "feature": "scene-controller-blueprint",
-      "packetDigest": "3403d4579574d7ca0e706010abb9dd2451d6e54c6fc737ace5e18d2c8e86cd71",
-      "selectedBranchId": "t01-r5",
+      "feature": "scene-controller-t02",
+      "packetDigest": "a0a450e1f3fb368e60a096a3ac36c0f358de725dadea3a7e39e7522e155ace02",
+      "selectedBranchId": "t02-r8",
       "taskIds": [
         "TC1"
       ],
       "acceptanceIds": [],
       "outcome": "pass",
-      "observedAt": "2026-11-22T15:27:00Z",
-      "producer": "coordinator",
+      "observedAt": "2026-11-22T18:21:58.839Z",
+      "producer": "critic",
       "details": {
-        "rubric": "TC1 critic gate binding",
-        "observedOutcome": "PASS"
-      },
-      "contractAnchor": "f0d28cbb969f603c6728fee428a01bbd49f08bf1a5c06164c263495904e63050",
-      "executionInput": {
-        "argv": [],
-        "cwd": "/home/opencode/projects/default/generic_scene_controller_blueprint",
-        "timeoutMs": 120000,
-        "declaredInputs": [],
-        "effectPaths": []
+        "rubric": "TC1: independent architecture/constraint review of ticket-01 baseline and ticket-02 plan",
+        "observedOutcome": "Critic PASS on r8 with C4/C5 noted as non-blocking"
       }
     }
   ],
   "blockers": [],
   "gate": {
-    "markerPath": "/home/opencode/projects/default/generic_scene_controller_blueprint/.omp/plans/scene-controller-blueprint/marker.json",
+    "markerPath": "/home/opencode/projects/default/generic_scene_controller_blueprint/.omp/plans/scene-controller-t02/marker.json",
     "activationEvidenceIds": []
   }
 }

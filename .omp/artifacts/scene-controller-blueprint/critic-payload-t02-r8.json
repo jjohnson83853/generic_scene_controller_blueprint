@@ -1,0 +1,14 @@
+{
+  "i": "Dispatching critic on SPEC-SCENE-02 r8",
+  "context": "{\"instructions\":\"Critic SpecDD gate review of SPEC-SCENE-02 revision 8 (candidate /home/opencode/projects/default/generic_scene_controller_blueprint/.omp/artifacts/scene-controller-blueprint/spec-canonical-t02-r8.md sha256 60dffcdf5e539b75635f6d77764de1c52f1fa11676726321b1525b3bce921490). Verify the reopened C2 is now decided: the U1 owner procedure configures distinguishable nonempty actions, keeps the first run active across the second trigger, captures traces proving both distinct executions and overlap, tests the empty-slot no-op, fixes one evidence file per step, and forbids acceptance while unverified. Verify C4 inventory correction. Also check ticket-02 checkbox coverage, R1-R10 to AC1-AC15 traceability with falsifiable oracles, T1/T2 ownership and RED/GREEN order, no ticket 03-09 feature, generic fences, corrected HA save consequence, no tautology, review honesty. Read candidate whole, ticket 02, CONTEXT.md, ticket-01 r5 spec, current implementation. Verdict format EXACT: literal line ### Recommendation followed by exactly one of APPROVE / REQUEST CHANGES / COMMENT. No edits.\",\"workflowDispatch\":{\"statePath\":\"/home/opencode/projects/default/generic_scene_controller_blueprint/.omp/plans/execution-state.json\",\"schemaVersion\":1,\"projectRoot\":\"/home/opencode/projects/default/generic_scene_controller_blueprint\",\"feature\":\"scene-controller-t02\",\"revision\":\"r8\",\"requests\":[{\"name\":\"SpecScene02Critic8\",\"taskId\":\"TC1\",\"agent\":\"critic\",\"effects\":{\"kind\":\"read\",\"paths\":[]},\"targetCandidateId\":\"spec-scene-02\",\"targetRevision\":\"r8\"}]}}",
+  "tasks": [
+    {
+      "name": "SpecScene02Critic8",
+      "agent": "critic",
+      "task": "Critic SpecDD/TDD gate for SPEC-SCENE-02 revision 8 (ticket 02 collapsible button sections).\n\n# Target\nCandidate spec file named in context, whole file.\n\n# Scope\nDecide C2 (decisive configured-dispatch/parallel/no-op owner procedure) and C4 (measured inventory); then ticket coverage, AC oracles, T1/T2 ownership, generic fences, scope exclusions, review honesty.\n\n# Non-goals\nNo implementation, no file edits, no tickets 03-09.\n\n# Acceptance\nConcise findings; then EXACTLY ONE verdict block: ### Recommendation followed by exactly one of APPROVE, REQUEST CHANGES, COMMENT.",
+      "solutionSpace": "single specification candidate; binary gate verdict",
+      "targetCandidateId": "spec-scene-02",
+      "targetRevision": "r8"
+    }
+  ]
+}

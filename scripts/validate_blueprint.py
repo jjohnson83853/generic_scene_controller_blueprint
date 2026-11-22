@@ -13,14 +13,19 @@ from yaml.nodes import ScalarNode
 import yaml
 
 
-EXPECTED_ROOT_KEYS = {"blueprint", "trigger", "action"}
-INPUT_KEYS = {
-    f"button_{number}_{kind}"
-    for number in range(1, 6)
-    for kind in ("entity", "action")
+BUTTON_NUMBERS = range(1, 6)
+EVENT_TYPES = ("pushed", "held", "doubleTapped", "released")
+ROOT_KEYS = {"blueprint", "trigger", "action", "mode"}
+SECTION_KEYS = {f"button_{number}" for number in BUTTON_NUMBERS}
+SECTION_FIELDS = {"name", "description", "collapsed", "icon", "input"}
+SECTION_INPUT_KEYS = {
+    f"button_{number}_{event}"
+    for number in BUTTON_NUMBERS
+    for event in ("entity", *EVENT_TYPES)
 }
 TRIGGER_KEYS = {"platform", "entity_id", "id"}
 BRANCH_KEYS = {"conditions", "sequence"}
+BANNED_SCOPE_KEYS = {"variables", "multiple", "not_from", "mdi"}
 CURATED_DOMAINS = (
     "event",
     "light",
@@ -47,15 +52,6 @@ CURATED_DOMAIN_TOKEN_PATTERN = re.compile(
 )
 IPV4_PATTERN = re.compile(r"\b(?:\d{1,3}\.){3}\d{1,3}\b")
 WILDCARD_PATTERN = re.compile(r"(?:[^.\s]+\.\*|\*\.[^.\s]+)\Z")
-SCOPE_FENCE_KEYS = {
-    "mode",
-    "variables",
-    "multiple",
-    "not_from",
-    "collapsed",
-    "icon",
-    "mdi",
-}
 BANNED_ROOM_TOKENS = (
     "master bedroom",
     "master_bedroom",
@@ -122,56 +118,86 @@ def check_metadata(document: object) -> None:
         fail("blueprint.domain must be automation")
     if not isinstance(blueprint.get("input"), dict):
         fail("blueprint.input must be a mapping")
+    homeassistant = blueprint.get("homeassistant")
+    if not isinstance(homeassistant, dict) or homeassistant.get("min_version") != "2024.6.0":
+        fail('blueprint.homeassistant.min_version must be the string "2024.6.0"')
 
 
-def check_inputs(document: dict) -> None:
-    blueprint = document["blueprint"]
-    inputs = blueprint["input"]
-    actual_keys = set(inputs)
-    if actual_keys != INPUT_KEYS:
-        missing = sorted(INPUT_KEYS - actual_keys)
-        extra = sorted(actual_keys - INPUT_KEYS, key=str)
-        fail(f"input keys must be exactly the ten button entity/action keys (missing={missing}, extra={extra})")
+def check_sections(document: dict) -> None:
+    inputs = document["blueprint"]["input"]
+    if set(inputs) != SECTION_KEYS:
+        fail("blueprint.input must contain exactly button_1 through button_5")
+    for number in BUTTON_NUMBERS:
+        if not isinstance(inputs[f"button_{number}"], dict):
+            fail(f"button_{number} must be a mapping")
 
-    for number in range(1, 6):
-        for kind in ("entity", "action"):
-            key = f"button_{number}_{kind}"
-            entry = inputs[key]
+
+def check_section_appearance(document: dict) -> None:
+    inputs = document["blueprint"]["input"]
+    for number in BUTTON_NUMBERS:
+        key = f"button_{number}"
+        section = inputs[key]
+        if set(section) != SECTION_FIELDS:
+            fail(f"{key} must contain exactly name, description, collapsed, icon, and input")
+        if section.get("name") != f"Button {number}":
+            fail(f"{key}.name must be Button {number}")
+        if not nonempty_text(section.get("description")):
+            fail(f"{key}.description must be non-empty")
+        if section.get("collapsed") is not True:
+            fail(f"{key}.collapsed must be the boolean true")
+        if section.get("icon") != f"mdi:numeric-{number}-box-outline":
+            fail(f"{key}.icon must be mdi:numeric-{number}-box-outline")
+
+
+def expected_section_input_keys(number: int) -> set[str]:
+    return {f"button_{number}_{event}" for event in ("entity", *EVENT_TYPES)}
+
+
+def check_section_inputs(document: dict) -> None:
+    sections = document["blueprint"]["input"]
+    for number in BUTTON_NUMBERS:
+        key = f"button_{number}"
+        entries = sections[key]["input"]
+        if not isinstance(entries, dict) or set(entries) != expected_section_input_keys(number):
+            fail(f"{key}.input must contain its event entity and four action slots")
+        for entry_name, entry in entries.items():
             if not isinstance(entry, dict):
-                fail(f"{key} must be a mapping")
+                fail(f"{entry_name} must be a mapping")
             if not nonempty_text(entry.get("name")) or not nonempty_text(entry.get("description")):
-                fail(f"{key} must have non-empty name and description")
-        if "default" in inputs[f"button_{number}_entity"]:
-            fail(f"button_{number}_entity must not have a default")
+                fail(f"{entry_name} must have non-empty name and description")
+        entity_key = f"button_{number}_entity"
+        if entries[entity_key].get("default") != "":
+            fail(f"{entity_key} must default to the empty string")
 
 
 def check_entity_selectors(document: dict) -> None:
-    inputs = document["blueprint"]["input"]
-    for number in range(1, 6):
-        key = f"button_{number}_entity"
-        selector = as_mapping(inputs[key].get("selector"))
+    sections = document["blueprint"]["input"]
+    for number in BUTTON_NUMBERS:
+        entry = sections[f"button_{number}"]["input"][f"button_{number}_entity"]
+        selector = as_mapping(entry.get("selector"))
         entity_selector = as_mapping(selector.get("entity"))
         if entity_selector.get("domain") != "event":
-            fail(f"{key} selector must restrict entity domain to event")
+            fail(f"button_{number}_entity selector must restrict entity domain to event")
 
 
-def check_action_selectors(document: dict) -> None:
-    inputs = document["blueprint"]["input"]
-    for number in range(1, 6):
-        key = f"button_{number}_action"
-        entry = inputs[key]
-        selector = as_mapping(entry.get("selector"))
-        if selector.get("action") != {}:
-            fail(f"{key} must use the action selector")
-        if entry.get("default") != []:
-            fail(f"{key} must default to an empty action sequence")
+def check_action_slots(document: dict) -> None:
+    sections = document["blueprint"]["input"]
+    for number in BUTTON_NUMBERS:
+        entries = sections[f"button_{number}"]["input"]
+        for event in EVENT_TYPES:
+            key = f"button_{number}_{event}"
+            entry = entries[key]
+            selector = as_mapping(entry.get("selector"))
+            if selector.get("action") != {}:
+                fail(f"{key} must use the action selector")
+            if entry.get("default") != []:
+                fail(f"{key} must default to an empty action sequence")
 
 
 def check_triggers(document: dict) -> None:
     triggers = document.get("trigger")
     if not isinstance(triggers, list) or len(triggers) != 5:
         fail("trigger must contain exactly five state triggers")
-
     for number, trigger in enumerate(triggers, start=1):
         expected_input = f"button_{number}_entity"
         if not isinstance(trigger, dict) or set(trigger) != TRIGGER_KEYS:
@@ -185,10 +211,10 @@ def check_triggers(document: dict) -> None:
             fail(f"trigger {number} id must be button_{number}")
 
 
-def canonical_condition(number: int) -> str:
+def canonical_condition(number: int, event: str) -> str:
     return (
         f"trigger.id == 'button_{number}' and trigger.to_state is not none and "
-        "trigger.to_state.attributes.get('event_type') == 'pushed'"
+        f"trigger.to_state.attributes.get('event_type') == '{event}'"
     )
 
 
@@ -198,32 +224,28 @@ def check_dispatch(document: dict) -> None:
         fail("action must contain exactly one choose step")
     action_step = actions[0]
     if not isinstance(action_step, dict) or set(action_step) != {"choose"}:
-        fail("the sole action step must be a choose mapping")
-
+        fail("the sole action step must contain only choose")
     branches = action_step["choose"]
-    if not isinstance(branches, list) or len(branches) != 5:
-        fail("choose must contain exactly five branches and no default")
+    expected_branches = [(number, event) for number in BUTTON_NUMBERS for event in EVENT_TYPES]
+    if not isinstance(branches, list) or len(branches) != len(expected_branches):
+        fail("choose must be a list of exactly twenty branches")
 
-    for number, branch in enumerate(branches, start=1):
+    for index, (number, event) in enumerate(expected_branches, start=1):
+        branch = branches[index - 1]
         if not isinstance(branch, dict) or set(branch) != BRANCH_KEYS:
-            fail(f"branch {number} must contain exactly conditions and sequence")
+            fail(f"branch {index} must contain exactly conditions and sequence")
         conditions = branch["conditions"]
         if isinstance(conditions, list):
             if len(conditions) != 1:
-                fail(f"branch {number} conditions must be one template string")
+                fail(f"branch {index} conditions must be one canonical template")
             conditions = conditions[0]
-        if not isinstance(conditions, str):
-            fail(f"branch {number} conditions must be a template string")
-        raw_template = conditions.strip()
-        if not raw_template.startswith("{{") or not raw_template.endswith("}}"):
-            fail(f"branch {number} condition must include {{ and }} template delimiters")
-        expression = " ".join(raw_template[2:-2].split())
-        if expression != canonical_condition(number):
-            fail(f"branch {number} condition must equal the canonical pushed-event expression")
-        action_reference = branch["sequence"]
-        expected_action = f"button_{number}_action"
-        if not isinstance(action_reference, InputReference) or action_reference.name != expected_action:
-            fail(f"branch {number} sequence must reference !input {expected_action}")
+        expected_condition = "{{ " + canonical_condition(number, event) + " }}"
+        if not isinstance(conditions, str) or conditions != expected_condition:
+            fail(f"branch {index} conditions must equal the canonical {event} template")
+        expected_input = f"button_{number}_{event}"
+        sequence = branch["sequence"]
+        if not isinstance(sequence, InputReference) or sequence.name != expected_input:
+            fail(f"branch {index} sequence must reference !input {expected_input}")
 
 
 def leading_header(lines: list[str]) -> tuple[str, int | None]:
@@ -237,8 +259,7 @@ def leading_header(lines: list[str]) -> tuple[str, int | None]:
 
 
 def check_header(text: str) -> None:
-    lines = text.splitlines()
-    header, document_start = leading_header(lines)
+    header, document_start = leading_header(text.splitlines())
     if document_start is None:
         fail("the first YAML document-start line (---) is required")
     for token in HEADER_TOKENS:
@@ -298,52 +319,72 @@ def check_genericity(text: str, document: dict) -> None:
     outside_header = "\n".join(lines[header_line_count:])
     if "hubitat" in outside_header.casefold():
         fail("hubitat is allowed only in the leading comment block")
-
     reason = scan_generic_configuration(document)
     if reason is not None:
         fail(reason)
 
 
-def check_scope_fence(document: dict) -> None:
-    def find_banned_key(value: object) -> str | None:
-        if isinstance(value, dict):
-            for key, child in value.items():
-                if isinstance(key, str) and key.casefold() in SCOPE_FENCE_KEYS:
-                    return key
-                reason = find_banned_key(child)
-                if reason is not None:
-                    return reason
-        elif isinstance(value, list):
-            for child in value:
-                reason = find_banned_key(child)
-                if reason is not None:
-                    return reason
-        return None
+def scope_violation(value: object, path: tuple[str, ...] = ()) -> str | None:
+    if isinstance(value, dict):
+        for key, child in value.items():
+            key_name = key.casefold() if isinstance(key, str) else ""
+            if key_name in BANNED_SCOPE_KEYS:
+                return f"configuration key {key!r} is not allowed"
+            if key_name == "mode" and path:
+                return "mode is allowed only at the automation root"
+            if key_name in {"collapsed", "icon"}:
+                section_path = (
+                    len(path) == 3
+                    and path[:2] == ("blueprint", "input")
+                    and path[2] in SECTION_KEYS
+                )
+                if not section_path:
+                    return f"configuration key {key!r} is allowed only on a button section"
+            reason = scope_violation(child, path + (key,)) if isinstance(key, str) else scope_violation(child, path)
+            if reason is not None:
+                return reason
+    elif isinstance(value, list):
+        for child in value:
+            reason = scope_violation(child, path)
+            if reason is not None:
+                return reason
+    return None
 
-    banned_key = find_banned_key(document)
-    if banned_key is not None:
-        fail(f"configuration key {banned_key!r} is outside ticket 01 scope")
-    if not isinstance(document, dict) or set(document) != EXPECTED_ROOT_KEYS:
+
+def check_root_mode(document: object) -> None:
+    if not isinstance(document, dict) or set(document) != ROOT_KEYS:
         actual = sorted(document, key=str) if isinstance(document, dict) else type(document).__name__
-        fail(f"root keys must be exactly {sorted(EXPECTED_ROOT_KEYS)} (found {actual})")
+        fail(f"root keys must be exactly {sorted(ROOT_KEYS)} (found {actual})")
+    if document.get("mode") != "parallel":
+        fail("root mode must be parallel")
+
+
+def check_scope_fence(document: dict) -> None:
+    reason = scope_violation(document)
+    if reason is not None:
+        fail(reason)
+
 
 def validate(text: str, document: Any) -> None:
     checks: tuple[tuple[int, str, Callable[[], None]], ...] = (
         (2, "blueprint_metadata", lambda: check_metadata(document)),
-        (3, "button_inputs_required_and_exact", lambda: check_inputs(document)),
-        (4, "entity_selectors_domain_event", lambda: check_entity_selectors(document)),
-        (5, "action_selectors_optional", lambda: check_action_selectors(document)),
-        (6, "state_triggers", lambda: check_triggers(document)),
-        (7, "action_dispatch_pushed", lambda: check_dispatch(document)),
-        (8, "header_comment", lambda: check_header(text)),
-        (9, "generic_denylist", lambda: check_genericity(text, document)),
-        (10, "scope_fence_keys", lambda: check_scope_fence(document)),
+        (3, "button_sections_exact", lambda: check_sections(document)),
+        (4, "section_collapsed_icon", lambda: check_section_appearance(document)),
+        (5, "section_input_slots", lambda: check_section_inputs(document)),
+        (6, "entity_selectors_domain_event", lambda: check_entity_selectors(document)),
+        (7, "action_slots_optional", lambda: check_action_slots(document)),
+        (8, "state_triggers", lambda: check_triggers(document)),
+        (9, "four_event_dispatch", lambda: check_dispatch(document)),
+        (10, "header_comment", lambda: check_header(text)),
+        (11, "generic_denylist", lambda: check_genericity(text, document)),
+        (12, "root_mode_parallel", lambda: check_root_mode(document)),
+        (13, "scope_fence_keys", lambda: check_scope_fence(document)),
     )
     for assertion_number, assertion_name, check in checks:
         try:
             check()
         except ValidationFailure as error:
-            raise ValidationFailure(f"a{assertion_number}: {error}") from error
+            raise ValidationFailure(f"assertion_number={assertion_number} {error}") from error
         print(f"PASS A{assertion_number} {assertion_name}")
 
 
@@ -355,8 +396,8 @@ def main(arguments: list[str]) -> int:
     blueprint_path = Path(arguments[0])
     try:
         text = blueprint_path.read_text(encoding="utf-8")
-    except OSError as error:
-        print(f"blueprint file not found or unreadable: {blueprint_path} ({error.strerror})", file=sys.stderr)
+    except (OSError, UnicodeError) as error:
+        print(f"blueprint file not found or unreadable: {blueprint_path} ({error})", file=sys.stderr)
         return 2
 
     try:
@@ -369,14 +410,12 @@ def main(arguments: list[str]) -> int:
     try:
         validate(text, document)
     except ValidationFailure as error:
-        message = str(error)
-        match = re.fullmatch(r"assertion_number=(\d+) (.*)", message, re.DOTALL)
-        if match:
-            assertion_number = int(match.group(1))
-            reason = match.group(2)
+        prefix, separator, reason = str(error).partition(" ")
+        if separator and prefix.startswith("assertion_number="):
+            assertion_number = prefix.removeprefix("assertion_number=")
             print(f"a{assertion_number}: {reason}", file=sys.stderr)
         else:
-            print(f"validation failed: {message}", file=sys.stderr)
+            print(f"validation failed: {error}", file=sys.stderr)
         return 1
     return 0
 

@@ -1,0 +1,65 @@
+{
+  "role": "critic",
+  "reviewerId": "critic-t02",
+  "candidateId": "spec-scene-02",
+  "revision": "r8",
+  "authorIds": [
+    "planner"
+  ],
+  "inputs": [
+    {
+      "path": "/home/opencode/projects/default/generic_scene_controller_blueprint/.omp/artifacts/scene-controller-blueprint/spec-canonical-t02-r8.md",
+      "sha256": "60dffcdf5e539b75635f6d77764de1c52f1fa11676726321b1525b3bce921490"
+    },
+    {
+      "path": "/home/opencode/projects/default/generic_scene_controller_blueprint/.scratch/scene-controller-blueprint/issues/02-collapsible-button-sections.md",
+      "sha256": "b62a6a1bca9910c7fbbbdb8b05289c88f167a0ed7b570b2c4b5a9195a4de2f83"
+    },
+    {
+      "path": "/home/opencode/projects/default/generic_scene_controller_blueprint/.scratch/scene-controller-blueprint/CONTEXT.md",
+      "sha256": "795a1f7f23c1efb5840bccbded24aa40f911ecfc52c04b5122f6a21afa592d68"
+    },
+    {
+      "path": "/home/opencode/projects/default/generic_scene_controller_blueprint/blueprints/automation/generic_scene_controller.yaml",
+      "sha256": "7f1faed1bdc1778d147f0d7c2096bfb0d930f81c8e7bcee8740b5fe791645af9"
+    },
+    {
+      "path": "/home/opencode/projects/default/generic_scene_controller_blueprint/scripts/validate_blueprint.py",
+      "sha256": "fe5a50ddc764fed3318fb197a56ec45e020d346ee2803b6aa0b3ed8a980297eb"
+    },
+    {
+      "path": "/home/opencode/projects/default/generic_scene_controller_blueprint/tests/test_validate_blueprint.py",
+      "sha256": "2768c7153d93f17b19ca5ede9e108b5a0bbf932992ac9a77297da93146b9f5f6"
+    },
+    {
+      "path": "/home/opencode/projects/default/generic_scene_controller_blueprint/README.md",
+      "sha256": "1dc9d191fcf817415c540f7be1c87920ab89bb6faf73ef056746c66a29e7d68c"
+    }
+  ],
+  "dispatches": [
+    {
+      "name": "SpecScene02Rev08",
+      "agent": "code-reviewer",
+      "reviewerId": "code-reviewer-t02",
+      "taskId": "TR1",
+      "requestSha256": "92b929c12673dff719eac723fbcd99e8067b6711d4ed33dd9192b79e18387aa7",
+      "taskSha256": "0f27cfa0e157935bd1886cc86d8450f32bbd245d1c9363d96b0f685aedcac1bf",
+      "instructionsSha256": "c8bdbed71422e857ffa286ebff76eaa332e4b882fcb55c83f2b9d04626b08318",
+      "targetCandidateId": "spec-scene-02",
+      "targetRevision": "r8"
+    },
+    {
+      "name": "SpecScene02Critic8",
+      "agent": "critic",
+      "reviewerId": "critic-t02",
+      "taskId": "TC1",
+      "requestSha256": "b4a9f5c154668719ee46cc5318430fad509b6d71df401eb3ad940011fdcfb20e",
+      "taskSha256": "7765306d00a952c77ff684a7e57121b2bb6b4be80a4396d8b3db1c3e19fbbebc",
+      "instructionsSha256": "ddaa1ce6dd07e378d6a074198ee86f838ff3faf371bad1834c07ccf5c325b916",
+      "targetCandidateId": "spec-scene-02",
+      "targetRevision": "r8"
+    }
+  ],
+  "output": "Spec ID: SPEC-SCENE-02\nRevision: 8\nFindings by ID: C4, C5\n\nReviewed `.omp/artifacts/scene-controller-blueprint/spec-canonical-t02-r8.md` whole, against ticket 02, CONTEXT.md, ticket-01 r5, current implementation, and the candidate-bound r8 CodeReviewer observation.\n\n**C2 CLOSED — procedure verified, not runtime.** §6 U1 steps 4–6 require distinguishable nonempty actions, the first automation run remaining active across the second trigger, traces proving overlap and correct distinct execution, and an empty-slot no-op without errors. Six fixed evidence filenames and the prohibition on acceptance while unverified are explicit. Sequential traces cannot satisfy the amended oracle.\n\n**C4 MINOR residual — high confidence.** D13(4), AC14(e), and §9 item 12 correctly distinguish the covered guard condition from its uncovered body and abandon an exhaustive premeasurement inventory. Confirmed against `scripts/validate_blueprint.py:354-385`. However, the prescribed JSON fields contain counts, not uncovered line identities; calling that file the authoritative “inventory” overstates its contents. Minimal amendment: say “measured slack count,” or include uncovered line numbers. This retains the original C4 accuracy invariant; the guard-count correction is verified.\n\n**C5 MINOR — high confidence.** §6 U1 step 4 permits two slots on one button, whereas step 5 requires configured slots on different buttons. That setup cannot proceed unchanged. Amend step 4 to “two slots belonging to two different buttons.” This is an r8 setup-consistency issue, not reopening C2: step 5 already prevents inadequate evidence from satisfying acceptance.\n\n**Coverage:** Seven ticket checkboxes map through R1–R10 to AC1–AC15. Structural oracles have mutation-based failures rather than merely self-referential pass claims. T1 owns production and permanent tests, with RED preceding implementation; T2 depends on T1 and owns independent verification. Genericity/path fences, explicit ticket-01 supersessions, ticket 03–09 exclusions, corrected HA save consequence, proportionate §7 observability exceptions, and repo/HA-copy rollback boundaries are covered.\n\n**Limits:** No edits, tests, shell commands, live HA observations, or independent digest recomputation. Supplied binding records identify the candidate. Coverage percentages and U1 outcomes remain unverified; technical PASS neither establishes acceptance nor grants execution permission.\n\n### Verdict\nPASS",
+  "invocationId": "omp:01a20373-631d-71b2-b24a-535173463774:eval:critic-t02-r8"
+}

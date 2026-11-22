@@ -1,0 +1,59 @@
+{
+  "task_id": "T2",
+  "status": "COMPLETED",
+  "artifact_receipt": ".omp/artifacts/receipt_T2.json",
+  "telemetry_ref": null,
+  "summary": "T2 PASS: validator exit 0 A1-A13; suite exit 0 (5 tests); coverage 301/318 = 94.65% (>=90, measurable>0); README grep verbatim. U1 runtime legs unverified. Non-blocking: A9 whitespace normalization stricter than spec; A7/A9/A11/A12 assertion names differ.",
+  "error_code": null,
+  "commands": [
+    {
+      "command": "python3 scripts/validate_blueprint.py blueprints/automation/generic_scene_controller.yaml",
+      "exit_code": 0,
+      "result": "PASS A1 parse_yaml through PASS A13 scope_fence_keys, all 13 in order."
+    },
+    {
+      "command": "python3 -m unittest discover -s tests -v",
+      "exit_code": 0,
+      "result": "Ran 5 tests, OK. Coverage evidence /tmp/tmpgl8r7mmi/coverage-evidence-t02.json: production_file scripts/validate_blueprint.py, measurable 318, covered 301, percentage 94.65, cases 70."
+    },
+    {
+      "command": "grep -n \"python3 scripts/validate_blueprint.py blueprints/automation/generic_scene_controller.yaml\" README.md",
+      "exit_code": 0,
+      "result": "README.md:24 verbatim command line."
+    }
+  ],
+  "changed_files": [],
+  "findings": [
+    {
+      "severity": "MEDIUM",
+      "area": "A9 conditions oracle",
+      "detail": "Spec A9 sanctions trim + internal-whitespace-collapse normalization; implementation requires exact canonical spacing. Spec-valid variants (no space inside braces, collapsed extra spaces, trailing inner spaces) exit 1 at a9. No AC8 fixture or positive case exercises these variants."
+    },
+    {
+      "severity": "LOW",
+      "area": "assertion names",
+      "detail": "Delivered A7 action_slots_optional, A9 four_event_dispatch, A11 generic_denylist, A12 root_mode_parallel differ from spec names action_slots_default_empty, action_dispatch_four_events, genericity_fence, mode_parallel_root_keys. Numeric IDs and behavior match; README endpoints match."
+    },
+    {
+      "severity": "LOW",
+      "area": "suite positive oracle",
+      "detail": "test_real_blueprint_passes_all_assertions asserts only PASS A<n> substrings, not names or order, so it cannot detect the naming drift above."
+    }
+  ],
+  "coverage_evidence": {
+    "path": "/tmp/tmpgl8r7mmi/coverage-evidence-t02.json",
+    "production_file": "scripts/validate_blueprint.py",
+    "measurable": 318,
+    "covered": 301,
+    "percentage": 94.65,
+    "cases": 70
+  },
+  "u1_unverified": [
+    "AC6 live HA import",
+    "AC8 configured-slot runtime dispatch",
+    "AC9 empty-slot runtime no-op",
+    "AC10 overlapping-press runtime",
+    "AC11 collapsed-view rendering",
+    "D10 blank-entity SAVE rejection"
+  ]
+}

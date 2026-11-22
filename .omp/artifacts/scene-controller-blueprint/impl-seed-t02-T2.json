@@ -1,0 +1,30 @@
+{
+  "intent": "Dispatching verifier on T2 of SPEC-SCENE-02 r8",
+  "instructions": "Independently verify T2 of SPEC-SCENE-02 r8 from a clean shell; read-only, no writes. Canonical spec: /home/opencode/projects/default/generic_scene_controller_blueprint/.omp/artifacts/scene-controller-blueprint/spec-canonical-t02-r8.md (sha256 60dffcdf5e539b75635f6d77764de1c52f1fa11676726321b1525b3bce921490). Run and record exact command + exit code: (1) python3 scripts/validate_blueprint.py blueprints/automation/generic_scene_controller.yaml (expect 0; record A1-A13 pass list), (2) python3 -m unittest discover -s tests -v (expect 0, including the offline stdlib in-process coverage gate leg: measurable>0, >=90% of scripts/validate_blueprint.py), (3) the README validation command grep (expect verbatim match). Check structurally: five collapsible sections with their five keys, each section five inputs with entity default \"\" plus four action slots default [], one four-event choose in list form under mode: parallel, A1-A13 assertions falsifiable, genericity fences (no concrete entity/person/room/node ids), ticket 03-09 features absent. Independently judge coverage evidence and flag any hint that it is self-referential. Report commands, outputs, and AC-by-AC verdict; write .omp/artifacts/receipt_T2.json per the harness receipt contract.",
+  "workflowDispatch": {
+    "statePath": "/home/opencode/projects/default/generic_scene_controller_blueprint/.omp/plans/execution-state.json",
+    "schemaVersion": 1,
+    "projectRoot": "/home/opencode/projects/default/generic_scene_controller_blueprint",
+    "feature": "scene-controller-t02",
+    "revision": "r8",
+    "requests": [
+      {
+        "name": "Ticket02BlueprintVerify",
+        "taskId": "T2",
+        "agent": "verifier",
+        "effects": {
+          "kind": "test",
+          "paths": []
+        }
+      }
+    ]
+  },
+  "tasks": [
+    {
+      "name": "Ticket02BlueprintVerify",
+      "agent": "verifier",
+      "task": "Verify SPEC-SCENE-02 r8 T2 in /home/opencode/projects/default/generic_scene_controller_blueprint.\n\n# Target\nRead-only verification of the four delivered files against the canonical spec.\n\n# Change\nNone; run the declared commands and structural checks.\n\n# Acceptance\nEvery T2 command exits as specified; AC1-AC15 evidence recorded; coverage gate verified with real measured numbers; no ticket 03-09 feature; receipt written.\n\n# Non-goals\nNo edits, no reruns of failing commands to confirm.",
+      "solutionSpace": "one independent verification per the reviewed specification"
+    }
+  ]
+}

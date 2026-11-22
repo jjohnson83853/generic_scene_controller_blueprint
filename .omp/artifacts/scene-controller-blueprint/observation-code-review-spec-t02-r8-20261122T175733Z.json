@@ -1,0 +1,65 @@
+{
+  "role": "code-reviewer",
+  "reviewerId": "code-reviewer-t02",
+  "candidateId": "spec-scene-02",
+  "revision": "r8",
+  "authorIds": [
+    "planner"
+  ],
+  "inputs": [
+    {
+      "path": "/home/opencode/projects/default/generic_scene_controller_blueprint/.omp/artifacts/scene-controller-blueprint/spec-canonical-t02-r8.md",
+      "sha256": "60dffcdf5e539b75635f6d77764de1c52f1fa11676726321b1525b3bce921490"
+    },
+    {
+      "path": "/home/opencode/projects/default/generic_scene_controller_blueprint/.scratch/scene-controller-blueprint/issues/02-collapsible-button-sections.md",
+      "sha256": "b62a6a1bca9910c7fbbbdb8b05289c88f167a0ed7b570b2c4b5a9195a4de2f83"
+    },
+    {
+      "path": "/home/opencode/projects/default/generic_scene_controller_blueprint/.scratch/scene-controller-blueprint/CONTEXT.md",
+      "sha256": "795a1f7f23c1efb5840bccbded24aa40f911ecfc52c04b5122f6a21afa592d68"
+    },
+    {
+      "path": "/home/opencode/projects/default/generic_scene_controller_blueprint/blueprints/automation/generic_scene_controller.yaml",
+      "sha256": "7f1faed1bdc1778d147f0d7c2096bfb0d930f81c8e7bcee8740b5fe791645af9"
+    },
+    {
+      "path": "/home/opencode/projects/default/generic_scene_controller_blueprint/scripts/validate_blueprint.py",
+      "sha256": "fe5a50ddc764fed3318fb197a56ec45e020d346ee2803b6aa0b3ed8a980297eb"
+    },
+    {
+      "path": "/home/opencode/projects/default/generic_scene_controller_blueprint/tests/test_validate_blueprint.py",
+      "sha256": "2768c7153d93f17b19ca5ede9e108b5a0bbf932992ac9a77297da93146b9f5f6"
+    },
+    {
+      "path": "/home/opencode/projects/default/generic_scene_controller_blueprint/README.md",
+      "sha256": "1dc9d191fcf817415c540f7be1c87920ab89bb6faf73ef056746c66a29e7d68c"
+    }
+  ],
+  "dispatches": [
+    {
+      "name": "SpecScene02Rev08",
+      "agent": "code-reviewer",
+      "reviewerId": "code-reviewer-t02",
+      "taskId": "TR1",
+      "requestSha256": "92b929c12673dff719eac723fbcd99e8067b6711d4ed33dd9192b79e18387aa7",
+      "taskSha256": "0f27cfa0e157935bd1886cc86d8450f32bbd245d1c9363d96b0f685aedcac1bf",
+      "instructionsSha256": "c8bdbed71422e857ffa286ebff76eaa332e4b882fcb55c83f2b9d04626b08318",
+      "targetCandidateId": "spec-scene-02",
+      "targetRevision": "r8"
+    },
+    {
+      "name": "SpecScene02Critic8",
+      "agent": "critic",
+      "reviewerId": "critic-t02",
+      "taskId": "TC1",
+      "requestSha256": "b4a9f5c154668719ee46cc5318430fad509b6d71df401eb3ad940011fdcfb20e",
+      "taskSha256": "7765306d00a952c77ff684a7e57121b2bb6b4be80a4396d8b3db1c3e19fbbebc",
+      "instructionsSha256": "ddaa1ce6dd07e378d6a074198ee86f838ff3faf371bad1834c07ccf5c325b916",
+      "targetCandidateId": "spec-scene-02",
+      "targetRevision": "r8"
+    }
+  ],
+  "output": "## Code Review Summary\n**Mode:** specification · repair pass 7 · candidate `.omp/artifacts/scene-controller-blueprint/spec-canonical-t02-r8.md` (224 lines, read whole; sha binding confirmed via `.omp/plans/execution-state.json`). Cross-checked ticket 02, CONTEXT.md, ticket-01 r5, validator (385 L), tests, blueprint, README, envelope. **Limits:** no shell/git/HA; sha recompute, `git status`, suite execution unrun.\n\n**Findings: 2 LOW (advisory).**\n\n[LOW][spec-text accuracy] Evidence file cannot be the \"measured inventory\". Loc: §3 D13(4)/(5) L41; §5 AC14(e) L128; §9 item 12 L223. Evidence: D13(5) fixes fields `production_file, measurable, covered, percentage, cases`; no uncovered-line field, yet D13(4)/item 12 call `coverage-evidence-t02.json` the authoritative measured slack inventory. Slack is derivable only as `measurable − covered`. Required change: add `uncovered_lines` to the schema (or reword to \"measured slack count\").\n\n[LOW][procedural decidability] Step 4 setup ≠ step 5 setup. Loc §6 L150-151. Evidence: step 4 permits \"at least TWO different slots\"; step 5 fires the second event on \"a DIFFERENT button whose slot carries the OTHER\" action. Two slots on one button satisfy step 4 but cannot execute step 5. Required change: step 4 should say \"on the slots of two different buttons\".\n\n### Closures\nC2 CLOSED — L150 requires two distinguishable nonempty configured slots incl. a still-active delayed action; L151 keeps run 1 active, second event on a different button, requires traces showing temporal OVERLAP and each run's distinct configured action, and rejects sequential/trace-mismatch evidence; L152 empty slot ≠ the configured slots with no action/no error/no marker change; L147-152 six fixed filenames; L153 bars acceptance while any leg unverified. Consistent at AC9/AC10 (L123-124), §5 preamble (L114), T2 (L144), §7 (L163), §8 (L167).\nC4 CLOSED — D13(4) L41, §4 L79, AC14(e) L128, item 12 L223: guard BODY only (condition executes covered at import), OSError handler lines, other failure paths possible, inventory measured-not-exhaustive. Verified against code: guard L384-385; OSError L358-360; unexercised formatter branch L371-378 supports the non-exhaustive reading.\nR6F1 pinned window (D13(1)/(4), §4, §5 preamble/AC14(d), T1/T2, §7, items 11-12); R6F2 (no exclusive claim remains outside the supersession quote); R6F3/R5Q1 (qualified oracle; envelope `forbiddenEffects` includes `network`, writePaths four; no install leg); C1 (>=90, `measurable > 0`, offline, denominator `scripts/validate_blueprint.py`, non-zero suite exit). Earlier closures R1F1-F5, R1L1-L3, R2F1, R2L1-L4, R3L1, C3/R4L1, R4L2, R5H1/L1/L2 preserved; ticket-01 R9/D5/D6 justify the restructure.\nR1-R10→AC1-AC15 verified; each A1-A13 has fixture+AC; seven checkboxes mapped; generic fences R8/R10/A11-A13; corrected HA save consequence consistent (imports/collapses, save rejected until five entities; no affirmative unset-entity no-op outside supersession quotes); no ticket 03-09 feature sanctioned, and T1's prohibited list fences them.\n\n**Positives:** honest limits disclosure, fixed per-step evidence names, zero-dependency in-process harness, precise first-failure ledgers, and slack now correctly measured-not-exhaustive.\n\n### Recommendation\nAPPROVE",
+  "invocationId": "8734be6b-bf86-492c-a34d-418468b53022"
+}
