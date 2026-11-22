@@ -1,0 +1,11 @@
+PASS A1 parse_yaml
+PASS A2 blueprint_metadata
+PASS A3 button_inputs_required_and_exact
+PASS A4 entity_selectors_domain_event
+PASS A5 action_selectors_optional
+PASS A6 state_triggers
+PASS A7 action_dispatch_pushed
+PASS A8 header_comment
+PASS A9 generic_denylist
+PASS A10 scope_fence_keys
+exit=0

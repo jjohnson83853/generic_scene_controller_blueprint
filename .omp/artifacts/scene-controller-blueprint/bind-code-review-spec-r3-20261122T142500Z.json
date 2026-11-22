@@ -1,0 +1,94 @@
+{
+  "binding": {
+    "candidateId": "spec-scene-01",
+    "reviewerId": "code-reviewer-01",
+    "authorIds": [
+      "planner"
+    ],
+    "inputs": [
+      {
+        "path": "/home/opencode/projects/default/generic_scene_controller_blueprint/.omp/artifacts/scene-controller-blueprint/spec-canonical-r3.md",
+        "sha256": "2be54af760029b8b91b0f48ec0221ddd09684b51aa3929d32458cd588d9053f0"
+      },
+      {
+        "path": "/home/opencode/projects/default/generic_scene_controller_blueprint/.scratch/scene-controller-blueprint/issues/01-blueprint-skeleton.md",
+        "sha256": "c8e05d0180e1fa9229da54fe58aa02b1a5b82fd7b318837c5b23497286ae0886"
+      },
+      {
+        "path": "/home/opencode/projects/default/generic_scene_controller_blueprint/.scratch/scene-controller-blueprint/CONTEXT.md",
+        "sha256": "795a1f7f23c1efb5840bccbded24aa40f911ecfc52c04b5122f6a21afa592d68"
+      }
+    ],
+    "dispatches": [
+      {
+        "name": "SpecRev03",
+        "agent": "code-reviewer",
+        "reviewerId": "code-reviewer-01",
+        "taskId": "TR3",
+        "requestSha256": "33c48a6e8be75701fcc0110de95591cde3279ff37e6ec78f4438a70417194fc3",
+        "taskSha256": "e556a199e45f2a290c3a60018ace3893ce2bca90ac12e0bdad9c6daffc183c6f",
+        "instructionsSha256": "601dea87fb661232cd6b7baa3a2c29e127dff9fa7dc5185a939e4606427ba676",
+        "targetCandidateId": "spec-scene-01",
+        "targetRevision": "r3"
+      }
+    ],
+    "verdict": "REQUEST CHANGES",
+    "findings": [
+      {
+        "id": "H1",
+        "severity": "MEDIUM",
+        "class": "oracle-gap",
+        "anchor": "spec:59,30,47",
+        "summary": "Require {{ }} delimiters in D4/A7; bare-expression fixture -> exit 1",
+        "blocking": true
+      },
+      {
+        "id": "H2",
+        "severity": "MEDIUM",
+        "class": "oracle-gap",
+        "anchor": "spec:58,30,47",
+        "summary": "A6 must assert exactly {platform,entity_id,id}; to: unavailable fixture -> exit 1",
+        "blocking": true
+      },
+      {
+        "id": "H3",
+        "severity": "MEDIUM",
+        "class": "oracle-gap",
+        "anchor": "spec:62,59,58,181,103",
+        "summary": "Root condition: escapes A10; add condition key or bound root keys; sun-condition fixture -> exit 1",
+        "blocking": true
+      },
+      {
+        "id": "H4",
+        "severity": "LOW",
+        "class": "evidence",
+        "anchor": "spec:132,185",
+        "summary": "Replace stale-r1 plan-dir claim with observed hash-compare sync evidence",
+        "blocking": false
+      },
+      {
+        "id": "H5",
+        "severity": "LOW",
+        "class": "residual",
+        "anchor": "spec:61,169",
+        "summary": "Apply curated-domain fullmatch to name/description prose, excluding wildcards",
+        "blocking": false
+      }
+    ],
+    "format": "installed",
+    "source": {
+      "path": "/home/opencode/projects/default/generic_scene_controller_blueprint/.omp/artifacts/scene-controller-blueprint/observation-code-review-spec-r3-20261122T142500Z.json",
+      "sha256": "f0dc0a5571a1dcb0d73904d1a7a287a76a66063d606e196d8c6885c66c2254ab"
+    },
+    "recordedAt": "2026-11-22T14:25:00Z"
+  },
+  "runBinding": {
+    "candidateId": "spec-scene-01",
+    "invocationId": "omp:01a20373-631d-71b2-b24a-535173463774:task:355",
+    "fingerprint": "7d55d332df17555a06ba02ba4a9373241a6323331a01fddff703ed17e46614a5",
+    "reviewerId": "code-reviewer-01",
+    "agent": "code-reviewer",
+    "revision": "r3"
+  },
+  "status": "succeeded"
+}

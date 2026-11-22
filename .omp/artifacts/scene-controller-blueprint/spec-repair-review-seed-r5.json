@@ -1,0 +1,34 @@
+{
+  "intent": "Dispatching CodeReviewer on spec repair 4",
+  "instructions": "SPEC-SCENE-01 r5 specification review (repair pass 4). Candidate /home/opencode/projects/default/generic_scene_controller_blueprint/.omp/artifacts/scene-controller-blueprint/spec-canonical-r5.md sha256 149c489fd9e68c2afff256f36cc069445e4929a328fb99a7ef515e8bad3d4cda. Prior round-4 output /home/opencode/projects/default/generic_scene_controller_blueprint/.omp/artifacts/scene-controller-blueprint/review-code-spec-r4-20261122T144000Z.md sha256 3e7556b7c671d58f2f7f5f862e477086608b58e102d971e32ea01dab6d719716; round-1 to round-4 findings in .omp/plans/review-sequence.json reviewHistory. Candidate carries the K1-K2 and H1-H5 ledgers in section 9 and after it. Read candidate whole, prior output, ticket 01, ticket 02 checkbox 4, CONTEXT.md, README.md, git status. Env: python3 3.13.5 + PyYAML 6.0.2; no HA runtime.",
+  "workflowDispatch": {
+    "statePath": "/home/opencode/projects/default/generic_scene_controller_blueprint/.omp/plans/execution-state.json",
+    "schemaVersion": 1,
+    "projectRoot": "/home/opencode/projects/default/generic_scene_controller_blueprint",
+    "feature": "scene-controller-blueprint",
+    "revision": "r5",
+    "requests": [
+      {
+        "name": "SpecRev05",
+        "taskId": "TR5",
+        "agent": "code-reviewer",
+        "effects": {
+          "kind": "read",
+          "paths": []
+        },
+        "targetCandidateId": "spec-scene-01",
+        "targetRevision": "r5"
+      }
+    ]
+  },
+  "tasks": [
+    {
+      "name": "SpecRev05",
+      "agent": "code-reviewer",
+      "task": "Review SPEC-SCENE-01 revision 5 in specification mode (repair pass 4) against the ticket 01 ACs and the round-1/round-2/round-3/round-4 finding ledgers.\n\n# Target\nThe candidate spec file named in the shared context, whole file. Consume all prior observations; do not re-litigate closed items without new evidence.\n\n# Scope\nVerify each round-4 finding K1-K2 is resolved with a falsifiable oracle and reachable fixtures: K1 A9(b3) prose scanning detects an embedded curated-domain entity slug in a non-Jinja prose value with identifier boundaries, keeps wildcard/'*.object'/'domain.*' and Jinja/'!input' exemptions, and the description fixture fails at b3 as named; K2 the relocated 'hubitat'/'not_from' mutations fail at the assertions they are cataloged under (a9/a10), not preempted by A6, with the AC10/AC11/T2 expectations matching. Check for regressions: no previously closed F1-F8, G1-G5 or H1-H4 fix undone; R1-R9 to AC1-AC11 coverage; ticket-01 only; no vendor/model/node/room/concrete entity id in executable configuration; HA blueprint/trigger semantics; each oracle and fixture will actually behave as described under the first-failure contract (static assessment).\n\n# Non-goals\nDo not implement anything, do not edit files, do not review tickets 02-09.\n\n# Acceptance\nReturn findings with severity, spec location, evidence, and required change (cite file/line), then EXACTLY ONE verdict block: the literal line `### Recommendation` followed by exactly one of `APPROVE`, `REQUEST CHANGES`, `COMMENT` on the next line. A non-APPROVE verdict must name at least one concrete defect class. Do not emit any other verdict heading or format.",
+      "solutionSpace": "single repaired specification candidate; verdict fixed by findings",
+      "targetCandidateId": "spec-scene-01",
+      "targetRevision": "r5"
+    }
+  ]
+}

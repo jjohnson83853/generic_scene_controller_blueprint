@@ -1,0 +1,34 @@
+{
+  "intent": "Dispatching CodeReviewer on spec repair 3",
+  "instructions": "SPEC-SCENE-01 r4 specification review (repair pass 3). Candidate /home/opencode/projects/default/generic_scene_controller_blueprint/.omp/artifacts/scene-controller-blueprint/spec-canonical-r4.md sha256 52bf3f97583ad81ab8e28c16c8a9907fed3062fd6d24f3ea98aa987731095e93. Prior round-3 output /home/opencode/projects/default/generic_scene_controller_blueprint/.omp/artifacts/scene-controller-blueprint/review-code-spec-r3-20261122T142500Z.md sha256 2741be69cca625854c85474f1e30149675edcf6060a014f30ef52427d33f64a1; round-1 to round-3 findings in .omp/plans/review-sequence.json reviewHistory. Candidate carries the H1-H5 ledger in section 9. Read candidate whole, prior output, ticket 01, ticket 02 checkbox 4, CONTEXT.md, README.md, git status. Env: python3 3.13.5 + PyYAML 6.0.2; no HA runtime.",
+  "workflowDispatch": {
+    "statePath": "/home/opencode/projects/default/generic_scene_controller_blueprint/.omp/plans/execution-state.json",
+    "schemaVersion": 1,
+    "projectRoot": "/home/opencode/projects/default/generic_scene_controller_blueprint",
+    "feature": "scene-controller-blueprint",
+    "revision": "r4",
+    "requests": [
+      {
+        "name": "SpecRev04",
+        "taskId": "TR4",
+        "agent": "code-reviewer",
+        "effects": {
+          "kind": "read",
+          "paths": []
+        },
+        "targetCandidateId": "spec-scene-01",
+        "targetRevision": "r4"
+      }
+    ]
+  },
+  "tasks": [
+    {
+      "name": "SpecRev04",
+      "agent": "code-reviewer",
+      "task": "Review SPEC-SCENE-01 revision 4 in specification mode (repair pass 3) against the ticket 01 ACs and the round-1/round-2/round-3 finding ledgers.\n\n# Target\nThe candidate spec file named in the shared context, whole file. Consume all prior observations; do not re-litigate closed items without new evidence.\n\n# Scope\nVerify each round-3 finding H1-H3 is resolved with a falsifiable oracle that does not reject the mandated design: H1 A7 requires the {{ }} delimiters before normalizing and has a bare-expression negative fixture; H2 A6 asserts each trigger has exactly keys {platform, entity_id, id} with an extra-key negative fixture; H3 A10 fences root-level condition keys (or bounds root keys) with a root-sun negative fixture, and the AC11/R9 coverage claims match implemented legs. Verify H4 evidence honesty (observed plan-dir state and STEP 0 hash compare instead of a stale-r1 claim) and H5 A9 prose scanning with wildcard/template exemptions. Check for regressions: no previously closed F1-F8 or G1-G5 fix undone; R1-R9 to AC1-AC11 coverage; ticket-01 only; no vendor/model/node/room/concrete entity id in executable configuration; HA blueprint/trigger semantics; each oracle will actually pass as described (static assessment).\n\n# Non-goals\nDo not implement anything, do not edit files, do not review tickets 02-09.\n\n# Acceptance\nReturn findings with severity, spec location, evidence, and required change (cite file/line), then EXACTLY ONE verdict block: the literal line `### Recommendation` followed by exactly one of `APPROVE`, `REQUEST CHANGES`, `COMMENT` on the next line. A non-APPROVE verdict must name at least one concrete defect class. Do not emit any other verdict heading or format.",
+      "solutionSpace": "single repaired specification candidate; verdict fixed by findings",
+      "targetCandidateId": "spec-scene-01",
+      "targetRevision": "r4"
+    }
+  ]
+}

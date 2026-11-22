@@ -1,0 +1,10 @@
+{
+  "schemaVersion": 2,
+  "feature": "scene-controller-blueprint",
+  "revision": "r5",
+  "projectRoot": "/home/opencode/projects/default/generic_scene_controller_blueprint",
+  "authorizationId": "auth-6cd9256d88f81b5c",
+  "envelopeId": "scene-controller-t01-r5",
+  "packetDigest": "3403d4579574d7ca0e706010abb9dd2451d6e54c6fc737ace5e18d2c8e86cd71",
+  "selectedBranchId": "t01-r5"
+}

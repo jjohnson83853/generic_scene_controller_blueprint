@@ -1,0 +1,97 @@
+# MQTT discovery through the Hubitat Elevation hub exposes these event entities.
+# Supported event types: pushed, held, doubleTapped, released.
+# Push-only dispatch; all other event types are ignored.
+---
+blueprint:
+  name: Generic Multi-Button Scene Controller
+  description: Generic event-entity scene controllers with push-only action dispatch.
+  domain: automation
+  input:
+    button_1_entity:
+      name: Button 1 event entity
+      description: Event entity for button 1.
+      selector:
+        entity:
+          domain: event
+    button_1_action:
+      name: Button 1 pushed action
+      description: Action to run when button 1 is pushed.
+      default: []
+      selector:
+        action: {}
+    button_2_entity:
+      name: Button 2 event entity
+      description: Event entity for button 2.
+      selector:
+        entity:
+          domain: event
+    button_2_action:
+      name: Button 2 pushed action
+      description: Action to run when button 2 is pushed.
+      default: []
+      selector:
+        action: {}
+    button_3_entity:
+      name: Button 3 event entity
+      description: Event entity for button 3.
+      selector:
+        entity:
+          domain: event
+    button_3_action:
+      name: Button 3 pushed action
+      description: Action to run when button 3 is pushed.
+      default: []
+      selector:
+        action: {}
+    button_4_entity:
+      name: Button 4 event entity
+      description: Event entity for button 4.
+      selector:
+        entity:
+          domain: event
+    button_4_action:
+      name: Button 4 pushed action
+      description: Action to run when button 4 is pushed.
+      default: []
+      selector:
+        action: {}
+    button_5_entity:
+      name: Button 5 event entity
+      description: Event entity for button 5.
+      selector:
+        entity:
+          domain: event
+    button_5_action:
+      name: Button 5 pushed action
+      description: Action to run when button 5 is pushed.
+      default: []
+      selector:
+        action: {}
+trigger:
+  - platform: state
+    entity_id: !input button_1_entity
+    id: button_1
+  - platform: state
+    entity_id: !input button_2_entity
+    id: button_2
+  - platform: state
+    entity_id: !input button_3_entity
+    id: button_3
+  - platform: state
+    entity_id: !input button_4_entity
+    id: button_4
+  - platform: state
+    entity_id: !input button_5_entity
+    id: button_5
+action:
+  - choose:
+      - conditions: "{{ trigger.id == 'button_1' and trigger.to_state is not none and trigger.to_state.attributes.get('event_type') == 'pushed' }}"
+        sequence: !input button_1_action
+      - conditions: "{{ trigger.id == 'button_2' and trigger.to_state is not none and trigger.to_state.attributes.get('event_type') == 'pushed' }}"
+        sequence: !input button_2_action
+      - conditions: "{{ trigger.id == 'button_3' and trigger.to_state is not none and trigger.to_state.attributes.get('event_type') == 'pushed' }}"
+        sequence: !input button_3_action
+      - conditions: "{{ trigger.id == 'button_4' and trigger.to_state is not none and trigger.to_state.attributes.get('event_type') == 'pushed' }}"
+        sequence: !input button_4_action
+      - conditions: "{{ trigger.id == 'button_5' and trigger.to_state is not none and trigger.to_state.attributes.get('event_type') == 'pushed' }}"
+        sequence: !input button_5_action

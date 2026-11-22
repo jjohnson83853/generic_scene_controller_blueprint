@@ -1,0 +1,23 @@
+## Code Review Summary
+
+**Subject:** SPEC-SCENE-01 r3 — specification mode, repair pass 2. Candidate sha256 2be54af7… (from dispatch; not recomputed). Read whole candidate, r2 review, T01, T02 checkbox 4, CONTEXT, README, review-sequence, plan-dir copy. Anchors: `spec:NN` = candidate lines.
+
+**Closure**
+G1 CLOSED: A9(b2) entity_id-only + b3 curated fullmatch + Jinja/`!input` exemptions (spec:61); positive fixture spec:66, hallway boundary spec:76. G2 CLOSED: A7 spec:59 exact D4 equality, one `!input` ref, five branches; a7 fixtures spec:74; deterministic a1→a10 order spec:51. G3 PARTIAL: A10:62 + A3:55/A6:58/A7:59/A9(b3):61 fence inputs, trigger platforms, branch conjuncts, scripts; raw grep withdrawn (D8); one root position escapes (finding 3). G4 CLOSED in §3:23-25; §8:132 remains an unverified current-state claim (finding 4). G5 CLOSED as ownership (§8:132 STEP 0, §6:110 canonical path, T1 barred from `.omp`); plan-dir is now r3 content, not r1, but byte equality is unevidenced (finding 4). F1–F8 no regression; R1–R9→AC1–AC11 complete; ticket-01 only; HA trigger/choose/`!input`/default wiring valid.
+
+Static oracle dry-run: the positive fixture and every listed a1–a10 fixture pass/fail as described; no false reject of the mandated design found.
+
+**Findings**
+
+1. [MEDIUM][oracle-gap] Optional template delimiters. spec:59 strips "optional `{{`/`}}`"; spec:30 and :47 show the predicate unwrapped. `conditions: "trigger.id == ..."` normalizes equal and passes A1–A10, but HA renders it as literal text (no `trigger.id`/event_type gate), so dispatch is dead or unconditional while AC6/AC7 pass. Fix: require `{{ <canonical> }}` (assert delimiters before stripping) in D4/A7; add a7 fixture with the bare expression → exit 1.
+2. [MEDIUM][oracle-gap] A6 is not exact. spec:58 requires presence of platform/entity_id/id, not absence of extras; spec:30/:47 mandate the three-key mapping. A trigger with `to: 'unavailable'` (or from/for/attribute) passes A1–A10 but never fires pushed, so AC6's static oracle accepts a blueprint violating R4. Fix: A6 asserts exactly {platform, entity_id, id}; fixture `to: 'unavailable'` → exit 1.
+3. [MEDIUM][oracle-gap] Root `condition:` escapes the fence. spec:62 bans only named keys; spec:59 constrains only `action`; spec:58 only triggers. `condition: [{condition: sun, after: sunset}]` passes A1–A10 even though spec:181 claims every R9 class and spec:103 claims time/sun coverage. Fix: add `condition` (or bound root keys to blueprint/trigger/action) to A10; fixture root sun condition → exit 1.
+4. [LOW][evidence] spec:132 and :185 assert the plan-dir is "currently STALE r1 bytes"; it is r3 content (line 1; line 58 new A9) and repeats that sentence. Byte equality with the candidate is unproven. Fix: hash-compare at STEP 0 and replace the stale-r1 claim with observed sync evidence.
+5. [LOW][residual] spec:61 b3 exempts `name`/`description` prose, so a concrete entity id there passes; ticket 01 says entity ids appear "anywhere in the file" (disclosed spec:169). Fix: apply the curated-domain fullmatch to prose too, excluding wildcards.
+
+**Positives:** G1 positive+boundary fixtures; G2 both requested negatives; D8 prose-false-positive rationale; G4 provenance split; G5 ownership; exact ten-key/non-additive corrections; valid HA choose/`!input`/`default` wiring.
+
+**Limits:** no shell/git/LSP/HA; SHA not recomputed; validator/tests unrun; HA assessed statically; plan-dir compared by content, not bytes.
+
+### Recommendation
+REQUEST CHANGES

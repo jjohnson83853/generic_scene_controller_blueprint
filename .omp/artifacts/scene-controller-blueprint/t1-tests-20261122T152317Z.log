@@ -1,0 +1,18 @@
+test_a10_rejects_ticket_scope_fence_keys (test_validate_blueprint.BlueprintValidatorTests.test_a10_rejects_ticket_scope_fence_keys) ... ok
+test_a1_rejects_invalid_yaml (test_validate_blueprint.BlueprintValidatorTests.test_a1_rejects_invalid_yaml) ... ok
+test_a2_rejects_invalid_blueprint_metadata (test_validate_blueprint.BlueprintValidatorTests.test_a2_rejects_invalid_blueprint_metadata) ... ok
+test_a3_requires_exact_input_map_and_required_entities (test_validate_blueprint.BlueprintValidatorTests.test_a3_requires_exact_input_map_and_required_entities) ... ok
+test_a4_restricts_entity_selectors_to_event (test_validate_blueprint.BlueprintValidatorTests.test_a4_restricts_entity_selectors_to_event) ... ok
+test_a5_requires_optional_action_defaults (test_validate_blueprint.BlueprintValidatorTests.test_a5_requires_optional_action_defaults) ... ok
+test_a6_requires_exact_state_triggers_and_input_bindings (test_validate_blueprint.BlueprintValidatorTests.test_a6_requires_exact_state_triggers_and_input_bindings) ... ok
+test_a7_requires_exact_pushed_dispatch (test_validate_blueprint.BlueprintValidatorTests.test_a7_requires_exact_pushed_dispatch) ... ok
+test_a8_requires_header_and_document_start (test_validate_blueprint.BlueprintValidatorTests.test_a8_requires_header_and_document_start) ... ok
+test_a9_rejects_non_generic_configuration_and_prose (test_validate_blueprint.BlueprintValidatorTests.test_a9_rejects_non_generic_configuration_and_prose) ... ok
+test_real_blueprint_passes_all_assertions (test_validate_blueprint.BlueprintValidatorTests.test_real_blueprint_passes_all_assertions) ... ok
+test_usage_error (test_validate_blueprint.BlueprintValidatorTests.test_usage_error) ... ok
+
+----------------------------------------------------------------------
+Ran 12 tests in 2.490s
+
+OK
+exit=0

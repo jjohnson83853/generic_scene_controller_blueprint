@@ -1,0 +1,97 @@
+{
+  "schemaVersion": 1,
+  "runs": [
+    {
+      "candidateId": "spec-scene-01",
+      "invocationId": "omp:01a20373-631d-71b2-b24a-535173463774:task:438",
+      "fingerprint": "657e87ef3a5281f050dd09f7c23af38c99775dba40a16a23d40aa0fa071518f4",
+      "reviewerId": "code-reviewer-01",
+      "status": "succeeded",
+      "role": "code-reviewer",
+      "revision": "r5"
+    },
+    {
+      "candidateId": "spec-scene-01",
+      "invocationId": "omp:01a20373-631d-71b2-b24a-535173463774:eval:critic-spec-r5",
+      "fingerprint": "657e87ef3a5281f050dd09f7c23af38c99775dba40a16a23d40aa0fa071518f4",
+      "reviewerId": "critic-01",
+      "status": "succeeded",
+      "role": "critic",
+      "revision": "r5"
+    }
+  ],
+  "observations": [
+    {
+      "seq": 1,
+      "role": "critic",
+      "reviewerId": "critic-01",
+      "candidateId": "spec-scene-01",
+      "revision": "r5",
+      "authorIds": [
+        "planner"
+      ],
+      "inputs": [
+        {
+          "path": "/home/opencode/projects/default/generic_scene_controller_blueprint/.omp/artifacts/scene-controller-blueprint/spec-canonical-r5.md",
+          "sha256": "149c489fd9e68c2afff256f36cc069445e4929a328fb99a7ef515e8bad3d4cda"
+        },
+        {
+          "path": "/home/opencode/projects/default/generic_scene_controller_blueprint/.scratch/scene-controller-blueprint/issues/01-blueprint-skeleton.md",
+          "sha256": "c8e05d0180e1fa9229da54fe58aa02b1a5b82fd7b318837c5b23497286ae0886"
+        },
+        {
+          "path": "/home/opencode/projects/default/generic_scene_controller_blueprint/.scratch/scene-controller-blueprint/CONTEXT.md",
+          "sha256": "795a1f7f23c1efb5840bccbded24aa40f911ecfc52c04b5122f6a21afa592d68"
+        },
+        {
+          "path": "/home/opencode/projects/default/generic_scene_controller_blueprint/README.md",
+          "sha256": "a9e8bd8a7c17c3703ea8fc22b8a13ae37f12b1a8d369237441b88f29c87b061e"
+        }
+      ],
+      "dispatches": [
+        {
+          "name": "SpecRev05",
+          "agent": "code-reviewer",
+          "reviewerId": "code-reviewer-01",
+          "taskId": "TR5",
+          "requestSha256": "aae3b3f5fb90daf9b05e56ea9fe494246fd1a56c743376d9fed6c964a412d014",
+          "taskSha256": "64fa5b355f7c7867a880235a0b9f2147e298b0a279a7c0fd28b8f6eedaf57b07",
+          "instructionsSha256": "64830778b2f9dd5226ae8bebd7b0cd89ef9e54636baff8ce33359f38982e2196",
+          "targetCandidateId": "spec-scene-01",
+          "targetRevision": "r5"
+        },
+        {
+          "name": "SpecCritique05",
+          "taskId": "TC1",
+          "agent": "critic",
+          "effects": {
+            "kind": "read",
+            "paths": []
+          },
+          "targetCandidateId": "spec-scene-01",
+          "targetRevision": "r5",
+          "reviewerId": "critic-01",
+          "requestSha256": "75638a96b0d959102f66c28b1d80b9f5ac48e76656069364faac4ca0fc7d2d72",
+          "taskSha256": "276a52eeaa987f5130d6db4efa560044f562c6eb1e65155913d3613f8bda5265",
+          "instructionsSha256": "00a3afd3547f63fa47524877f1f7221542cdd365135699a12598136f6e4aec21"
+        }
+      ],
+      "verdict": "PASS",
+      "format": "installed",
+      "inputsSha256": "a6cf6728ce3e3101ea65e5ce8bbda679c191e19e3df413dd539591c42cd27aa8",
+      "source": {
+        "path": "/home/opencode/projects/default/generic_scene_controller_blueprint/.omp/artifacts/scene-controller-blueprint/observation-critic-spec-r5-20261122T150900Z.json",
+        "sha256": "24ea5ab52ebf4201dd500f31b9eb927f23ce5bf9d492dea2ec3d9e9fcea20593"
+      },
+      "recordedAt": "2026-11-22T15:09:00Z",
+      "receipt": {
+        "sourceId": "/home/opencode/projects/default/generic_scene_controller_blueprint/.omp/artifacts/scene-controller-blueprint/observation-critic-spec-r5-20261122T150900Z.json",
+        "recordedAt": "2026-11-22T15:09:00Z",
+        "response": {
+          "origin": "reviewer",
+          "verdict": "pass"
+        }
+      }
+    }
+  ]
+}

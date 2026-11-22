@@ -1,0 +1,57 @@
+{
+  "role": "code-reviewer",
+  "reviewerId": "code-reviewer-01",
+  "candidateId": "spec-scene-01",
+  "revision": "r5",
+  "authorIds": [
+    "planner"
+  ],
+  "inputs": [
+    {
+      "path": "/home/opencode/projects/default/generic_scene_controller_blueprint/.omp/artifacts/scene-controller-blueprint/spec-canonical-r5.md",
+      "sha256": "149c489fd9e68c2afff256f36cc069445e4929a328fb99a7ef515e8bad3d4cda"
+    },
+    {
+      "path": "/home/opencode/projects/default/generic_scene_controller_blueprint/.scratch/scene-controller-blueprint/issues/01-blueprint-skeleton.md",
+      "sha256": "c8e05d0180e1fa9229da54fe58aa02b1a5b82fd7b318837c5b23497286ae0886"
+    },
+    {
+      "path": "/home/opencode/projects/default/generic_scene_controller_blueprint/.scratch/scene-controller-blueprint/CONTEXT.md",
+      "sha256": "795a1f7f23c1efb5840bccbded24aa40f911ecfc52c04b5122f6a21afa592d68"
+    },
+    {
+      "path": "/home/opencode/projects/default/generic_scene_controller_blueprint/README.md",
+      "sha256": "a9e8bd8a7c17c3703ea8fc22b8a13ae37f12b1a8d369237441b88f29c87b061e"
+    }
+  ],
+  "dispatches": [
+    {
+      "name": "SpecRev05",
+      "agent": "code-reviewer",
+      "reviewerId": "code-reviewer-01",
+      "taskId": "TR5",
+      "requestSha256": "aae3b3f5fb90daf9b05e56ea9fe494246fd1a56c743376d9fed6c964a412d014",
+      "taskSha256": "64fa5b355f7c7867a880235a0b9f2147e298b0a279a7c0fd28b8f6eedaf57b07",
+      "instructionsSha256": "64830778b2f9dd5226ae8bebd7b0cd89ef9e54636baff8ce33359f38982e2196",
+      "targetCandidateId": "spec-scene-01",
+      "targetRevision": "r5"
+    },
+    {
+      "name": "SpecCritique05",
+      "taskId": "TC1",
+      "agent": "critic",
+      "effects": {
+        "kind": "read",
+        "paths": []
+      },
+      "targetCandidateId": "spec-scene-01",
+      "targetRevision": "r5",
+      "reviewerId": "critic-01",
+      "requestSha256": "75638a96b0d959102f66c28b1d80b9f5ac48e76656069364faac4ca0fc7d2d72",
+      "taskSha256": "276a52eeaa987f5130d6db4efa560044f562c6eb1e65155913d3613f8bda5265",
+      "instructionsSha256": "00a3afd3547f63fa47524877f1f7221542cdd365135699a12598136f6e4aec21"
+    }
+  ],
+  "output": "## Code Review Summary\n\n**Subject:** SPEC-SCENE-01 r5 — specification mode, repair pass 4. Candidate `.omp/artifacts/scene-controller-blueprint/spec-canonical-r5.md` (sha as dispatched; not recomputed — no shell). Read: candidate whole, r4 review, reviewHistory (F1-F8/H1-H5/K1-K2), ticket 01, ticket 02 cb4, CONTEXT.md, README.md, plan-dir copy. `spec:NN` = candidate lines.\n\n### Closure\n- **K1 CLOSED.** A9(b3)(ii) spec:62 defines an edge-bounded token scan (`[a-z0-9_]+` object; neighbours absent or not `[A-Za-z0-9_]`) over non-Jinja `name`/`description` values, keeping Jinja/`!input`/wildcard exemptions. Isolation fixture spec:77 hits `event.hallway_scene_controller_button_1_event`; `hallway` is not one of A9(a)'s enumerated rooms and a sentence cannot fullmatch, so a9 is first after a1-a8 pass. AC10 spec:106 and AC11 spec:107 agree; positive fixture spec:67 is satisfiable only because spec:47 pins dot-free prose.\n- **K2 CLOSED.** `hubitat` in `blueprint.description` (spec:77) passes a2-a8 and fails a9(a)'s outside-header rule. `not_from` inside `button_1_entity.selector.entity` (spec:78) lies outside A6's trigger scope and outside a9's scans, and A4 spec:57 is a domain-presence check (spec:78 states the non-exactness normatively), so a10(i) is first. AC10 spec:106, AC11 spec:107, T2 spec:122 name both relocated positions.\n- **No regression:** F1-F8, G1-G5, H1-H4 anchors intact (spec:48,57-63,92, §8 STEP 0, §9 tables). R1-R9 → AC1-AC11 complete; ticket-01 only; no vendor/room/node/entity id in executable configuration; D4 triggers/choose statically coherent with HA state-trigger and `event_type`-attribute semantics.\n\n### Issues\n1. [LOW][traceability] spec:195 heads “K1-K2 RESOLUTION LEDGER (revision 5)”, but only K1 (spec:197) exists and the file ends there. Contradicts spec:5 (“the K1-K2 resolution ledger is new in this revision”) and spec:92 (“finding -> invariant -> oracle tables … in the resolution ledgers”). No AC/oracle is affected; K2’s substance is at spec:78,87,106,107,122,176. Fix: append the K2 row (root invariant; clauses spec:59/77/78; oracle = both relocated fixtures → exit 1 at a9/a10; unknowns: none).\n2. [LOW][documentation-overclaim] spec:35’s closing clause “a sentence carrying a slug is banned, not only a value that IS a slug” exceeds b3(ii)’s `name`/`description` scope; a `label:` sentence is declared residual (ii) at spec:174. A9 spec:62 itself is precise. Fix: qualify with “in `name`/`description` prose”.\n\n### Open Questions (low-confidence)\n- A4 spec:57 states only the domain restriction; the non-exactness three a10 fixtures depend on appears only at spec:78 — adding it to A4 would remove a T1 a4-first-failure risk.\n- A7 spec:48/60 accept `conditions` as a bare string or one-element list; HA validity of the bare-string branch form is unverified (U1) and undistinguished by fixtures. Pre-existing since r3.\n\n### Positive Observations\nRepairs are oracle-only: no AC weakened, no fixture silently reclassified; residuals (i)-(iii) are now disclosed at spec:174.\n\n### Limits\nNo shell/git/LSP/HA: candidate sha, `git status`, validator and tests unrun; plan-dir verified by content only (r3 header + rev3 A9, matching §3); HA semantics static; byte equality deferred to STEP 0.\n\n### Recommendation\nAPPROVE\n",
+  "invocationId": "omp:01a20373-631d-71b2-b24a-535173463774:task:438"
+}

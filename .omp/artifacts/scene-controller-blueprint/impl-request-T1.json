@@ -1,0 +1,23 @@
+{
+  "statePath": "/home/opencode/projects/default/generic_scene_controller_blueprint/.omp/plans/execution-state.json",
+  "schemaVersion": 1,
+  "projectRoot": "/home/opencode/projects/default/generic_scene_controller_blueprint",
+  "feature": "scene-controller-blueprint",
+  "revision": "r5",
+  "requests": [
+    {
+      "name": "Ticket01BlueprintImpl",
+      "taskId": "T1",
+      "agent": "engineer",
+      "effects": {
+        "kind": "write",
+        "paths": [
+          "blueprints/automation/generic_scene_controller.yaml",
+          "scripts/validate_blueprint.py",
+          "tests/test_validate_blueprint.py",
+          "README.md"
+        ]
+      }
+    }
+  ]
+}

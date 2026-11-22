@@ -1,0 +1,57 @@
+{
+  "role": "critic",
+  "reviewerId": "critic-01",
+  "candidateId": "spec-scene-01",
+  "revision": "r5",
+  "authorIds": [
+    "planner"
+  ],
+  "inputs": [
+    {
+      "path": "/home/opencode/projects/default/generic_scene_controller_blueprint/.omp/artifacts/scene-controller-blueprint/spec-canonical-r5.md",
+      "sha256": "149c489fd9e68c2afff256f36cc069445e4929a328fb99a7ef515e8bad3d4cda"
+    },
+    {
+      "path": "/home/opencode/projects/default/generic_scene_controller_blueprint/.scratch/scene-controller-blueprint/issues/01-blueprint-skeleton.md",
+      "sha256": "c8e05d0180e1fa9229da54fe58aa02b1a5b82fd7b318837c5b23497286ae0886"
+    },
+    {
+      "path": "/home/opencode/projects/default/generic_scene_controller_blueprint/.scratch/scene-controller-blueprint/CONTEXT.md",
+      "sha256": "795a1f7f23c1efb5840bccbded24aa40f911ecfc52c04b5122f6a21afa592d68"
+    },
+    {
+      "path": "/home/opencode/projects/default/generic_scene_controller_blueprint/README.md",
+      "sha256": "a9e8bd8a7c17c3703ea8fc22b8a13ae37f12b1a8d369237441b88f29c87b061e"
+    }
+  ],
+  "dispatches": [
+    {
+      "name": "SpecRev05",
+      "agent": "code-reviewer",
+      "reviewerId": "code-reviewer-01",
+      "taskId": "TR5",
+      "requestSha256": "aae3b3f5fb90daf9b05e56ea9fe494246fd1a56c743376d9fed6c964a412d014",
+      "taskSha256": "64fa5b355f7c7867a880235a0b9f2147e298b0a279a7c0fd28b8f6eedaf57b07",
+      "instructionsSha256": "64830778b2f9dd5226ae8bebd7b0cd89ef9e54636baff8ce33359f38982e2196",
+      "targetCandidateId": "spec-scene-01",
+      "targetRevision": "r5"
+    },
+    {
+      "name": "SpecCritique05",
+      "taskId": "TC1",
+      "agent": "critic",
+      "effects": {
+        "kind": "read",
+        "paths": []
+      },
+      "targetCandidateId": "spec-scene-01",
+      "targetRevision": "r5",
+      "reviewerId": "critic-01",
+      "requestSha256": "75638a96b0d959102f66c28b1d80b9f5ac48e76656069364faac4ca0fc7d2d72",
+      "taskSha256": "276a52eeaa987f5130d6db4efa560044f562c6eb1e65155913d3613f8bda5265",
+      "instructionsSha256": "00a3afd3547f63fa47524877f1f7221542cdd365135699a12598136f6e4aec21"
+    }
+  ],
+  "invocationId": "omp:01a20373-631d-71b2-b24a-535173463774:eval:critic-spec-r5",
+  "output": "Spec ID: SPEC-SCENE-01\nRevision: r5\nFindings by ID: C1, C2\n\nReviewed `.omp/artifacts/scene-controller-blueprint/spec-canonical-r5.md` whole, binding tickets/context, review sequence, r5 CodeReviewer report, and r3/r4 acceptance contracts. Anchors below refer to the r5 candidate.\n\n**C1 — MINOR, traceability; high confidence.** Lines 195–198 announce a K1–K2 ledger but contain only K1. Consequence: K2’s repair rationale is scattered rather than recorded in the promised table. Append K2’s invariant, relocated fixtures, first-failure expectations and remaining unknowns. This retains prior finding L1; it does not reopen K2’s substantive repair.\n\n**C2 — MINOR, documentation overclaim; high confidence.** D8, line 35, says a sentence carrying a slug is banned without limiting that statement to `name`/`description`. A9(b3-ii), line 62, and residual disclosure line 174 correctly limit token scanning. Consequence: readers may overestimate coverage of other string values. Qualify D8 with “in `name`/`description` prose.” This retains L2.\n\n**Verified coverage**\n- All eight ticket checkboxes map through R1–R8 to AC1–AC10; R9 maps to AC11. Compared r3/r4 ACs: no acceptance deletion or weakening found.\n- Five entity/action pairs, exact trigger keys and IDs, delimited pushed gate, ordered choose branches and empty-action defaults form a coherent static contract.\n- Independently verified K1’s isolation fixture reaches a9 and K2’s relocated fixtures reach a9/a10 without earlier assertions intercepting them. These are specification deductions, not executed results.\n- H1–H3 invariants remain enforced: delimiters, exact trigger keys, and root-key fence. Positive real-file validation prevents the specified denylist/template contradiction.\n- T1 owns four implementation files; T2 is read-only and depends on T1. Section 8 requires canonical-byte binding before dispatch and staged independent reviews.\n- Section 7’s CLI/HA-trace observability exceptions are proportionate and disclose consequences. Restart replay, default-single concurrency and genericity residuals remain explicit.\n\nOfficial HA [Choose](https://www.home-assistant.io/building-blocks/choose/) and [template shorthand](https://www.home-assistant.io/conditions/template/#shorthand-notation) documentation confirms both permitted condition representations and first-match behavior, closing that static uncertainty.\n\n**Limits:** No tests, validator, hash recomputation or HA runtime execution performed. AC5/AC6 runtime acceptance remains owner-verified; STEP 0 and user authorization remain prerequisites. No execution permission is granted.\n\n### Verdict\nPASS"
+}

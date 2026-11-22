@@ -1,0 +1,35 @@
+{
+  "intent": "Dispatching engineer on T1 implementation",
+  "instructions": "Implement T1 of SPEC-SCENE-01 r5 (sha256 149c489fd9e68c2afff256f36cc069445e4929a328fb99a7ef515e8bad3d4cda). Canonical spec: /home/opencode/projects/default/generic_scene_controller_blueprint/.omp/artifacts/scene-controller-blueprint/spec-canonical-r5.md (read whole; authoritative). Binding inputs: .scratch/scene-controller-blueprint/issues/01-blueprint-skeleton.md, .scratch/scene-controller-blueprint/issues/02-collapsible-button-sections.md (checkbox 4 fence only), CONTEXT.md, README.md. Implement exactly the four expected files; stdlib + PyYAML only; RED then GREEN; run python3 -m unittest discover -s tests -v and python3 scripts/validate_blueprint.py blueprints/automation/generic_scene_controller.yaml; write .omp/artifacts/receipt_T1.json per the harness contract. Report BLOCKED with the exact constraint instead of cutting scope. Do not edit .omp (except the receipt), LICENSE, .git, .scratch.",
+  "workflowDispatch": {
+    "statePath": "/home/opencode/projects/default/generic_scene_controller_blueprint/.omp/plans/execution-state.json",
+    "schemaVersion": 1,
+    "projectRoot": "/home/opencode/projects/default/generic_scene_controller_blueprint",
+    "feature": "scene-controller-blueprint",
+    "revision": "r5",
+    "requests": [
+      {
+        "name": "Ticket01BlueprintImpl",
+        "taskId": "T1",
+        "agent": "engineer",
+        "effects": {
+          "kind": "write",
+          "paths": [
+            "blueprints/automation/generic_scene_controller.yaml",
+            "scripts/validate_blueprint.py",
+            "tests/test_validate_blueprint.py",
+            "README.md"
+          ]
+        }
+      }
+    ]
+  },
+  "tasks": [
+    {
+      "name": "Ticket01BlueprintImpl",
+      "agent": "engineer",
+      "task": "Implement ticket 01 (SPEC-SCENE-01 r5) exactly; read the canonical spec whole and follow section 4 (blueprint contract), section 5 (ACs/validator A1-A10 expectations), and section 6 T1.\n\n# Target\nFiles to create/edit (exactly these):\n- blueprints/automation/generic_scene_controller.yaml — generic five-button HA automation blueprint: blueprint{name,description,domain: automation,input}; ten inputs (button_N_entity event-selector domain event, required, no default; button_N_action action selector, optional, default []); five state triggers each mapping EXACTLY {platform, entity_id: !input button_N_entity, id: button_N}; choose on the delimited D4 template per button ({{ trigger.id == 'button_N' and trigger.to_state is not none and trigger.to_state.attributes.get('event_type') == 'pushed' }}) then the per-button !input action. No root keys beyond blueprint/trigger/action; no mode:, no not_from, no variables, no multiple: true, no mdi, no LED inputs, no concrete vendor/model/room/entity ids anywhere (config or prose). Header comment documents the four event types and the MQTT/Hubitat origin.\n- scripts/validate_blueprint.py — python3+PyYAML structural validator implementing checks a1-a10 in the spec's order (first failure names the assertion), including exact input-map keys, per-input selector rules/defaults, trigger count/exact keys/ids, delimited D4 condition equality, action-branch !input refs, the genericity fence (config curated-domain fullmatch plus name/description token scan with wildcard/template exemptions), and the scope fence incl. root-key set and banned keys at any nesting. Must exit 0 on the real blueprint.\n- tests/test_validate_blueprint.py — unittest suite executing the validator via subprocess: one positive case (real blueprint exit 0) and fixtures a1-a10 (each mutation exits 1 and the first failed assertion is the named one in a1->a10 order).\n- README.md — document the one-command validation (exact command and expected output) plus a short usage note for importing the blueprint into Home Assistant.\n\n# Steps\n1. RED first: python3 -m unittest discover -s tests -> non-zero (subprocess FileNotFoundError for the missing validator/blueprint, not ModuleNotFoundError).\n2. Implement to GREEN.\n3. Run: python3 -m unittest discover -s tests -v -> exit 0; python3 scripts/validate_blueprint.py blueprints/automation/generic_scene_controller.yaml -> exit 0 (print pass list A1-A10).\n4. Write receipt .omp/artifacts/receipt_T1.json with the commands, exit codes, and changed file list.\n\n# Non-goals\nAny ticket 02-09 feature, new dependencies, edits outside the four files (plus the receipt), scope cuts, weakened assertions.\n\n# Acceptance\nBoth commands exit 0 in a clean shell; the validator's positive run lists all assertions; each negative fixture exits 1 at its named assertion; README documents the exact command; BLOCKED (with exact constraint) if any assertion cannot be implemented as specified.",
+      "solutionSpace": "implementation of the fixed spec; only defects in implementing it"
+    }
+  ]
+}

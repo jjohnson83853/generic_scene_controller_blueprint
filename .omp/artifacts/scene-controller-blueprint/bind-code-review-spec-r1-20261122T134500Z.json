@@ -1,0 +1,118 @@
+{
+  "binding": {
+    "candidateId": "spec-scene-01",
+    "reviewerId": "code-reviewer-01",
+    "authorIds": [
+      "planner"
+    ],
+    "inputs": [
+      {
+        "path": "/home/opencode/projects/default/generic_scene_controller_blueprint/.omp/artifacts/scene-controller-blueprint/spec-canonical-r1.md",
+        "sha256": "09159d3f06f201a6b0ffab6aeb9adf83eff3f1f903273bc468e85a1cb8c7478b"
+      },
+      {
+        "path": "/home/opencode/projects/default/generic_scene_controller_blueprint/.scratch/scene-controller-blueprint/issues/01-blueprint-skeleton.md",
+        "sha256": "c8e05d0180e1fa9229da54fe58aa02b1a5b82fd7b318837c5b23497286ae0886"
+      },
+      {
+        "path": "/home/opencode/projects/default/generic_scene_controller_blueprint/.scratch/scene-controller-blueprint/CONTEXT.md",
+        "sha256": "795a1f7f23c1efb5840bccbded24aa40f911ecfc52c04b5122f6a21afa592d68"
+      }
+    ],
+    "dispatches": [
+      {
+        "name": "SpecRev01",
+        "agent": "code-reviewer",
+        "reviewerId": "code-reviewer-01",
+        "taskId": "TR1",
+        "requestSha256": "8adf6f9a81008704a0382c6f74663224b148b25bbfb782b61b496d26f6e14ce3",
+        "taskSha256": "1f8dfab7a2772c216999716de2ba1b1a18c510494d56f81363c4d4b53e0f6587",
+        "instructionsSha256": "b1142f283fb67dbd23a8d326401d01c766abf580090f90efd02e2139d11229e1",
+        "targetCandidateId": "spec-scene-01",
+        "targetRevision": "r1"
+      }
+    ],
+    "verdict": "REQUEST CHANGES",
+    "findings": [
+      {
+        "id": "F1",
+        "severity": "HIGH",
+        "class": "scope-preemption",
+        "anchor": "spec:27,41,90",
+        "summary": "mode: parallel is ticket 02 scope; remove or re-scope D5/design/T1",
+        "blocking": true
+      },
+      {
+        "id": "F2",
+        "severity": "MEDIUM",
+        "class": "oracle-gap",
+        "anchor": "spec:53,76",
+        "summary": "A7 does not fix the top-level action list; assert action is exactly one choose plus negative fixture",
+        "blocking": true
+      },
+      {
+        "id": "F3",
+        "severity": "MEDIUM",
+        "class": "feasibility",
+        "anchor": "spec:56,47,52",
+        "summary": "!input handling under-specified: PyYAML raises ConstructorError; require tag-preserving constructor and literal-binding fixture",
+        "blocking": true
+      },
+      {
+        "id": "F4",
+        "severity": "MEDIUM",
+        "class": "oracle-gap",
+        "anchor": "spec:55,79",
+        "summary": "A9 misses node-id, general entity-id and named-room clauses; enumerate rooms and add device/node/domain checks with fixtures",
+        "blocking": true
+      },
+      {
+        "id": "F5",
+        "severity": "MEDIUM",
+        "class": "oracle-gap",
+        "anchor": "spec:11,40,49-50",
+        "summary": "R2 requiredness unverified; reject entity-input default plus fixture",
+        "blocking": true
+      },
+      {
+        "id": "F6",
+        "severity": "MEDIUM",
+        "class": "traceability",
+        "anchor": "spec:18,125,94,10,28",
+        "summary": "R9 has no AC; T2 fence grep incomplete; R1 exact input count unasserted; additivity claim false",
+        "blocking": true
+      },
+      {
+        "id": "F7",
+        "severity": "LOW",
+        "class": "ambiguity",
+        "anchor": "spec:54,42,24",
+        "summary": "A8 provenance wording undecidable; header boundary undefined; define required tokens and boundary with fixtures",
+        "blocking": false
+      },
+      {
+        "id": "F8",
+        "severity": "LOW",
+        "class": "evidence",
+        "anchor": "spec:22,110,88,80",
+        "summary": "clean-tree claim omits untracked .omp/; RED prediction contradicts subprocess tests; AC8 oracle overlap claimed distinct",
+        "blocking": false
+      }
+    ],
+    "format": "installed",
+    "source": {
+      "path": "/home/opencode/projects/default/generic_scene_controller_blueprint/.omp/artifacts/scene-controller-blueprint/observation-code-review-spec-r1-20261122T134500Z.json",
+      "sha256": "e34500454c6ef21cea4030876705464d96189fc3e30296df9074156c51ac0d6e"
+    },
+    "recordedAt": "2026-11-22T13:45:00Z"
+  },
+  "runBinding": {
+    "candidateId": "spec-scene-01",
+    "invocationId": "omp:01a20373-631d-71b2-b24a-535173463774:task:184",
+    "fingerprint": "75af4ca110c9951a98d4eb4dceec8953aaf01f06a9e236a229982ac408feffed",
+    "reviewerId": "code-reviewer-01",
+    "agent": "code-reviewer",
+    "revision": "r1"
+  },
+  "status": "succeeded"
+}

@@ -1,0 +1,70 @@
+{
+  "binding": {
+    "candidateId": "spec-scene-01",
+    "reviewerId": "code-reviewer-01",
+    "authorIds": [
+      "planner"
+    ],
+    "inputs": [
+      {
+        "path": "/home/opencode/projects/default/generic_scene_controller_blueprint/.omp/artifacts/scene-controller-blueprint/spec-canonical-r4.md",
+        "sha256": "52bf3f97583ad81ab8e28c16c8a9907fed3062fd6d24f3ea98aa987731095e93"
+      },
+      {
+        "path": "/home/opencode/projects/default/generic_scene_controller_blueprint/.scratch/scene-controller-blueprint/issues/01-blueprint-skeleton.md",
+        "sha256": "c8e05d0180e1fa9229da54fe58aa02b1a5b82fd7b318837c5b23497286ae0886"
+      },
+      {
+        "path": "/home/opencode/projects/default/generic_scene_controller_blueprint/.scratch/scene-controller-blueprint/CONTEXT.md",
+        "sha256": "795a1f7f23c1efb5840bccbded24aa40f911ecfc52c04b5122f6a21afa592d68"
+      }
+    ],
+    "dispatches": [
+      {
+        "name": "SpecRev04",
+        "agent": "code-reviewer",
+        "reviewerId": "code-reviewer-01",
+        "taskId": "TR4",
+        "requestSha256": "1cd2c92d8a53c653e05c06bedfb9c01bb6bcdd9ebfe77864dacd7fac0ddd1153",
+        "taskSha256": "c31edb983a49d000be3aae16ba3ef0decfd76cddcf1758dd5f8d185916d7a541",
+        "instructionsSha256": "da298dbcbb99aa10a2581e9615bcccf4182588ed89969b19a7dc9f0403aba608",
+        "targetCandidateId": "spec-scene-01",
+        "targetRevision": "r4"
+      }
+    ],
+    "verdict": "REQUEST CHANGES",
+    "findings": [
+      {
+        "id": "K1",
+        "severity": "HIGH",
+        "class": "oracle-gap",
+        "anchor": "spec:61,76,103,187",
+        "summary": "H5 prose oracle mismatch: b3 fullmatch cannot catch embedded entity slug; scan prose token-boundary or fix fixture/claims",
+        "blocking": true
+      },
+      {
+        "id": "K2",
+        "severity": "MEDIUM",
+        "class": "oracle-gap",
+        "anchor": "spec:58,76,77,103,104",
+        "summary": "A6 exact trigger keys preempt a9 hubitat and a10 not_from fixtures; relocate mutations or reclassify and add fresh fixtures",
+        "blocking": true
+      }
+    ],
+    "format": "installed",
+    "source": {
+      "path": "/home/opencode/projects/default/generic_scene_controller_blueprint/.omp/artifacts/scene-controller-blueprint/observation-code-review-spec-r4-20261122T144000Z.json",
+      "sha256": "72f3c4149272a81c74fff6b9621b17c8039e09abdd6e549e06f48360d4b4d48d"
+    },
+    "recordedAt": "2026-11-22T14:40:00Z"
+  },
+  "runBinding": {
+    "candidateId": "spec-scene-01",
+    "invocationId": "omp:01a20373-631d-71b2-b24a-535173463774:task:403",
+    "fingerprint": "8bb1b0c4feb713a45c71c90a08767362c4e4df257d3cbc8e5266053542236dda",
+    "reviewerId": "code-reviewer-01",
+    "agent": "code-reviewer",
+    "revision": "r4"
+  },
+  "status": "succeeded"
+}
